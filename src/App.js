@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./style.css";
 export default function App() {
   const [data, setdata] = useState();
-  const [keypadEntry, setKeypadEntry] = useState();
+  const [keypadEntry, setKeypadEntry] = useState("");
   useEffect(() => {
     const fetchData = () => {
       fetch("http://localhost:5000/", {
@@ -18,8 +18,8 @@ export default function App() {
     fetchData();
   }, []);
 
-  const handleKeypadEntry = () => {
-    setKeypadEntry(keypadEntry);
+  const handleKeypadEntry = (e) => {
+    setKeypadEntry(e.target.value);
   };
 
   const submitKeypadEntry = (e) => {
@@ -30,7 +30,7 @@ export default function App() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ enteredCode: 1234 }),
+      body: JSON.stringify({ enteredCode: keypadEntry }),
     })
       .then((response) => response.json())
       .then((JSONresponse) => {
@@ -85,7 +85,7 @@ export default function App() {
             </div>
           </div>
         ))}
-      {console.log(data)}
+
       {data &&
         data.cameras.map((camera) => (
           <div key={camera.status.id}>
