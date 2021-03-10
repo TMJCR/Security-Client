@@ -37,7 +37,7 @@ export default function App() {
         setdata(JSONresponse);
       });
   };
-  const triggerSensor = async (e, state) =>
+  const triggerSensor = async (e, state = "Triggered") =>
     fetch("http://localhost:5000/update", {
       method: "PUT",
       mode: "cors",
@@ -55,22 +55,6 @@ export default function App() {
         setdata(JSONresponse);
       });
 
-  const triggerDoorSensor = async (e) =>
-    fetch("http://localhost:5000/update", {
-      method: "PUT",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: e.target.id,
-        type: e.target.dataset.type,
-      }),
-    })
-      .then((response) => response.json())
-      .then((JSONresponse) => {
-        setdata(JSONresponse);
-      });
   return (
     <div className="App">
       <div>
@@ -132,7 +116,7 @@ export default function App() {
                 data-type={doorSensor.status.type}
                 className="DoorSensor"
                 id={doorSensor.status.name}
-                onClick={(e) => triggerDoorSensor(e, "Open")}
+                onClick={(e) => triggerSensor(e)}
               >
                 {doorSensor.status.name}
                 <br></br>
