@@ -104,6 +104,8 @@ export default function App() {
               {camera.status.name}
               <br></br>
               {camera.status.currentStatus}
+              <br></br>
+              {camera.status.lastRecording}
             </div>
           </div>
         ))}
