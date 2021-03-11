@@ -58,7 +58,7 @@ export default function App() {
   return (
     <div className="App">
       <div>
-        SENSORS
+        SECURITY SYSTEM
         <div>
           {data &&
             data.sensors.map((sensor) => (
