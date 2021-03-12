@@ -43,3 +43,7 @@ a {
   margin: 5px;
   text-align: center;
 }
+
+.Log {
+  list-style: none;
+}

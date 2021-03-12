@@ -95,7 +95,6 @@ export default function App() {
             </div>
           </div>
         ))}
-
       {data &&
         data.cameras.map((camera) => (
           <div key={camera.status.id}>
@@ -112,7 +111,6 @@ export default function App() {
             </div>
           </div>
         ))}
-
       <div>
         {data &&
           data.doorSensors.map((doorSensor) => (
@@ -130,7 +128,6 @@ export default function App() {
             </div>
           ))}
       </div>
-
       <div>
         {data &&
           data.keypads.map((keypad) => (
@@ -157,8 +154,15 @@ export default function App() {
             </div>
           ))}
       </div>
-      <div>Actiivty Log</div>
-      <div>{activityLog}</div>
+      {data && (
+        <ul>
+          {data.activityLog.map((log) => (
+            <li className="Log" key={log._id}>
+              {log.log}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
