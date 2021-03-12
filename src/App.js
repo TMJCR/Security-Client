@@ -154,6 +154,7 @@ export default function App() {
             </div>
           ))}
       </div>
+      <div>Actiivty Log</div>
     </div>
   );
 }
