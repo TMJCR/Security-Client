@@ -1,21 +1,24 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 export default function App() {
-  const [data, setdata] = useState();
+  const [data, setData] = useState();
+  const [activityLog, setActivityLog] = useState();
   const [keypadEntry, setKeypadEntry] = useState("");
-  useEffect(() => {
-    const fetchData = () => {
-      fetch("http://localhost:5000/", {
-        method: "GET",
-        mode: "cors",
-      })
-        .then((response) => response.json())
-        .then((JSONresponse) => {
-          setdata(JSONresponse);
-        });
-    };
 
-    fetchData();
+  const fetchData = (endPoint, callback) => {
+    fetch(`http://localhost:${endPoint}`, {
+      method: "GET",
+      mode: "cors",
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => {
+        callback(JSONresponse);
+      });
+  };
+
+  useEffect(() => {
+    fetchData("5000/", setData);
+    fetchData("5000/log", setActivityLog);
   }, []);
 
   const handleKeypadEntry = (e) => {
@@ -34,7 +37,7 @@ export default function App() {
     })
       .then((response) => response.json())
       .then((JSONresponse) => {
-        setdata(JSONresponse);
+        setData(JSONresponse);
       });
   };
   const triggerSensor = async (e, state = "Triggered") =>
@@ -52,7 +55,7 @@ export default function App() {
     })
       .then((response) => response.json())
       .then((JSONresponse) => {
-        setdata(JSONresponse);
+        setData(JSONresponse);
       });
 
   return (
@@ -155,6 +158,7 @@ export default function App() {
           ))}
       </div>
       <div>Actiivty Log</div>
+      <div>{activityLog}</div>
     </div>
   );
 }
