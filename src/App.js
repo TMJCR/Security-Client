@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./style.css";
 export default function App() {
   const [data, setData] = useState();
-  const [activityLog, setActivityLog] = useState();
+  const [activityLog, setActivityLog] = useState([]);
   const [keypadEntry, setKeypadEntry] = useState("");
   const fetchData = (endPoint, callback) => {
     fetch(`http://localhost:${endPoint}`, {
@@ -17,9 +17,11 @@ export default function App() {
 
   useEffect(() => {
     fetchData("5000/", setData);
-    fetchData("5000/log", setActivityLog);
-    console.log(data);
   }, []);
+
+  useEffect(() => {
+    fetchData("5000/log", setActivityLog);
+  }, [data]);
 
   const handleKeypadEntry = (e) => {
     setKeypadEntry(e.target.value);
@@ -156,7 +158,7 @@ export default function App() {
       </div>
       {data && (
         <ul>
-          {data.activityLog
+          {activityLog
             .slice(0)
             .reverse()
             .map((log, idx) => (
