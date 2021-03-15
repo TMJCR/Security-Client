@@ -163,7 +163,7 @@ export default function App() {
             .reverse()
             .map((log, idx) => (
               <li className="Log" key={log._id}>
-                {log.log} - {idx}
+                {log.log}
               </li>
             ))}
         </ul>
