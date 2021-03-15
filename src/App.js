@@ -4,7 +4,6 @@ export default function App() {
   const [data, setData] = useState();
   const [activityLog, setActivityLog] = useState();
   const [keypadEntry, setKeypadEntry] = useState("");
-
   const fetchData = (endPoint, callback) => {
     fetch(`http://localhost:${endPoint}`, {
       method: "GET",
@@ -19,6 +18,7 @@ export default function App() {
   useEffect(() => {
     fetchData("5000/", setData);
     fetchData("5000/log", setActivityLog);
+    console.log(data);
   }, []);
 
   const handleKeypadEntry = (e) => {
@@ -156,11 +156,14 @@ export default function App() {
       </div>
       {data && (
         <ul>
-          {data.activityLog.map((log) => (
-            <li className="Log" key={log._id}>
-              {log.log}
-            </li>
-          ))}
+          {data.activityLog
+            .slice(0)
+            .reverse()
+            .map((log, idx) => (
+              <li className="Log" key={log._id}>
+                {log.log} - {idx}
+              </li>
+            ))}
         </ul>
       )}
     </div>
