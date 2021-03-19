@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
+
 export default function App() {
   const [data, setData] = useState();
   const [activityLog, setActivityLog] = useState([]);
@@ -168,6 +169,7 @@ export default function App() {
             ))}
         </ul>
       )}
+      <img alt="Clock" src={require("../src/SecurityFloorPlan.svg")} />
     </div>
   );
 }
