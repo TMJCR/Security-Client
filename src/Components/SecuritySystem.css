@@ -1,0 +1,34 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.box {
+  background-color: aqua;
+  border: 2px solid black;
+}
+.one {
+  grid-column: 1/3;
+  grid-row: 1 / 13;
+}
+.two {
+  grid-column: 3/11;
+  grid-row: 1/ 3;
+}
+.three {
+  grid-column: 11/13;
+  grid-row: 1/6;
+}
+.four {
+  grid-column: 11/13;
+  grid-row: 6/10;
+}
+.five {
+  grid-column: 3 / 11;
+  grid-row: 2 / 10;
+}
+.six {
+  grid-column: 3/13;
+  grid-row: 10/ 13;
+}
