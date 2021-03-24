@@ -1,0 +1,47 @@
+.Console {
+  margin: 1em;
+  padding: 0.2em 0.2em 0 0;
+  border: 2px Solid var(--border-color);
+  color: var(--security-green);
+}
+
+.AccessLevelButtonContainer {
+  display: flex;
+}
+
+.AccessButton {
+  margin: 1em;
+  min-width: 180px;
+  padding: 0 0 0 10px;
+  background: repeating-linear-gradient(
+    135deg,
+    #fff,
+    #fff 1px,
+    var(--border-color) 1px,
+    var(--border-color) 2px
+  );
+}
+
+.AccessButtonText {
+  padding: 2px;
+  margin: 0;
+}
+
+.AccessButtonSubText {
+  padding: 0;
+  margin: 0;
+  font-size: 0.6em;
+  color: #eee;
+}
+
+.FullAccessButton div {
+  background-color: var(--security-green);
+}
+
+.RestrictedAccessButton div {
+  background-color: var(--security-grey);
+}
+
+.NoAccessButton div {
+  background-color: var(--security-red);
+}
