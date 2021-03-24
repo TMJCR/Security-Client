@@ -1,6 +1,7 @@
 import React from "react";
 import "./SecuritySystem.css";
 import AccessLevelContainer from "../Components/AccessLevelContainer";
+import CameraContainer from "../Components/CameraContainer";
 
 export default function SecuritySystem() {
   return (
@@ -10,7 +11,7 @@ export default function SecuritySystem() {
           ModuleStatusContainer
         </div>
         <AccessLevelContainer></AccessLevelContainer>
-        <div className="gridArea CameraContainer">CameraContainer</div>
+        <CameraContainer></CameraContainer>
         <div className="gridArea KeypadContainer">KeypadContainer</div>
         <div className="gridArea MapContainer">MapContainer</div>
         <div className="gridArea LogContainer">LogContainer</div>
