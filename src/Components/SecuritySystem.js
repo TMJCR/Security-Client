@@ -2,6 +2,7 @@ import React from "react";
 import "./SecuritySystem.css";
 import AccessLevelContainer from "../Components/AccessLevelContainer";
 import CameraContainer from "../Components/CameraContainer";
+import MapContainer from "./MapContainer";
 
 export default function SecuritySystem() {
   return (
@@ -13,7 +14,7 @@ export default function SecuritySystem() {
         <AccessLevelContainer></AccessLevelContainer>
         <CameraContainer></CameraContainer>
         <div className="gridArea KeypadContainer">KeypadContainer</div>
-        <div className="gridArea MapContainer">MapContainer</div>
+        <MapContainer></MapContainer>
         <div className="gridArea LogContainer">LogContainer</div>
       </div>
     </div>
