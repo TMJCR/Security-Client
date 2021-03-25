@@ -5,10 +5,10 @@
   background-image: url("../Camera.png");
   background-repeat: no-repeat;
   background-size: cover;
-  min-width: 475px;
 }
 
 .CameraText {
   color: var(--security-red);
   font-size: 1.2em;
+  text-align: center;
 }

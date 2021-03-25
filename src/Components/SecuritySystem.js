@@ -3,8 +3,10 @@ import "./SecuritySystem.css";
 import AccessLevelContainer from "../Components/AccessLevelContainer";
 import CameraContainer from "../Components/CameraContainer";
 import MapContainer from "./MapContainer";
+import KeypadContainer from "./KeypadContainer";
+import LogContainer from "./LogContainer";
 
-export default function SecuritySystem() {
+export default function SecuritySystem({ activityLog }) {
   return (
     <div>
       <div className="wrapper">
@@ -13,9 +15,9 @@ export default function SecuritySystem() {
         </div>
         <AccessLevelContainer></AccessLevelContainer>
         <CameraContainer></CameraContainer>
-        <div className="gridArea KeypadContainer">KeypadContainer</div>
+        <KeypadContainer></KeypadContainer>
         <MapContainer></MapContainer>
-        <div className="gridArea LogContainer">LogContainer</div>
+        <LogContainer activityLog={activityLog}></LogContainer>
       </div>
     </div>
   );
