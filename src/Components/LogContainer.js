@@ -4,18 +4,27 @@ import "./LogContainer.css";
 export default function KeypadContainer({ activityLog }) {
   return (
     <div className="gridArea LogContainer">
-      {
-        <ul>
-          {activityLog
-            .slice(0)
-            .reverse()
-            .map((log, idx) => (
-              <li className="Log" key={log._id}>
-                {log.date} - {log.log}
-              </li>
-            ))}
-        </ul>
-      }
+      <div className="ActivityLog">
+        <div className="LogTitle">
+          <div className="LogTitleDate">DATE</div>
+          <div className="LogTitleDate">TIME</div>
+          <div className="LogTitleActivity">ACTIVITY</div>
+        </div>
+        {
+          <ul className="ActivityLogList">
+            {activityLog
+              .slice(0)
+              .reverse()
+              .map((log, idx) => (
+                <li className="Log" key={log._id}>
+                  <div>{log.date.slice(0, 10)}</div>
+                  <div>{log.date.slice(11, -5)}:GMT</div>
+                  <div>{log.log}</div>
+                </li>
+              ))}
+          </ul>
+        }
+      </div>
     </div>
   );
 }

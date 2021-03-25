@@ -1,69 +1,22 @@
-.KeypadContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.ActivityLog {
   padding: 1em;
-  background-repeat: no-repeat;
-  background-size: cover;
+  line-height: 2em;
+  text-transform: uppercase;
+  font-size: 0.8em;
 }
-
-.KeypadText {
-}
-
-.KeypadTextUpper {
-  color: var(--security-light-grey);
-  font-size: 0.6em;
-}
-
-.KeypadTextMain {
-  color: var(--security-red);
-  font-size: 1em;
-}
-
-.KeypadTextLower {
-  display: flex;
-  justify-content: space-between;
-  color: var(--security-light-grey);
-  font-size: 0.5em;
-}
-
-.KeypadInputs {
+.LogTitle {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1em;
-  padding: 1.5em 0;
+  grid-template-columns: 1fr 1fr 6fr;
 }
-
-.KeypadInput {
-  border: 1px solid var(--security-light-grey);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.6em;
-  color: var(--security-red);
-  opacity: 50%;
+.LogTitleDate {
 }
-
-.KeypadNumbers {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1em;
+.LogTitleActivity {
 }
-
-.KeypadNumber {
+.ActivityLogList {
   padding: 0;
-  height: 3em;
-  background-color: var(--security-dark-grey);
+}
+.Log {
+  display: grid;
+  grid-template-columns: 1fr 1fr 6fr;
   color: var(--security-light-grey);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.6em;
-}
-.KeypadNumber:focus,
-.KeypadNumber:hover {
-  color: var(--security-dark-grey);
-}
-.OK {
-  color: var(--security-green);
 }
