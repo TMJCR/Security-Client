@@ -1,0 +1,13 @@
+.ModuleStatus {
+  margin: 10px;
+}
+
+.ModuleStatusLoader {
+  margin-top: 10px;
+  border: 1px solid var(--security-light-grey);
+  background-color: var(--security-grey);
+  font-size: 0.6em;
+  padding: 5px;
+  text-align: end;
+  opacity: 0.5;
+}

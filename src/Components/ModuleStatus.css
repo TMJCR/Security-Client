@@ -1,0 +1,19 @@
+.ModuleContainer {
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 1.5em;
+}
+
+.ModuleTypeUpperText {
+  font-size: 0.4em;
+  color: var(--security-light-grey);
+}
+
+.ModuleType {
+  margin: 0.4em;
+}
+
+.ModuleTypeLowerText {
+  font-size: 0.4em;
+  color: var(--security-red);
+}

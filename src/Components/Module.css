@@ -1,0 +1,36 @@
+.ModuleStatusList {
+  list-style: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  margin: 1em;
+  letter-spacing: 0.03em;
+}
+
+.ModuleStatusStatus {
+  margin-left: 1em;
+  display: inline-block;
+  width: 1.3em;
+  padding: 3px;
+  border-radius: 100%;
+}
+
+.ModuleStatusName {
+  font-size: 0.7em;
+}
+.ModuleStatusText {
+  font-size: 0.4em;
+  color: var(--security-light-grey);
+}
+
+.ModuleStatusList .green {
+  background-color: var(--security-green);
+}
+
+.ModuleStatusList .red {
+  background-color: var(--security-red);
+}
+
+.ModuleStatusList .grey {
+  background-color: var(--security-grey);
+}

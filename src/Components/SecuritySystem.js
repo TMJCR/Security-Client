@@ -5,14 +5,13 @@ import CameraContainer from "../Components/CameraContainer";
 import MapContainer from "./MapContainer";
 import KeypadContainer from "./KeypadContainer";
 import LogContainer from "./LogContainer";
+import ModuleStatusContainer from "./ModuleStatusContainer";
 
-export default function SecuritySystem({ activityLog }) {
+export default function SecuritySystem({ data, activityLog }) {
   return (
     <div>
       <div className="wrapper">
-        <div className="gridArea ModuleStatusContainer">
-          ModuleStatusContainer
-        </div>
+        <ModuleStatusContainer data={data}></ModuleStatusContainer>
         <AccessLevelContainer></AccessLevelContainer>
         <CameraContainer></CameraContainer>
         <KeypadContainer></KeypadContainer>

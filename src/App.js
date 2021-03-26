@@ -25,7 +25,7 @@ export default function App() {
   }, [data]);
   return (
     <div className="App">
-      <SecuritySystem activityLog={activityLog}></SecuritySystem>
+      <SecuritySystem activityLog={activityLog} data={data}></SecuritySystem>
     </div>
   );
 }
