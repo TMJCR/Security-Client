@@ -1,6 +1,6 @@
 import React from "react";
 import "./MapContainer.css";
-import Map from "../Map.svg";
+import { ReactComponent as Map } from "../Map2.svg";
 
 export default function MapContainer() {
   return (
@@ -9,7 +9,7 @@ export default function MapContainer() {
   gridArea
   MapContainer"
     >
-      <img src={Map} alt="React Logo" />
+      <Map></Map>
     </div>
   );
 }

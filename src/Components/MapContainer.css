@@ -1,0 +1,47 @@
+#triggerZone #triggerEXTZoneSensor1 {
+  opacity: 1;
+}
+
+#alertSensor1 {
+  display: none;
+}
+
+#triggerZone1:hover > #alertSensor1 {
+  display: block;
+  opacity: 1;
+}
+
+#triggerZone1 rect {
+  opacity: 0.3;
+}
+
+#triggerZone:hover #triggerEXTZoneSensor1 {
+  opacity: 0.9;
+  fill: var(--security-red);
+}
+
+#triggerZone1 rect:hover {
+  opacity: 0.6;
+}
+
+.blink_me {
+  animation: blinker 2.5s ease-in-out infinite;
+}
+
+@keyframes blinker {
+  50% {
+    /* opacity: 0; */
+    fill: black;
+  }
+}
+
+.blink_me2 {
+  animation: blinker2 0.5s ease-in-out infinite;
+}
+
+@keyframes blinker2 {
+  50% {
+    /* opacity: 0; */
+    fill: red;
+  }
+}
