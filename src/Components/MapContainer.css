@@ -24,22 +24,22 @@
   opacity: 0.6;
 }
 
-.blink_me {
-  animation: blinker 2.5s ease-in-out infinite;
+.zoneAlert {
+  animation: zoneAlerter 2.5s ease-in-out infinite;
 }
 
-@keyframes blinker {
+@keyframes zoneAlerter {
   50% {
     /* opacity: 0; */
     fill: black;
   }
 }
 
-.blink_me2 {
-  animation: blinker2 0.5s ease-in-out infinite;
+.alarmAlert {
+  animation: alarmAlerter 0.5s ease-in-out infinite;
 }
 
-@keyframes blinker2 {
+@keyframes alarmAlerter {
   50% {
     /* opacity: 0; */
     fill: red;

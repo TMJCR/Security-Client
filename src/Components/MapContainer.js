@@ -1,7 +1,7 @@
 import React from "react";
 import "./MapContainer.css";
-import { ReactComponent as Map } from "../Map2.svg";
-
+import { ReactComponent as Map3 } from "../Map5.svg";
+import Map from "./Map";
 export default function MapContainer() {
   return (
     <div
@@ -9,7 +9,7 @@ export default function MapContainer() {
   gridArea
   MapContainer"
     >
-      <Map></Map>
+      <Map3></Map3>
     </div>
   );
 }
