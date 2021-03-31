@@ -1,7 +1,3 @@
-.doorSensor {
-  pointer-events: bounding-box;
-}
-
 .cls-1,
 .cls-11,
 .cls-14,
@@ -82,6 +78,10 @@
 .cls-12 {
   opacity: 0.35;
 }
+.cls-112,
+.cls-114,
+.cls-116,
+.cls-117,
 .cls-12,
 .cls-13,
 .cls-14,
@@ -170,6 +170,10 @@
 .cls-96 {
   fill: #fff;
 }
+.cls-112,
+.cls-114,
+.cls-116,
+.cls-117,
 .cls-23,
 .cls-32,
 .cls-34,
@@ -316,6 +320,7 @@
 .cls-70 {
   letter-spacing: 0.05em;
 }
+.cls-114,
 .cls-66 {
   letter-spacing: 0.04em;
 }
@@ -449,4 +454,39 @@
 }
 .cls-110 {
   clip-path: url(#clip-path-26);
+}
+.cls-111 {
+  fill: #009245;
+}
+.cls-112,
+.cls-116 {
+  font-size: 4.8px;
+}
+.cls-112,
+.cls-114,
+.cls-116,
+.cls-117 {
+  fill: #0f7b00;
+}
+.cls-112 {
+  letter-spacing: 0.14em;
+}
+.cls-113 {
+  letter-spacing: 0.13em;
+}
+.cls-114,
+.cls-117 {
+  font-size: 18px;
+}
+.cls-115 {
+  letter-spacing: 0.05em;
+}
+.cls-116 {
+  letter-spacing: 0.14em;
+}
+.cls-117 {
+  letter-spacing: 0.04em;
+}
+.cls-118 {
+  letter-spacing: 0.05em;
 }

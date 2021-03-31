@@ -353,13 +353,7 @@ export default function Map() {
             className="cls-5"
             points="1040.6 470.88 912.05 470.88 912.05 521.15"
           />
-          <rect
-            className="cls-5"
-            x="777.8"
-            y="509.9"
-            width="69.87"
-            height="9.22"
-          />
+
           <polyline
             className="cls-5"
             points="159.98 364.47 71.57 364.47 71.57 384.69"
@@ -4271,7 +4265,7 @@ export default function Map() {
                 r="86.3"
               />
             </g>
-            <g id="triggerZone1" className="">
+            <g id="triggerZone1" className="cls-7">
               <rect
                 className="cls-21"
                 x="54"
@@ -7846,17 +7840,7 @@ export default function Map() {
               </text>
             </g>
           </g>
-          <g
-            className="doorSensor"
-            onClick={() => {
-              console.log("here");
-              document.getElementById("doorLabel1").style.opacity = 1;
-            }}
-            onDoubleClick={() => {
-              alert("Door was Forced Open");
-            }}
-            id="doorSensor1"
-          >
+          <g id="doorSensor1">
             <g className="cls-78">
               <g
                 id="LINE_TEXTURE-4"
@@ -14073,6 +14057,140 @@ export default function Map() {
             </g>
           </g>
         </g>
+        <g id="Cameras">
+          <g id="Camera4">
+            <g id="HTML_JUMBLE_2-2" data-name="HTML JUMBLE 2-2">
+              <circle
+                id="Ellipse_73-2"
+                data-name="Ellipse 73"
+                className="cls-111"
+                cx="858.12"
+                cy="45.32"
+                r="1.8"
+              />
+              <g id="RECORDING" className="cls-22">
+                <text className="cls-112" transform="translate(861.38 46.82)">
+                  R
+                  <tspan className="cls-113" x="3.79" y="0">
+                    E
+                  </tspan>
+                  <tspan x="7.25" y="0">
+                    CORDING
+                  </tspan>
+                </text>
+              </g>
+            </g>
+            <g id="HTML_JUMBLE_2" data-name="HTML JUMBLE 2">
+              <g id="CAM" className="cls-22">
+                <text className="cls-114" transform="translate(855.08 39.96)">
+                  C
+                  <tspan className="cls-115" x="12.11" y="0">
+                    AM
+                  </tspan>
+                </text>
+              </g>
+            </g>
+          </g>
+          <g id="Camera3">
+            <g id="HTML_JUMBLE_2-2-2" data-name="HTML JUMBLE 2-2">
+              <circle
+                id="Ellipse_73-3"
+                data-name="Ellipse 73"
+                className="cls-111"
+                cx="818.12"
+                cy="517.32"
+                r="1.8"
+              />
+              <g id="RECORDING-2" data-name="RECORDING" className="cls-22">
+                <text className="cls-112" transform="translate(821.38 518.82)">
+                  R
+                  <tspan className="cls-113" x="3.79" y="0">
+                    E
+                  </tspan>
+                  <tspan x="7.25" y="0">
+                    CORDING
+                  </tspan>
+                </text>
+              </g>
+            </g>
+            <g id="HTML_JUMBLE_2-2-3" data-name="HTML JUMBLE 2">
+              <g id="CAM-2" data-name="CAM" className="cls-22">
+                <text className="cls-114" transform="translate(815.08 511.96)">
+                  C
+                  <tspan className="cls-115" x="12.11" y="0">
+                    AM
+                  </tspan>
+                </text>
+              </g>
+            </g>
+          </g>
+          <g id="Camera2">
+            <g id="HTML_JUMBLE_2-2-4" data-name="HTML JUMBLE 2-2">
+              <circle
+                id="Ellipse_73-4"
+                data-name="Ellipse 73"
+                className="cls-111"
+                cx="808.12"
+                cy="45.32"
+                r="1.8"
+              />
+              <g id="RECORDING-3" data-name="RECORDING" className="cls-22">
+                <text className="cls-112" transform="translate(811.38 46.82)">
+                  R
+                  <tspan className="cls-113" x="3.79" y="0">
+                    E
+                  </tspan>
+                  <tspan x="7.25" y="0">
+                    CORDING
+                  </tspan>
+                </text>
+              </g>
+            </g>
+            <g id="HTML_JUMBLE_2-3" data-name="HTML JUMBLE 2">
+              <g id="CAM-3" data-name="CAM" className="cls-22">
+                <text className="cls-114" transform="translate(805.08 39.96)">
+                  C
+                  <tspan className="cls-115" x="12.11" y="0">
+                    AM
+                  </tspan>
+                </text>
+              </g>
+            </g>
+          </g>
+          <g id="Camera1">
+            <g id="HTML_JUMBLE_2-2-5" data-name="HTML JUMBLE 2-2">
+              <circle
+                id="Ellipse_73-5"
+                data-name="Ellipse 73"
+                className="cls-111"
+                cx="301.22"
+                cy="452.08"
+                r="1.8"
+              />
+              <g id="RECORDING-4" data-name="RECORDING" className="cls-22">
+                <text className="cls-116" transform="translate(304.48 453.59)">
+                  R
+                  <tspan className="cls-113" x="3.79" y="0">
+                    E
+                  </tspan>
+                  <tspan x="7.25" y="0">
+                    CORDING
+                  </tspan>
+                </text>
+              </g>
+            </g>
+            <g id="HTML_JUMBLE_2-4" data-name="HTML JUMBLE 2">
+              <g id="CAM-4" data-name="CAM" className="cls-22">
+                <text className="cls-117" transform="translate(298.18 446.73)">
+                  C
+                  <tspan className="cls-118" x="12.11" y="0">
+                    AM
+                  </tspan>
+                </text>
+              </g>
+            </g>
+          </g>
+        </g>
         <g id="Zones" className="cls-7">
           <polygon
             id="zone1"
@@ -14088,11 +14206,6 @@ export default function Map() {
             id="zone3"
             className="cls-11"
             points="373 260.35 456.2 260.35 469.8 245.95 580.59 247.04 591.25 247.43 613.4 266.43 778.6 265.95 779.4 265.95 782.6 270.75 837.14 270.75 850.6 260.73 860.75 275.13 861 522.75 861 523.55 373.45 521.95 373.8 489.95 373.8 487.55 373.8 487.55 373.8 486.75 368.2 481.15 368.2 452.35 373.8 449.15 374.6 400.35 371.4 398.75 371.4 366.75 379.4 360.35 379.4 348.35 378.6 329.15 369 324.35 369 275.41 373.29 272.52 373 260.35"
-          />
-          <polygon
-            id="zone4"
-            className="cls-11"
-            points="861.8 523.55 1040.2 523.55 1040.2 452.35 1040.2 429.95 1040.2 20.35 1037.66 20.35 850.6 20.35 850.6 260.34 857 269.15 861 274.75 861 275.55 861.8 523.55"
           />
         </g>
       </svg>
