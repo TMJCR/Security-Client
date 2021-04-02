@@ -1,38 +1,37 @@
-#triggerZone #triggerEXTZoneSensor1 {
+.doorSensorSVG {
+  pointer-events: bounding-box;
+}
+.triggerZone .triggerEXTZoneSensor {
   opacity: 1;
 }
 
-#alertSensor1 {
+.alertSensorOff {
   display: none;
 }
 
-#triggerZone1:hover > #alertSensor1 {
-  display: block;
-  opacity: 1;
+.triggerZoneCenterActivated rect {
+  opacity: 0.6;
 }
 
-#triggerZone1 rect {
+.triggerZoneCenter rect {
   opacity: 0.3;
 }
 
-#triggerZone:hover #triggerEXTZoneSensor1 {
+.triggerZone:hover .triggerEXTZoneSensor {
   opacity: 0.9;
   fill: var(--security-red);
 }
 
-#triggerZone1 rect:hover {
+.triggerZoneCenter rect:hover {
   opacity: 0.6;
 }
 
 .zoneAlert {
-  animation: zoneAlerter 2.5s ease-in-out infinite;
-}
-
-@keyframes zoneAlerter {
-  50% {
-    /* opacity: 0; */
-    fill: black;
-  }
+  fill: black;
+  pointer-events: none;
+  opacity: 0.8;
+  stroke: var(--security-red);
+  stroke-width: 12px;
 }
 
 .alarmAlert {
@@ -44,4 +43,27 @@
     /* opacity: 0; */
     fill: red;
   }
+}
+
+.CameraSVG {
+  opacity: 0;
+}
+
+.doorLabelSvg {
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+}
+
+.doorSensorSVG {
+  cursor: pointer;
+}
+.doorSensorSVG:hover line {
+  stroke-width: 2px;
+}
+.DoorLabelText {
+  fill: white;
+  font-size: 16px;
+  pointer-events: none;
 }

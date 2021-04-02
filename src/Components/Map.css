@@ -21,6 +21,9 @@
 .cls-2,
 .cls-63 {
   opacity: 0;
+  transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
 }
 .cls-4 {
   opacity: 0.6;

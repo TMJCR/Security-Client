@@ -1,6 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Map.css";
-export default function Map() {
+export default function Map({ setData }) {
+  const [doorMessage, setDoorMessage] = useState({
+    doorLabel1: false,
+    doorLabel2: false,
+    doorLabel3: false,
+    doorLabel4: false,
+    doorLabel5: false,
+    doorLabel6: false,
+    doorLabel7: false,
+  });
+  const [zone1Status, setzone1Status] = useState("");
+  const [alarm1Status, setalarm1Status] = useState("");
+  const camera1Status = "Recording";
+  const camera2Status = "Recording";
+  const camera3Status = "OFF";
+  const camera4Status = "Recording";
+
+  const zone2Status = "";
+  const zone3Status = "";
+  const zone4Status = "";
+  const alarm2Status = "";
+  const alarm3Status = "";
+  const alarm4Status = "";
+
+  const triggerSensor = async (e, state = "Triggered") => {
+    console.log(e.currentTarget.id, e.currentTarget.dataset.type);
+
+    fetch("http://localhost:5000/update", {
+      method: "PUT",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: e.currentTarget.id,
+        type: e.currentTarget.dataset.type,
+        currentState: state,
+      }),
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => {
+        setData(JSONresponse);
+        setzone1Status("Alert");
+        setalarm1Status("Alert");
+        console.log(zone1Status);
+      });
+  };
   return (
     <div>
       <svg
@@ -4214,7 +4260,7 @@ export default function Map() {
           </g>
         </g>
         <g id="Sensors">
-          <g id="triggerZone">
+          <g id="triggerZone" className="triggerZone">
             <g id="_5_Circle" data-name=" 5 Circle">
               <circle className="cls-1" cx="114.49" cy="262.22" r="8.85" />
               <circle className="cls-1" cx="114.49" cy="262.22" r="11.87" />
@@ -4255,7 +4301,7 @@ export default function Map() {
                 r="5.08"
               />
             </g>
-            <g id="triggerEXTZoneSensor1">
+            <g id="triggerEXTZoneSensor1" className="triggerEXTZoneSensor">
               <circle
                 id="triggerEXTZoneSensor1-2"
                 data-name="triggerEXTZoneSensor1"
@@ -4265,7 +4311,17 @@ export default function Map() {
                 r="86.3"
               />
             </g>
-            <g id="triggerZone1" className="cls-7">
+            <g
+              id="Sensor1"
+              className={
+                zone1Status === "Alert"
+                  ? "triggerZoneCenterActivated"
+                  : "triggerZoneCenter"
+              }
+              data-type="Sensor"
+              onMouseOver={(e) => triggerSensor(e, "On")}
+              onMouseLeave={(e) => triggerSensor(e, "Off")}
+            >
               <rect
                 className="cls-21"
                 x="54"
@@ -4274,7 +4330,10 @@ export default function Map() {
                 height="121"
                 rx="60.5"
               />
-              <g id="alertSensor1">
+              <g
+                id="alertSensor1"
+                className={zone1Status === "Alert" ? "" : "alertSensorOff"}
+              >
                 <g id="Symbol">
                   <g
                     id="SYSTEMS_STATE"
@@ -4504,16 +4563,7 @@ export default function Map() {
             </g>
             <g id="SERIAL_1-7" data-name="SERIAL 1-7" className="cls-22">
               <text className="cls-48" transform="translate(94.25 149.44)">
-                ALARM{" "}
-                <tspan className="cls-49" x="41.32" y="0">
-                  SY
-                </tspan>
-                <tspan className="cls-50" x="55.06" y="0">
-                  S
-                </tspan>
-                <tspan x="62.07" y="0">
-                  TEM
-                </tspan>
+                PROXIMITY{" "}
               </text>
             </g>
             <g id="SERIAL_1-8" data-name="SERIAL 1-8" className="cls-22">
@@ -4536,7 +4586,7 @@ export default function Map() {
               </text>
             </g>
           </g>
-          <g id="triggerZone-2" data-name="triggerZone">
+          <g id="triggerZone-2" className="triggerZone" data-name="triggerZone">
             <g id="_5_Circle-2" data-name=" 5 Circle">
               <circle className="cls-1" cx="658.49" cy="431.22" r="8.85" />
               <circle className="cls-1" cx="658.49" cy="431.22" r="11.87" />
@@ -4577,7 +4627,7 @@ export default function Map() {
                 r="5.08"
               />
             </g>
-            <g id="triggerEXTZoneSensor3">
+            <g id="triggerEXTZoneSensor3" className="triggerEXTZoneSensor">
               <circle
                 id="triggerEXTZoneSensor3-2"
                 data-name="triggerEXTZoneSensor3"
@@ -4587,7 +4637,7 @@ export default function Map() {
                 r="86.3"
               />
             </g>
-            <g id="triggerZone3" className="cls-7">
+            <g id="triggerZone3" className="triggerZoneCenter">
               <rect
                 className="cls-21"
                 x="598"
@@ -4596,7 +4646,7 @@ export default function Map() {
                 height="121"
                 rx="60.5"
               />
-              <g id="alertSensor3">
+              <g id="alertSensor3" className="alertSensor">
                 <g id="Symbol-2" data-name="Symbol">
                   <g
                     id="SYSTEMS_STATE-2"
@@ -4830,16 +4880,7 @@ export default function Map() {
             </g>
             <g id="SERIAL_1-7-2" data-name="SERIAL 1-7" className="cls-22">
               <text className="cls-48" transform="translate(638.25 318.44)">
-                ALARM{" "}
-                <tspan className="cls-49" x="41.32" y="0">
-                  SY
-                </tspan>
-                <tspan className="cls-50" x="55.06" y="0">
-                  S
-                </tspan>
-                <tspan x="62.07" y="0">
-                  TEM
-                </tspan>
+                PROXIMITY{" "}
               </text>
             </g>
             <g id="SERIAL_1-8-2" data-name="SERIAL 1-8" className="cls-22">
@@ -4862,7 +4903,7 @@ export default function Map() {
               </text>
             </g>
           </g>
-          <g id="triggerZone-3" data-name="triggerZone">
+          <g id="triggerZone-3" className="triggerZone" data-name="triggerZone">
             <g id="_5_Circle-3" data-name=" 5 Circle">
               <circle className="cls-1" cx="931.49" cy="251.22" r="8.85" />
               <circle className="cls-1" cx="931.49" cy="251.22" r="11.87" />
@@ -4903,7 +4944,7 @@ export default function Map() {
                 r="5.08"
               />
             </g>
-            <g id="triggerEXTZoneSensor4">
+            <g id="triggerEXTZoneSensor4" className="triggerEXTZoneSensor">
               <circle
                 id="triggerEXTZoneSensor4-2"
                 data-name="triggerEXTZoneSensor4"
@@ -4913,7 +4954,7 @@ export default function Map() {
                 r="86.3"
               />
             </g>
-            <g id="triggerZone4" className="cls-7">
+            <g id="triggerZone4" className="triggerZoneCenter">
               <rect
                 className="cls-21"
                 x="871"
@@ -4922,7 +4963,12 @@ export default function Map() {
                 height="121"
                 rx="60.5"
               />
-              <g id="alertSensor4">
+
+              <g
+                id="alertSensor4"
+                className="alertSensor"
+                transform="translate(10 40)"
+              >
                 <g id="Symbol-3-3" data-name="Symbol">
                   <g
                     id="SYSTEMS_STATE-3"
@@ -5031,7 +5077,7 @@ export default function Map() {
                       data-name="Ellipse 144-4"
                       className="cls-37"
                       cx="915.29"
-                      cy="250.77"
+                      cy="216.77"
                       r="3.02"
                     />
                   </g>
@@ -5039,7 +5085,7 @@ export default function Map() {
                     id="Path_1041-2-3"
                     data-name="Path 1041-2"
                     className="cls-38"
-                    d="M858.48,238.11l54-3.62"
+                    d="M858.48,238.11l54-35.62"
                     transform="translate(0 16.75)"
                   />
                 </g>
@@ -5156,16 +5202,7 @@ export default function Map() {
             </g>
             <g id="SERIAL_1-7-3" data-name="SERIAL 1-7" className="cls-22">
               <text className="cls-48" transform="translate(863.25 138.44)">
-                ALARM{" "}
-                <tspan className="cls-49" x="41.32" y="0">
-                  SY
-                </tspan>
-                <tspan className="cls-50" x="55.06" y="0">
-                  S
-                </tspan>
-                <tspan x="62.07" y="0">
-                  TEM
-                </tspan>
+                PROXIMITY{" "}
               </text>
             </g>
             <g id="SERIAL_1-8-3" data-name="SERIAL 1-8" className="cls-22">
@@ -5188,7 +5225,7 @@ export default function Map() {
               </text>
             </g>
           </g>
-          <g id="triggerZone-4" data-name="triggerZone">
+          <g id="triggerZone-4" className="triggerZone" data-name="triggerZone">
             <g id="_5_Circle-4" data-name=" 5 Circle">
               <circle className="cls-1" cx="656.49" cy="145.22" r="8.85" />
               <circle className="cls-1" cx="656.49" cy="145.22" r="11.87" />
@@ -5229,7 +5266,7 @@ export default function Map() {
                 r="5.08"
               />
             </g>
-            <g id="triggerEXTZoneSensor2">
+            <g id="triggerEXTZoneSensor2" className="triggerEXTZoneSensor">
               <circle
                 id="triggerEXTZoneSensor2-2"
                 data-name="triggerEXTZoneSensor2"
@@ -5239,7 +5276,7 @@ export default function Map() {
                 r="86.3"
               />
             </g>
-            <g id="triggerZone2" className="cls-7">
+            <g id="triggerZone2" className="triggerZoneCenter">
               <rect
                 className="cls-21"
                 x="596"
@@ -5248,7 +5285,7 @@ export default function Map() {
                 height="121"
                 rx="60.5"
               />
-              <g id="alertSensor2">
+              <g id="alertSensor2" className="alertSensor">
                 <g id="Symbol-4" data-name="Symbol">
                   <g
                     id="SYSTEMS_STATE-4"
@@ -5482,16 +5519,7 @@ export default function Map() {
             </g>
             <g id="SERIAL_1-7-4" data-name="SERIAL 1-7" className="cls-22">
               <text className="cls-48" transform="translate(407.25 132.44)">
-                ALARM{" "}
-                <tspan className="cls-49" x="41.32" y="0">
-                  SY
-                </tspan>
-                <tspan className="cls-50" x="55.06" y="0">
-                  S
-                </tspan>
-                <tspan x="62.07" y="0">
-                  TEM
-                </tspan>
+                PROXIMITY{" "}
               </text>
             </g>
             <g id="SERIAL_1-8-4" data-name="SERIAL 1-8" className="cls-22">
@@ -5516,7 +5544,27 @@ export default function Map() {
           </g>
         </g>
         <g id="DoorSensors">
-          <g id="doorSensor2">
+          <text
+            id="Door2"
+            className="DoorLabelText"
+            transform="translate(313 180)"
+          >
+            DOOR 2
+          </text>
+          <g
+            onClick={(e) => {
+              setDoorMessage({
+                ...doorMessage,
+                doorLabel2: !doorMessage.doorLabel2,
+              });
+            }}
+            onDoubleClick={(e) => {
+              triggerSensor(e);
+            }}
+            id="DoorSensor2"
+            data-type="DoorSensor"
+            className="doorSensorSVG"
+          >
             <g className="cls-59">
               <g id="LINE_TEXTURE" data-name="LINE TEXTURE" className="cls-60">
                 <g className="cls-61">
@@ -6246,7 +6294,10 @@ export default function Map() {
               </g>
             </g>
           </g>
-          <g id="doorLabel2" className="cls-63">
+          <g
+            id="doorLabel2"
+            className={doorMessage.doorLabel2 ? "doorLabelSvg" : "cls-63"}
+          >
             <rect
               id="Rectangle_537"
               data-name="Rectangle 537"
@@ -6288,7 +6339,27 @@ export default function Map() {
               </text>
             </g>
           </g>
-          <g id="doorSensor5">
+          <text
+            id="Door5"
+            className="DoorLabelText"
+            transform="translate(756 249)"
+          >
+            DOOR 5
+          </text>
+          <g
+            onClick={(e) => {
+              setDoorMessage({
+                ...doorMessage,
+                doorLabel5: !doorMessage.doorLabel5,
+              });
+            }}
+            onDoubleClick={(e) => {
+              triggerSensor(e);
+            }}
+            id="DoorSensor5"
+            data-type="DoorSensor"
+            className="doorSensorSVG"
+          >
             <g className="cls-71">
               <g
                 id="LINE_TEXTURE-2"
@@ -7022,7 +7093,10 @@ export default function Map() {
               </g>
             </g>
           </g>
-          <g id="doorLabel5" className="cls-63">
+          <g
+            id="doorLabel5"
+            className={doorMessage.doorLabel5 ? "doorLabelSvg" : "cls-63"}
+          >
             <rect
               id="Rectangle_537-2"
               data-name="Rectangle 537"
@@ -7064,7 +7138,27 @@ export default function Map() {
               </text>
             </g>
           </g>
-          <g id="doorSensor7">
+          <text
+            id="Door7"
+            className="DoorLabelText"
+            transform="translate(929 100)"
+          >
+            DOOR 7
+          </text>
+          <g
+            onClick={(e) => {
+              setDoorMessage({
+                ...doorMessage,
+                doorLabel7: !doorMessage.doorLabel7,
+              });
+            }}
+            onDoubleClick={(e) => {
+              triggerSensor(e);
+            }}
+            id="DoorSensor7"
+            data-type="DoorSensor"
+            className="doorSensorSVG"
+          >
             <g className="cls-76">
               <g
                 id="LINE_TEXTURE-3"
@@ -7798,7 +7892,10 @@ export default function Map() {
               </g>
             </g>
           </g>
-          <g id="doorLabel7" className="cls-63">
+          <g
+            id="doorLabel7"
+            className={doorMessage.doorLabel7 ? "doorLabelSvg" : "cls-63"}
+          >
             <rect
               id="Rectangle_537-3"
               data-name="Rectangle 537"
@@ -7840,7 +7937,20 @@ export default function Map() {
               </text>
             </g>
           </g>
-          <g id="doorSensor1">
+          <g
+            onClick={(e) => {
+              setDoorMessage({
+                ...doorMessage,
+                doorLabel1: !doorMessage.doorLabel1,
+              });
+            }}
+            onDoubleClick={(e) => {
+              triggerSensor(e);
+            }}
+            id="DoorSensor1"
+            data-type="DoorSensor"
+            className="doorSensorSVG"
+          >
             <g className="cls-78">
               <g
                 id="LINE_TEXTURE-4"
@@ -8574,7 +8684,17 @@ export default function Map() {
               </g>
             </g>
           </g>
-          <g id="doorLabel1" className="cls-63">
+          <text
+            id="Door1"
+            className="DoorLabelText"
+            transform="translate(271 391)"
+          >
+            DOOR 1
+          </text>
+          <g
+            id="doorLabel1"
+            className={doorMessage.doorLabel1 ? "doorLabelSvg" : "cls-63"}
+          >
             <rect
               id="Rectangle_537-4"
               data-name="Rectangle 537"
@@ -8616,7 +8736,27 @@ export default function Map() {
               </text>
             </g>
           </g>
-          <g id="doorSensor3">
+          <text
+            id="Door3"
+            className="DoorLabelText"
+            transform="translate(461 317) rotate(90)"
+          >
+            DOOR 3
+          </text>
+          <g
+            onClick={(e) => {
+              setDoorMessage({
+                ...doorMessage,
+                doorLabel3: !doorMessage.doorLabel3,
+              });
+            }}
+            onDoubleClick={(e) => {
+              triggerSensor(e);
+            }}
+            id="DoorSensor3"
+            data-type="DoorSensor"
+            className="doorSensorSVG"
+          >
             <g className="cls-80">
               <g
                 id="LINE_TEXTURE-5"
@@ -9350,7 +9490,10 @@ export default function Map() {
               </g>
             </g>
           </g>
-          <g id="doorLabel3" className="cls-63">
+          <g
+            id="doorLabel3"
+            className={doorMessage.doorLabel3 ? "doorLabelSvg" : "cls-63"}
+          >
             <rect
               id="Rectangle_537-5"
               data-name="Rectangle 537"
@@ -9392,7 +9535,27 @@ export default function Map() {
               </text>
             </g>
           </g>
-          <g id="doorSensor6">
+          <text
+            id="Door6"
+            className="DoorLabelText"
+            transform="translate(893 363) rotate(90)"
+          >
+            DOOR 6
+          </text>
+          <g
+            onClick={(e) => {
+              setDoorMessage({
+                ...doorMessage,
+                doorLabel6: !doorMessage.doorLabel6,
+              });
+            }}
+            onDoubleClick={(e) => {
+              triggerSensor(e);
+            }}
+            id="DoorSensor6"
+            data-type="DoorSensor"
+            className="doorSensorSVG"
+          >
             <g className="cls-82">
               <g
                 id="LINE_TEXTURE-6"
@@ -10126,7 +10289,10 @@ export default function Map() {
               </g>
             </g>
           </g>
-          <g id="doorLabel6" className="cls-63">
+          <g
+            id="doorLabel6"
+            className={doorMessage.doorLabel6 ? "doorLabelSvg" : "cls-63"}
+          >
             <rect
               id="Rectangle_537-6"
               data-name="Rectangle 537"
@@ -10168,7 +10334,27 @@ export default function Map() {
               </text>
             </g>
           </g>
-          <g id="doorSensor4">
+          <text
+            id="Door4"
+            className="DoorLabelText"
+            transform="translate(530 103)"
+          >
+            DOOR 4
+          </text>
+          <g
+            onClick={(e) => {
+              setDoorMessage({
+                ...doorMessage,
+                doorLabel4: !doorMessage.doorLabel4,
+              });
+            }}
+            onDoubleClick={(e) => {
+              triggerSensor(e);
+            }}
+            id="DoorSensor4"
+            data-type="DoorSensor"
+            className="doorSensorSVG"
+          >
             <g className="cls-91">
               <g
                 id="LINE_TEXTURE-7"
@@ -10902,7 +11088,10 @@ export default function Map() {
               </g>
             </g>
           </g>
-          <g id="doorLabel4" className="cls-63">
+          <g
+            id="doorLabel4"
+            className={doorMessage.doorLabel4 ? "doorLabelSvg" : "cls-63"}
+          >
             <rect
               id="Rectangle_537-7"
               data-name="Rectangle 537"
@@ -10947,9 +11136,11 @@ export default function Map() {
         </g>
         <g id="Labels">
           <rect
-            id="Rectangle_537-8"
+            id="AlarmAlert1"
             data-name="Rectangle 537"
-            className="cls-64"
+            className={
+              alarm1Status === "Alert" ? "cls-64 alarmAlert" : "cls-64"
+            }
             x="173"
             y="25.02"
             width="180"
@@ -11727,9 +11918,11 @@ export default function Map() {
             </g>
           </g>
           <rect
-            id="Rectangle_537-9"
+            id="AlarmAlert2"
             data-name="Rectangle 537"
-            className="cls-64"
+            className={
+              alarm2Status === "Alert" ? "cls-64 alarmAlert" : "cls-64"
+            }
             x="396"
             y="189.02"
             width="180"
@@ -12497,9 +12690,11 @@ export default function Map() {
             </g>
           </g>
           <rect
-            id="Rectangle_537-10"
+            id="AlarmAlert4"
             data-name="Rectangle 537"
-            className="cls-64"
+            className={
+              alarm4Status === "Alert" ? "cls-64 alarmAlert" : "cls-64"
+            }
             x="866"
             y="474.02"
             width="169"
@@ -13277,9 +13472,11 @@ export default function Map() {
             </g>
           </g>
           <rect
-            id="Rectangle_537-11"
+            id="AlarmAlert3"
             data-name="Rectangle 537"
-            className="cls-64"
+            className={
+              alarm3Status === "Alert" ? "cls-64 alarmAlert" : "cls-64"
+            }
             x="388"
             y="469.02"
             width="180"
@@ -14058,7 +14255,10 @@ export default function Map() {
           </g>
         </g>
         <g id="Cameras">
-          <g id="Camera4">
+          <g
+            id="Camera4"
+            className={camera4Status === "Recording" ? "CameraSVG" : ""}
+          >
             <g id="HTML_JUMBLE_2-2" data-name="HTML JUMBLE 2-2">
               <circle
                 id="Ellipse_73-2"
@@ -14091,7 +14291,10 @@ export default function Map() {
               </g>
             </g>
           </g>
-          <g id="Camera3">
+          <g
+            id="Camera3"
+            className={camera3Status === "Recording" ? "CameraSVG" : ""}
+          >
             <g id="HTML_JUMBLE_2-2-2" data-name="HTML JUMBLE 2-2">
               <circle
                 id="Ellipse_73-3"
@@ -14124,7 +14327,10 @@ export default function Map() {
               </g>
             </g>
           </g>
-          <g id="Camera2">
+          <g
+            id="Camera2"
+            className={camera2Status === "Recording" ? "CameraSVG" : ""}
+          >
             <g id="HTML_JUMBLE_2-2-4" data-name="HTML JUMBLE 2-2">
               <circle
                 id="Ellipse_73-4"
@@ -14157,7 +14363,10 @@ export default function Map() {
               </g>
             </g>
           </g>
-          <g id="Camera1">
+          <g
+            id="Camera1"
+            className={camera1Status === "Recording" ? "CameraSVG" : ""}
+          >
             <g id="HTML_JUMBLE_2-2-5" data-name="HTML JUMBLE 2-2">
               <circle
                 id="Ellipse_73-5"
@@ -14194,18 +14403,23 @@ export default function Map() {
         <g id="Zones" className="cls-7">
           <polygon
             id="zone1"
-            className="cls-11"
+            className={zone1Status === "Alert" ? "zoneAlert" : "cls-11"}
             points="379.4 20.35 379.32 160.55 368.2 169.15 368.2 199.72 379.32 205.71 378.92 233.99 373.29 238.79 372.55 272.52 368.2 275.13 368.2 325.15 378.01 330.16 378.41 360.52 370.93 366.36 370.93 399.15 373.8 400.84 373.29 449 367.4 452.35 367.4 481.85 372.82 487.57 373 521.95 367.55 521.95 341 461.15 340.2 460.35 339.4 460.35 156.81 460.35 68.2 382.75 4.2 382.75 3.4 382.75 3.4 379.55 4.2 157.15 6.6 157.15 69 157.15 162.6 77.95 162.6 77.95 162.6 77.15 163.4 20.35 379.4 20.35"
           />
           <polygon
             id="zone2"
-            className="cls-11"
+            className={zone2Status === "Alert" ? "zoneAlert" : "cls-11"}
             points="379.94 20.35 849.8 20.35 849.8 231.55 849.8 231.55 849.8 231.93 849.8 260.31 837 269.95 782.87 269.95 779.4 265.15 729 265.15 613.58 265.6 591.25 246.56 469.21 245.24 455.89 259.73 373.29 259.76 373.8 239.55 380.2 233.95 380.2 205.15 369 198.75 369 197.68 369 169.22 380.18 160.55 379.94 20.35"
           />
           <polygon
             id="zone3"
-            className="cls-11"
+            className={zone3Status === "Alert" ? "zoneAlert" : "cls-11"}
             points="373 260.35 456.2 260.35 469.8 245.95 580.59 247.04 591.25 247.43 613.4 266.43 778.6 265.95 779.4 265.95 782.6 270.75 837.14 270.75 850.6 260.73 860.75 275.13 861 522.75 861 523.55 373.45 521.95 373.8 489.95 373.8 487.55 373.8 487.55 373.8 486.75 368.2 481.15 368.2 452.35 373.8 449.15 374.6 400.35 371.4 398.75 371.4 366.75 379.4 360.35 379.4 348.35 378.6 329.15 369 324.35 369 275.41 373.29 272.52 373 260.35"
+          />
+          <polygon
+            id="zone4"
+            className={zone4Status === "Alert" ? "zoneAlert" : "cls-11"}
+            points="861.8 523.55 1040.2 523.55 1040.2 452.35 1040.2 429.95 1040.2 20.35 1037.66 20.35 850.6 20.35 850.6 260.34 857 269.15 861 274.75 861 275.55 861.8 523.55"
           />
         </g>
       </svg>
