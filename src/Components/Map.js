@@ -5076,8 +5076,8 @@ export default function Map({ setData }) {
                       id="Ellipse_144-4-3"
                       data-name="Ellipse 144-4"
                       className="cls-37"
-                      cx="915.29"
-                      cy="216.77"
+                      cx="910.29"
+                      cy="220.77"
                       r="3.02"
                     />
                   </g>
