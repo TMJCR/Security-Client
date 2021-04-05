@@ -12,10 +12,11 @@ export default function Map({ setData }) {
   });
   const [zone1Status, setzone1Status] = useState("");
   const [alarm1Status, setalarm1Status] = useState("");
-  const camera1Status = "Recording";
-  const camera2Status = "Recording";
-  const camera3Status = "OFF";
-  const camera4Status = "Recording";
+  const [camera1Status, setaCamera1Status] = useState("");
+
+  const camera2Status = "Off";
+  const camera3Status = "Off";
+  const camera4Status = "Off";
 
   const zone2Status = "";
   const zone3Status = "";
@@ -25,8 +26,6 @@ export default function Map({ setData }) {
   const alarm4Status = "";
 
   const triggerSensor = async (e, state = "Triggered") => {
-    console.log(e.currentTarget.id, e.currentTarget.dataset.type);
-
     fetch("http://localhost:5000/update", {
       method: "PUT",
       mode: "cors",
@@ -44,7 +43,7 @@ export default function Map({ setData }) {
         setData(JSONresponse);
         setzone1Status("Alert");
         setalarm1Status("Alert");
-        console.log(zone1Status);
+        setaCamera1Status("Recording");
       });
   };
   return (
@@ -4301,7 +4300,13 @@ export default function Map({ setData }) {
                 r="5.08"
               />
             </g>
-            <g id="triggerEXTZoneSensor1" className="triggerEXTZoneSensor">
+            <g
+              onMouseOver={(e) => {
+                console.log(e.target);
+              }}
+              id="triggerEXTZoneSensor1"
+              className="triggerEXTZoneSensor"
+            >
               <circle
                 id="triggerEXTZoneSensor1-2"
                 data-name="triggerEXTZoneSensor1"
@@ -4320,7 +4325,6 @@ export default function Map({ setData }) {
               }
               data-type="Sensor"
               onMouseOver={(e) => triggerSensor(e, "On")}
-              onMouseLeave={(e) => triggerSensor(e, "Off")}
             >
               <rect
                 className="cls-21"
@@ -4421,7 +4425,11 @@ export default function Map({ setData }) {
                     </text>
                   </g>
                 </g>
-                <g id="Group_951-2" data-name="Group 951-2">
+                <g
+                  id="Group_951-2"
+                  data-name="Group 951-2"
+                  className="SensorLine"
+                >
                   <g id="Group_1251" data-name="Group 1251">
                     <circle
                       id="Ellipse_144-3"
@@ -4491,7 +4499,7 @@ export default function Map({ setData }) {
               </g>
             </g>
           </g>
-          <g id="Group_959" data-name="Group 959">
+          <g id="Group_959" data-name="Group 959" className="SensorLine">
             <g id="Group_1253" data-name="Group 1253">
               <circle
                 id="Ellipse_144-5"
@@ -4522,7 +4530,7 @@ export default function Map({ setData }) {
               y2="245.01"
             />
           </g>
-          <g id="Group_961" data-name="Group 961">
+          <g id="Group_961" data-name="Group 961" className="SensorLine">
             <path
               id="Path_1040"
               data-name="Path 1040"
@@ -4738,7 +4746,11 @@ export default function Map({ setData }) {
                     </text>
                   </g>
                 </g>
-                <g id="Group_951-2-2" data-name="Group 951-2">
+                <g
+                  id="Group_951-2-2"
+                  data-name="Group 951-2"
+                  className="SensorLine"
+                >
                   <g id="Group_1251-2" data-name="Group 1251">
                     <circle
                       id="Ellipse_144-3-2"
@@ -4808,7 +4820,7 @@ export default function Map({ setData }) {
               </g>
             </g>
           </g>
-          <g id="Group_959-2" data-name="Group 959">
+          <g id="Group_959-2" data-name="Group 959" className="SensorLine">
             <g id="Group_1253-2" data-name="Group 1253">
               <circle
                 id="Ellipse_144-5-2"
@@ -4839,7 +4851,7 @@ export default function Map({ setData }) {
               y2="414.01"
             />
           </g>
-          <g id="Group_961-2" data-name="Group 961">
+          <g id="Group_961-2" data-name="Group 961" className="SensorLine">
             <path
               id="Path_1040-2"
               data-name="Path 1040"
@@ -5060,7 +5072,11 @@ export default function Map({ setData }) {
                     </text>
                   </g>
                 </g>
-                <g id="Group_951-2-3" data-name="Group 951-2">
+                <g
+                  id="Group_951-2-3"
+                  data-name="Group 951-2"
+                  className="SensorLine"
+                >
                   <g id="Group_1251-3" data-name="Group 1251">
                     <circle
                       id="Ellipse_144-3-3"
@@ -5130,7 +5146,7 @@ export default function Map({ setData }) {
               </g>
             </g>
           </g>
-          <g id="Group_959-3" data-name="Group 959">
+          <g id="Group_959-3" data-name="Group 959" className="SensorLine">
             <g id="Group_1253-3" data-name="Group 1253">
               <circle
                 id="Ellipse_144-5-3"
@@ -5161,7 +5177,7 @@ export default function Map({ setData }) {
               y2="232.55"
             />
           </g>
-          <g id="Group_961-3" data-name="Group 961">
+          <g id="Group_961-3" data-name="Group 961" className="SensorLine">
             <path
               id="Path_1040-3"
               data-name="Path 1040"
@@ -5377,7 +5393,11 @@ export default function Map({ setData }) {
                     </text>
                   </g>
                 </g>
-                <g id="Group_951-2-4" data-name="Group 951-2">
+                <g
+                  id="Group_951-2-4"
+                  data-name="Group 951-2"
+                  className="SensorLine"
+                >
                   <g id="Group_1251-4" data-name="Group 1251">
                     <circle
                       id="Ellipse_144-3-4"
@@ -5447,7 +5467,7 @@ export default function Map({ setData }) {
               </g>
             </g>
           </g>
-          <g id="Group_959-4" data-name="Group 959">
+          <g id="Group_959-4" data-name="Group 959" className="SensorLine">
             <g id="Group_1253-4" data-name="Group 1253">
               <circle
                 id="Ellipse_144-5-4"
@@ -5478,7 +5498,7 @@ export default function Map({ setData }) {
               y2="128.01"
             />
           </g>
-          <g id="Group_961-4" data-name="Group 961">
+          <g id="Group_961-4" data-name="Group 961" className="SensorLine">
             <path
               id="Path_1040-4"
               data-name="Path 1040"
@@ -14257,7 +14277,7 @@ export default function Map({ setData }) {
         <g id="Cameras">
           <g
             id="Camera4"
-            className={camera4Status === "Recording" ? "CameraSVG" : ""}
+            className={camera4Status === "Recording" ? "" : "CameraSVGOff"}
           >
             <g id="HTML_JUMBLE_2-2" data-name="HTML JUMBLE 2-2">
               <circle
@@ -14293,7 +14313,7 @@ export default function Map({ setData }) {
           </g>
           <g
             id="Camera3"
-            className={camera3Status === "Recording" ? "CameraSVG" : ""}
+            className={camera3Status === "Recording" ? "" : "CameraSVGOff"}
           >
             <g id="HTML_JUMBLE_2-2-2" data-name="HTML JUMBLE 2-2">
               <circle
@@ -14329,7 +14349,7 @@ export default function Map({ setData }) {
           </g>
           <g
             id="Camera2"
-            className={camera2Status === "Recording" ? "CameraSVG" : ""}
+            className={camera2Status === "Recording" ? "" : "CameraSVGOff"}
           >
             <g id="HTML_JUMBLE_2-2-4" data-name="HTML JUMBLE 2-2">
               <circle
@@ -14365,7 +14385,7 @@ export default function Map({ setData }) {
           </g>
           <g
             id="Camera1"
-            className={camera1Status === "Recording" ? "CameraSVG" : ""}
+            className={camera1Status === "Recording" ? "" : "CameraSVGOff"}
           >
             <g id="HTML_JUMBLE_2-2-5" data-name="HTML JUMBLE 2-2">
               <circle

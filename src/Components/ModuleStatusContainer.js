@@ -9,7 +9,6 @@ export default function KeypadContainer({ data }) {
         <div className="ModuleStatusTitle">SECURITY MODULES STATUS</div>
         <div className="ModuleStatusLoader">O/I.MODULE.STATUS</div>
       </div>
-      {console.log(data)}
       {data && (
         <div>
           <ModuleStatus data={data.cameras} type="Cameras"></ModuleStatus>
