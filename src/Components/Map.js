@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Map.css";
-export default function Map({ setData }) {
+export default function Map({ data, setData }) {
   const [doorMessage, setDoorMessage] = useState({
     doorLabel1: false,
     doorLabel2: false,
@@ -10,6 +10,17 @@ export default function Map({ setData }) {
     doorLabel6: false,
     doorLabel7: false,
   });
+
+  const [doorColors, setDoorColors] = useState({
+    door1: "",
+    door2: "",
+    door3: "",
+    door4: "",
+    door5: "",
+    door6: "",
+    door7: "",
+  });
+
   const [zone1Status, setzone1Status] = useState("");
   const [alarm1Status, setalarm1Status] = useState("");
   const [camera1Status, setaCamera1Status] = useState("");
@@ -26,6 +37,7 @@ export default function Map({ setData }) {
   const alarm4Status = "";
 
   const triggerSensor = async (e, state = "Triggered") => {
+    console.log(data);
     fetch("http://localhost:5000/update", {
       method: "PUT",
       mode: "cors",
@@ -46,6 +58,71 @@ export default function Map({ setData }) {
         setaCamera1Status("Recording");
       });
   };
+
+  const openDoor = async (e) => {
+    fetch("http://localhost:5000/openDoor", {
+      method: "PUT",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: e,
+      }),
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => {
+        setData(JSONresponse);
+      });
+  };
+
+  const findDoor = (e) => {
+    const equipment = e.target.id;
+    const door = data.doorSensors
+      .filter((door) => door.status.name === equipment)
+      .reduce((accumulator) => accumulator);
+    return door;
+  };
+
+  const checkRestriction = (equipment, restrictedZones) => {
+    const restricted = restrictedZones.includes(equipment.status.zone);
+    return restricted;
+  };
+
+  const tryToOpenDoor = (e) => {
+    console.log(e.target.id.slice(-1));
+    const doorNumber = e.target.id.slice(-1);
+    const doorLabel = `doorLabel${doorNumber}`;
+    const doorColorLabel = `door${doorNumber}`;
+    const door = findDoor(e);
+    const restricted = checkRestriction(door, data.restrictedZones);
+    if (restricted) {
+      setDoorMessage({
+        ...doorMessage,
+        [doorLabel]: !doorMessage[doorLabel],
+      });
+      setDoorColors({
+        ...doorColors,
+        [doorColorLabel]: "red",
+      });
+    } else {
+      const newDoorColor = doorColors.door1 === "green" ? "" : "green";
+      setDoorColors({
+        ...doorColors,
+        [doorColorLabel]: newDoorColor,
+      });
+      openDoor(e.target.id);
+    }
+  };
+
+  const forceOpenDoor = (e) => {
+    const door = findDoor(e);
+    const restricted = checkRestriction(door, data.restrictedZones);
+    if (restricted) {
+      triggerSensor(e);
+    }
+  };
+
   return (
     <div>
       <svg
@@ -5573,13 +5650,10 @@ export default function Map({ setData }) {
           </text>
           <g
             onClick={(e) => {
-              setDoorMessage({
-                ...doorMessage,
-                doorLabel2: !doorMessage.doorLabel2,
-              });
+              tryToOpenDoor(e);
             }}
             onDoubleClick={(e) => {
-              triggerSensor(e);
+              forceOpenDoor(e);
             }}
             id="DoorSensor2"
             data-type="DoorSensor"
@@ -6368,13 +6442,10 @@ export default function Map({ setData }) {
           </text>
           <g
             onClick={(e) => {
-              setDoorMessage({
-                ...doorMessage,
-                doorLabel5: !doorMessage.doorLabel5,
-              });
+              tryToOpenDoor(e);
             }}
             onDoubleClick={(e) => {
-              triggerSensor(e);
+              forceOpenDoor(e);
             }}
             id="DoorSensor5"
             data-type="DoorSensor"
@@ -7167,13 +7238,10 @@ export default function Map({ setData }) {
           </text>
           <g
             onClick={(e) => {
-              setDoorMessage({
-                ...doorMessage,
-                doorLabel7: !doorMessage.doorLabel7,
-              });
+              tryToOpenDoor(e);
             }}
             onDoubleClick={(e) => {
-              triggerSensor(e);
+              forceOpenDoor(e);
             }}
             id="DoorSensor7"
             data-type="DoorSensor"
@@ -7959,17 +8027,14 @@ export default function Map({ setData }) {
           </g>
           <g
             onClick={(e) => {
-              setDoorMessage({
-                ...doorMessage,
-                doorLabel1: !doorMessage.doorLabel1,
-              });
+              tryToOpenDoor(e);
             }}
             onDoubleClick={(e) => {
-              triggerSensor(e);
+              forceOpenDoor(e);
             }}
             id="DoorSensor1"
             data-type="DoorSensor"
-            className="doorSensorSVG"
+            className={`doorSensorSVG ${doorColors.door1}`}
           >
             <g className="cls-78">
               <g
@@ -8765,13 +8830,10 @@ export default function Map({ setData }) {
           </text>
           <g
             onClick={(e) => {
-              setDoorMessage({
-                ...doorMessage,
-                doorLabel3: !doorMessage.doorLabel3,
-              });
+              tryToOpenDoor(e);
             }}
             onDoubleClick={(e) => {
-              triggerSensor(e);
+              forceOpenDoor(e);
             }}
             id="DoorSensor3"
             data-type="DoorSensor"
@@ -9564,13 +9626,10 @@ export default function Map({ setData }) {
           </text>
           <g
             onClick={(e) => {
-              setDoorMessage({
-                ...doorMessage,
-                doorLabel6: !doorMessage.doorLabel6,
-              });
+              tryToOpenDoor(e);
             }}
             onDoubleClick={(e) => {
-              triggerSensor(e);
+              forceOpenDoor(e);
             }}
             id="DoorSensor6"
             data-type="DoorSensor"
@@ -10363,13 +10422,10 @@ export default function Map({ setData }) {
           </text>
           <g
             onClick={(e) => {
-              setDoorMessage({
-                ...doorMessage,
-                doorLabel4: !doorMessage.doorLabel4,
-              });
+              tryToOpenDoor(e);
             }}
             onDoubleClick={(e) => {
-              triggerSensor(e);
+              forceOpenDoor(e);
             }}
             id="DoorSensor4"
             data-type="DoorSensor"
