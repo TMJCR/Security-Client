@@ -82,17 +82,6 @@ line {
   stroke: var(--security-red);
 }
 
-.redFlash line {
-  animation: flash 0.5s ease-in-out infinite;
-}
-@keyframes flash {
-  50% {
-    /* opacity: 0; */
-    stroke-width: 2px;
-    stroke: var(--security-red);
-  }
-}
-
 .green line {
   stroke-width: 2px;
   stroke: var(--security-green);

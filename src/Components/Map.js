@@ -38,7 +38,7 @@ export default function Map({ data, setData }) {
 
   const triggerSensor = async (e, state = "Triggered") => {
     console.log(data);
-    fetch("http://localhost:5000/update", {
+    fetch("http://localhost:5000/triggerSensor", {
       method: "PUT",
       mode: "cors",
       headers: {
@@ -4396,7 +4396,7 @@ export default function Map({ data, setData }) {
             <g
               id="Sensor1"
               className={
-                zone1Status === "Alert"
+                data && data.zones.zone1.status === "Alert"
                   ? "triggerZoneCenterActivated"
                   : "triggerZoneCenter"
               }
@@ -4413,7 +4413,11 @@ export default function Map({ data, setData }) {
               />
               <g
                 id="alertSensor1"
-                className={zone1Status === "Alert" ? "" : "alertSensorOff"}
+                className={
+                  data && data.zones.zone1.status === "Alert"
+                    ? ""
+                    : "alertSensorOff"
+                }
               >
                 <g id="Symbol">
                   <g
@@ -14479,7 +14483,11 @@ export default function Map({ data, setData }) {
         <g id="Zones" className="cls-7">
           <polygon
             id="zone1"
-            className={zone1Status === "Alert" ? "zoneAlert" : "cls-11"}
+            className={
+              data && data.zones.zone1.status === "Alert"
+                ? "zoneAlert"
+                : "cls-11"
+            }
             points="379.4 20.35 379.32 160.55 368.2 169.15 368.2 199.72 379.32 205.71 378.92 233.99 373.29 238.79 372.55 272.52 368.2 275.13 368.2 325.15 378.01 330.16 378.41 360.52 370.93 366.36 370.93 399.15 373.8 400.84 373.29 449 367.4 452.35 367.4 481.85 372.82 487.57 373 521.95 367.55 521.95 341 461.15 340.2 460.35 339.4 460.35 156.81 460.35 68.2 382.75 4.2 382.75 3.4 382.75 3.4 379.55 4.2 157.15 6.6 157.15 69 157.15 162.6 77.95 162.6 77.95 162.6 77.15 163.4 20.35 379.4 20.35"
           />
           <polygon
