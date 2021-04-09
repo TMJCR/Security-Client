@@ -36,7 +36,7 @@ export default function Map({ data, setData }) {
   const alarm3Status = "";
   const alarm4Status = "";
 
-  const triggerSensor = async (e, state = "Triggered") => {
+  const triggerSensor = async (e, state = "Alert") => {
     console.log(data);
     fetch("http://localhost:5000/triggerSensor", {
       method: "PUT",
@@ -4401,7 +4401,7 @@ export default function Map({ data, setData }) {
                   : "triggerZoneCenter"
               }
               data-type="Sensor"
-              onMouseOver={(e) => triggerSensor(e, "On")}
+              onMouseOver={(e) => triggerSensor(e, "Alert")}
             >
               <rect
                 className="cls-21"
@@ -14445,7 +14445,11 @@ export default function Map({ data, setData }) {
           </g>
           <g
             id="Camera1"
-            className={camera1Status === "Recording" ? "" : "CameraSVGOff"}
+            className={
+              data && data.cameras[0].status.currentStatus === "Recording"
+                ? ""
+                : "CameraSVGOff"
+            }
           >
             <g id="HTML_JUMBLE_2-2-5" data-name="HTML JUMBLE 2-2">
               <circle
