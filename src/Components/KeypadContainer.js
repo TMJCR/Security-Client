@@ -1,7 +1,25 @@
 import React from "react";
 import "./KeypadContainer.css";
 
-export default function KeypadContainer() {
+export default function KeypadContainer({ data, setData }) {
+  const submitPasscode = async () => {
+    fetch("http://localhost:5000/keypad", {
+      method: "PUT",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: "TEST",
+      }),
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => {
+        console.log("res", JSONresponse);
+        setData(JSONresponse);
+      });
+  };
+
   return (
     <div
       className="
@@ -32,7 +50,9 @@ export default function KeypadContainer() {
           <button className="KeypadNumber">6</button>
           <button className="KeypadNumber">7</button>
           <button className="KeypadNumber">8</button>
-          <button className="KeypadNumber OK">OK</button>
+          <button onClick={(e) => submitPasscode()} className="KeypadNumber OK">
+            OK
+          </button>
         </div>
       </div>
     </div>

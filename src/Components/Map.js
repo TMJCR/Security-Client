@@ -53,9 +53,6 @@ export default function Map({ data, setData }) {
       .then((response) => response.json())
       .then((JSONresponse) => {
         setData(JSONresponse);
-        setzone1Status("Alert");
-        setalarm1Status("Alert");
-        setaCamera1Status("Recording");
       });
   };
 
@@ -11219,7 +11216,9 @@ export default function Map({ data, setData }) {
             id="AlarmAlert1"
             data-name="Rectangle 537"
             className={
-              alarm1Status === "Alert" ? "cls-64 alarmAlert" : "cls-64"
+              data && data.alarms[0].status.currentStatus === "Alert"
+                ? "cls-64 alarmAlert"
+                : "cls-64"
             }
             x="173"
             y="25.02"

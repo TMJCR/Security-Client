@@ -14,7 +14,7 @@ export default function SecuritySystem({ data, activityLog, setData }) {
         <ModuleStatusContainer data={data}></ModuleStatusContainer>
         <AccessLevelContainer></AccessLevelContainer>
         <CameraContainer></CameraContainer>
-        <KeypadContainer></KeypadContainer>
+        <KeypadContainer data={data} setData={setData}></KeypadContainer>
         <MapContainer data={data} setData={setData}></MapContainer>
         <LogContainer activityLog={activityLog}></LogContainer>
       </div>
