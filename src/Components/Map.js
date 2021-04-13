@@ -56,7 +56,11 @@ export default function Map({ data, setData }) {
       });
   };
 
-  const openDoor = async (e) => {
+  const openDoor = async (name, type, restricted) => {
+    const doorNumber = name.slice(-1);
+    if (data.zones[`zone${doorNumber}`].status === "Alert") {
+      return;
+    }
     fetch("http://localhost:5000/openDoor", {
       method: "PUT",
       mode: "cors",
@@ -64,7 +68,9 @@ export default function Map({ data, setData }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: e,
+        name,
+        type,
+        restriction: restricted,
       }),
     })
       .then((response) => response.json())
@@ -87,12 +93,13 @@ export default function Map({ data, setData }) {
   };
 
   const tryToOpenDoor = (e) => {
-    console.log(e.target.id.slice(-1));
     const doorNumber = e.target.id.slice(-1);
     const doorLabel = `doorLabel${doorNumber}`;
     const doorColorLabel = `door${doorNumber}`;
     const door = findDoor(e);
     const restricted = checkRestriction(door, data.restrictedZones);
+    const zone = `zones[zone${door.status.zone}].status`;
+
     if (restricted) {
       setDoorMessage({
         ...doorMessage,
@@ -108,15 +115,16 @@ export default function Map({ data, setData }) {
         ...doorColors,
         [doorColorLabel]: newDoorColor,
       });
-      openDoor(e.target.id);
+      openDoor(e.target.id, e.currentTarget.dataset.type, restricted);
     }
   };
 
   const forceOpenDoor = (e) => {
     const door = findDoor(e);
+    console.log(e.target);
     const restricted = checkRestriction(door, data.restrictedZones);
     if (restricted) {
-      triggerSensor(e);
+      openDoor(e.target.id, e.currentTarget.dataset.type, restricted);
     }
   };
 

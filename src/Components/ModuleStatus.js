@@ -14,7 +14,11 @@ export default function ModuleStatus({ data, type }) {
             key={item.status.name}
             name={item.status.name}
             status="green"
-            currentStatus={item.status.currentStatus}
+            currentStatus={
+              item.status.type === "DoorSensor"
+                ? item.status.position
+                : item.status.currentStatus
+            }
           ></Module>
         );
       })}
