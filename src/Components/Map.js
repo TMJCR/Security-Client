@@ -36,24 +36,40 @@ export default function Map({ data, setData }) {
   const alarm3Status = "";
   const alarm4Status = "";
 
-  const triggerSensor = async (e, state = "Alert") => {
-    console.log(data);
-    fetch("http://localhost:5000/triggerSensor", {
+  const request = (url, body) => {
+    fetch(url, {
       method: "PUT",
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        name: e.currentTarget.id,
-        type: e.currentTarget.dataset.type,
-        currentState: state,
-      }),
+      body,
     })
       .then((response) => response.json())
       .then((JSONresponse) => {
         setData(JSONresponse);
       });
+  };
+  const triggerSensor = async (e, state = "Alert") => {
+    const url = "http://localhost:5000/triggerSensor";
+    const body = JSON.stringify({
+      name: e.currentTarget.id,
+      type: e.currentTarget.dataset.type,
+      currentState: state,
+    });
+    request(url, body);
+  };
+
+  const proximityWarning = (e) => {
+    // const zoneNumber = e.currentTarget.id.slice(-1);
+    // if (data.zones[`zone${zoneNumber}`].status === "Alert") {
+    //   return;
+    // }
+    const url = "http://localhost:5000/proximityWarning";
+    const body = JSON.stringify({
+      name: e.currentTarget.id,
+    });
+    request(url, body);
   };
 
   const openDoor = async (name, type, restricted) => {
@@ -4382,15 +4398,12 @@ export default function Map({ data, setData }) {
                 r="5.08"
               />
             </g>
-            <g
-              onMouseOver={(e) => {
-                console.log(e.target);
-              }}
-              id="triggerEXTZoneSensor1"
-              className="triggerEXTZoneSensor"
-            >
+            <g className="triggerEXTZoneSensor">
               <circle
-                id="triggerEXTZoneSensor1-2"
+                onMouseOver={(e) => {
+                  proximityWarning(e);
+                }}
+                id="triggerEXTZoneSensor1"
                 data-name="triggerEXTZoneSensor1"
                 className="cls-20"
                 cx="114.49"

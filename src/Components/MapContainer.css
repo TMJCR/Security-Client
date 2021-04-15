@@ -5,6 +5,10 @@
   opacity: 1;
 }
 
+/* .triggerEXTZoneSensor circle {
+  pointer-events: none;
+} */
+
 .alertSensorOff {
   display: none;
 }

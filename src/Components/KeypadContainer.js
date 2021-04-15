@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./KeypadContainer.css";
-
 export default function KeypadContainer({ data, setData }) {
+  const [passcode, setPasscode] = useState({
+    increment: 0,
+    currentPasscode: ["X", "X", "X", "X"],
+  });
+  const [activeDigit, setActiveDigit] = useState(null);
   const submitPasscode = async () => {
     fetch("http://localhost:5000/keypad", {
       method: "PUT",
@@ -20,6 +24,18 @@ export default function KeypadContainer({ data, setData }) {
       });
   };
 
+  const handlePasscodeInput = (e) => {
+    const newPasscode = passcode.currentPasscode.map((num, idx) => {
+      return idx === passcode.increment ? e.target.dataset.number : num;
+    });
+    setActiveDigit(activeDigit === 3 ? 0 : passcode.increment + 1);
+    const newIncrement = passcode.increment === 3 ? 0 : passcode.increment + 1;
+    setPasscode({
+      increment: newIncrement,
+      currentPasscode: newPasscode,
+    });
+    console.log(activeDigit);
+  };
   return (
     <div
       className="
@@ -36,14 +52,62 @@ export default function KeypadContainer({ data, setData }) {
           </div>
         </div>
         <div className="KeypadInputs">
-          <div className="KeypadInput">X</div>
-          <div className="KeypadInput">X</div>
-          <div className="KeypadInput">X</div>
-          <div className="KeypadInput">X</div>
+          <div
+            className={
+              activeDigit && activeDigit === 0
+                ? "Active KeypadInput"
+                : "KeypadInput"
+            }
+          >
+            {passcode.currentPasscode[0]}
+          </div>
+          <div
+            className={
+              activeDigit && activeDigit === 1
+                ? "Active KeypadInput"
+                : "KeypadInput"
+            }
+          >
+            {passcode.currentPasscode[1]}
+          </div>
+          <div
+            className={
+              activeDigit && activeDigit === 2
+                ? "Active KeypadInput"
+                : "KeypadInput"
+            }
+          >
+            {passcode.currentPasscode[2]}
+          </div>
+          <div
+            className={
+              activeDigit && activeDigit === 3
+                ? "Active KeypadInput"
+                : "KeypadInput"
+            }
+          >
+            {passcode.currentPasscode[3]}
+          </div>
         </div>
         <div className="KeypadNumbers">
-          <button className="KeypadNumber">1</button>
-          <button className="KeypadNumber">2</button>
+          <button
+            onClick={(e) => {
+              handlePasscodeInput(e);
+            }}
+            className="KeypadNumber"
+            data-number="1"
+          >
+            1
+          </button>
+          <button
+            onClick={(e) => {
+              handlePasscodeInput(e);
+            }}
+            className="KeypadNumber"
+            data-number="2"
+          >
+            2
+          </button>
           <button className="KeypadNumber">3</button>
           <button className="KeypadNumber">4</button>
           <button className="KeypadNumber">5</button>

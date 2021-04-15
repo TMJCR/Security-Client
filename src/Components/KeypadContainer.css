@@ -49,6 +49,9 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1em;
 }
+.Active {
+  border: 2px solid red;
+}
 
 .KeypadNumber {
   padding: 0;
