@@ -14,7 +14,7 @@ export default function KeypadContainer({ data, setData }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: "TEST",
+        passcode,
       }),
     })
       .then((response) => response.json())
@@ -25,18 +25,15 @@ export default function KeypadContainer({ data, setData }) {
   };
 
   const handlePasscodeInput = (e) => {
-    console.log("1", activeDigit);
     const newPasscode = passcode.currentPasscode.map((num, idx) => {
       return idx === passcode.increment ? e.target.dataset.number : num;
     });
     setActiveDigit(activeDigit === 3 ? 0 : passcode.increment + 1);
-    console.log("2", activeDigit);
     const newIncrement = passcode.increment === 3 ? 0 : passcode.increment + 1;
     setPasscode({
       increment: newIncrement,
       currentPasscode: newPasscode,
     });
-    console.log("3", activeDigit);
   };
   return (
     <div
@@ -94,12 +91,60 @@ export default function KeypadContainer({ data, setData }) {
           >
             2
           </button>
-          <button className="KeypadNumber">3</button>
-          <button className="KeypadNumber">4</button>
-          <button className="KeypadNumber">5</button>
-          <button className="KeypadNumber">6</button>
-          <button className="KeypadNumber">7</button>
-          <button className="KeypadNumber">8</button>
+          <button
+            onClick={(e) => {
+              handlePasscodeInput(e);
+            }}
+            className="KeypadNumber"
+            data-number="3"
+          >
+            3
+          </button>
+          <button
+            onClick={(e) => {
+              handlePasscodeInput(e);
+            }}
+            className="KeypadNumber"
+            data-number="4"
+          >
+            4
+          </button>{" "}
+          <button
+            onClick={(e) => {
+              handlePasscodeInput(e);
+            }}
+            className="KeypadNumber"
+            data-number="5"
+          >
+            5
+          </button>{" "}
+          <button
+            onClick={(e) => {
+              handlePasscodeInput(e);
+            }}
+            className="KeypadNumber"
+            data-number="6"
+          >
+            6
+          </button>{" "}
+          <button
+            onClick={(e) => {
+              handlePasscodeInput(e);
+            }}
+            className="KeypadNumber"
+            data-number="7"
+          >
+            7
+          </button>{" "}
+          <button
+            onClick={(e) => {
+              handlePasscodeInput(e);
+            }}
+            className="KeypadNumber"
+            data-number="8"
+          >
+            8
+          </button>{" "}
           <button onClick={(e) => submitPasscode()} className="KeypadNumber OK">
             OK
           </button>
