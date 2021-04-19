@@ -1,7 +1,7 @@
 import React from "react";
 import "./AccessLevelContainer.css";
-
-export default function AccessLevelContainer() {
+import PasscodeMessage from "./PasscodeMessage";
+export default function AccessLevelContainer({ passcodeMessage }) {
   return (
     <div
       className="
@@ -9,7 +9,7 @@ export default function AccessLevelContainer() {
   AccessLevelContainer"
     >
       <div className="Console">
-        > SELECT A LEVEL OF ACCESS AND INTERACT WITH MAP TO TEST SECURITY
+        {">"} SELECT A LEVEL OF ACCESS AND INTERACT WITH MAP TO TEST SECURITY
         SYSTEM...
       </div>
       <div className="AccessLevelButtonContainer">
@@ -25,6 +25,7 @@ export default function AccessLevelContainer() {
           <div className="AccessButtonSubText">Access Level</div>
           <div className="AccessButtonText">No Access</div>
         </button>
+        <PasscodeMessage passcodeMessage={passcodeMessage}></PasscodeMessage>
       </div>
     </div>
   );

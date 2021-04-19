@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Map.css";
-export default function Map({ data, setData }) {
+export default function Map({ data, setData, setpasscodeMessage }) {
   const [doorMessage, setDoorMessage] = useState({
     doorLabel1: false,
     doorLabel2: false,
@@ -48,6 +48,7 @@ export default function Map({ data, setData }) {
       .then((response) => response.json())
       .then((JSONresponse) => {
         setData(JSONresponse);
+        setpasscodeMessage(JSONresponse.testingModeMessage);
       });
   };
   const triggerSensor = async (e, state = "Alert") => {

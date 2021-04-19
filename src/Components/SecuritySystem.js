@@ -7,15 +7,27 @@ import KeypadContainer from "./KeypadContainer";
 import LogContainer from "./LogContainer";
 import ModuleStatusContainer from "./ModuleStatusContainer";
 
-export default function SecuritySystem({ data, activityLog, setData }) {
+export default function SecuritySystem({
+  data,
+  activityLog,
+  setData,
+  passcodeMessage,
+  setpasscodeMessage,
+}) {
   return (
     <div>
       <div className="wrapper">
         <ModuleStatusContainer data={data}></ModuleStatusContainer>
-        <AccessLevelContainer></AccessLevelContainer>
+        <AccessLevelContainer
+          passcodeMessage={passcodeMessage}
+        ></AccessLevelContainer>
         <CameraContainer></CameraContainer>
         <KeypadContainer data={data} setData={setData}></KeypadContainer>
-        <MapContainer data={data} setData={setData}></MapContainer>
+        <MapContainer
+          data={data}
+          setData={setData}
+          setpasscodeMessage={setpasscodeMessage}
+        ></MapContainer>
         <LogContainer activityLog={activityLog}></LogContainer>
       </div>
     </div>

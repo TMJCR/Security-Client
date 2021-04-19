@@ -11,6 +11,7 @@
 
 .AccessButton {
   margin: 1em;
+  height: 100%;
   min-width: 180px;
   padding: 0 0 0 10px;
   background: repeating-linear-gradient(

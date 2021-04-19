@@ -19,7 +19,6 @@ export default function KeypadContainer({ data, setData }) {
     })
       .then((response) => response.json())
       .then((JSONresponse) => {
-        console.log("res", JSONresponse);
         setData(JSONresponse);
       });
   };
