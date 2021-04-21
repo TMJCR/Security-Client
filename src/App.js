@@ -5,7 +5,7 @@ import SecuritySystem from "./Components/SecuritySystem";
 export default function App() {
   const [data, setData] = useState();
   const [activityLog, setActivityLog] = useState([]);
-  const [passcodeMessage, setpasscodeMessage] = useState("");
+  const [passcodeMessage, setPasscodeMessage] = useState("");
   const fetchData = (endPoint, callback) => {
     fetch(`http://localhost:${endPoint}`, {
       method: "GET",
@@ -32,7 +32,7 @@ export default function App() {
         data={data}
         setData={setData}
         passcodeMessage={passcodeMessage}
-        setpasscodeMessage={setpasscodeMessage}
+        setPasscodeMessage={setPasscodeMessage}
       ></SecuritySystem>
     </div>
   );

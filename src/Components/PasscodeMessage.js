@@ -1,6 +1,9 @@
 import React from "react";
 import Timer from "./Timer";
-export default function passcodeMessage({ passcodeMessage }) {
+export default function passcodeMessage({
+  passcodeMessage,
+  setPasscodeMessage,
+}) {
   return (
     <div>
       {passcodeMessage.length > 0 && (
@@ -8,7 +11,8 @@ export default function passcodeMessage({ passcodeMessage }) {
           <div>Testing Mode </div>
           <div>Enter code {passcodeMessage} to reset alarm</div>
           <div>
-            Refreshing in <Timer /> seconds
+            Refreshing in{" "}
+            <Timer setPasscodeMessage={setPasscodeMessage}></Timer> seconds
           </div>
         </div>
       )}

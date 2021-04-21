@@ -12,7 +12,7 @@ export default function SecuritySystem({
   activityLog,
   setData,
   passcodeMessage,
-  setpasscodeMessage,
+  setPasscodeMessage,
 }) {
   return (
     <div>
@@ -20,13 +20,18 @@ export default function SecuritySystem({
         <ModuleStatusContainer data={data}></ModuleStatusContainer>
         <AccessLevelContainer
           passcodeMessage={passcodeMessage}
+          setPasscodeMessage={setPasscodeMessage}
         ></AccessLevelContainer>
         <CameraContainer></CameraContainer>
-        <KeypadContainer data={data} setData={setData}></KeypadContainer>
+        <KeypadContainer
+          data={data}
+          setData={setData}
+          setPasscodeMessage={setPasscodeMessage}
+        ></KeypadContainer>
         <MapContainer
           data={data}
           setData={setData}
-          setpasscodeMessage={setpasscodeMessage}
+          setPasscodeMessage={setPasscodeMessage}
         ></MapContainer>
         <LogContainer activityLog={activityLog}></LogContainer>
       </div>

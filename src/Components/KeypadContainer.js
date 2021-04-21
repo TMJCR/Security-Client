@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./KeypadContainer.css";
-export default function KeypadContainer({ data, setData }) {
+export default function KeypadContainer({ data, setData, setPasscodeMessage }) {
   const [passcode, setPasscode] = useState({
     increment: 0,
     currentPasscode: ["X", "X", "X", "X"],
@@ -20,6 +20,7 @@ export default function KeypadContainer({ data, setData }) {
       .then((response) => response.json())
       .then((JSONresponse) => {
         setData(JSONresponse);
+        setPasscodeMessage("");
       });
   };
 

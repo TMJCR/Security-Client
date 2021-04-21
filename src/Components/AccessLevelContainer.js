@@ -1,7 +1,10 @@
 import React from "react";
 import "./AccessLevelContainer.css";
 import PasscodeMessage from "./PasscodeMessage";
-export default function AccessLevelContainer({ passcodeMessage }) {
+export default function AccessLevelContainer({
+  passcodeMessage,
+  setPasscodeMessage,
+}) {
   return (
     <div
       className="
@@ -25,7 +28,10 @@ export default function AccessLevelContainer({ passcodeMessage }) {
           <div className="AccessButtonSubText">Access Level</div>
           <div className="AccessButtonText">No Access</div>
         </button>
-        <PasscodeMessage passcodeMessage={passcodeMessage}></PasscodeMessage>
+        <PasscodeMessage
+          passcodeMessage={passcodeMessage}
+          setPasscodeMessage={setPasscodeMessage}
+        ></PasscodeMessage>
       </div>
     </div>
   );

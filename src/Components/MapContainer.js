@@ -2,7 +2,7 @@ import React from "react";
 import "./MapContainer.css";
 // import { ReactComponent as Map3 } from "../Map.svg";
 import Map from "./Map";
-export default function MapContainer({ data, setData, setpasscodeMessage }) {
+export default function MapContainer({ data, setData, setPasscodeMessage }) {
   return (
     <div
       className="
@@ -12,7 +12,7 @@ export default function MapContainer({ data, setData, setpasscodeMessage }) {
       <Map
         data={data}
         setData={setData}
-        setpasscodeMessage={setpasscodeMessage}
+        setPasscodeMessage={setPasscodeMessage}
       ></Map>
     </div>
   );
