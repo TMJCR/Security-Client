@@ -10,8 +10,7 @@ export default function Timer({ setPasscodeMessage }) {
     })
       .then((response) => response.json())
       .then((JSONresponse) => {
-        console.log(JSONresponse.testingModeMessage);
-        setPasscodeMessage(JSONresponse.testingModeMessage);
+        setPasscodeMessage(JSONresponse.testingMode.message);
       });
   };
   useEffect(() => {
@@ -25,11 +24,14 @@ export default function Timer({ setPasscodeMessage }) {
           setResetClock(!resetClock);
           return;
         }
-        console.log(newSeconds);
         return newSeconds;
       });
     }, 1000);
     return () => window.clearInterval(timer);
   }, [resetClock]);
-  return <div>{seconds}</div>;
+  return (
+    <div className="PasscodeMessageSubText">
+      <div>Refreshing in {seconds} secs...</div>
+    </div>
+  );
 }

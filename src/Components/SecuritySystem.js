@@ -19,6 +19,7 @@ export default function SecuritySystem({
       <div className="wrapper">
         <ModuleStatusContainer data={data}></ModuleStatusContainer>
         <AccessLevelContainer
+          data={data}
           passcodeMessage={passcodeMessage}
           setPasscodeMessage={setPasscodeMessage}
         ></AccessLevelContainer>

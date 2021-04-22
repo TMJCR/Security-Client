@@ -48,7 +48,7 @@ export default function Map({ data, setData, setPasscodeMessage }) {
       .then((response) => response.json())
       .then((JSONresponse) => {
         setData(JSONresponse);
-        setPasscodeMessage(JSONresponse.testingModeMessage);
+        setPasscodeMessage(JSONresponse.testingMode.message);
       });
   };
   const triggerSensor = async (e, state = "Alert") => {
