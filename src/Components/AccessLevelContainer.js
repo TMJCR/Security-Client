@@ -5,6 +5,8 @@ export default function AccessLevelContainer({
   data,
   passcodeMessage,
   setPasscodeMessage,
+  seconds,
+  setSeconds,
 }) {
   return (
     <div
@@ -38,6 +40,8 @@ export default function AccessLevelContainer({
             data={data}
             passcodeMessage={passcodeMessage}
             setPasscodeMessage={setPasscodeMessage}
+            seconds={seconds}
+            setSeconds={setSeconds}
           ></PasscodeMessage>
         </div>
       </div>

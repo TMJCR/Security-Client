@@ -41,6 +41,7 @@
 .MapContainer {
   grid-column: 3 / 11;
   grid-row: 3 / 11;
+  padding: 2em;
 }
 .LogContainer {
   grid-column: 3/13;

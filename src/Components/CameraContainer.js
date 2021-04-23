@@ -1,14 +1,14 @@
 import React from "react";
 import "./CameraContainer.css";
 
-export default function CameraContainer() {
+export default function CameraContainer({ cameraMessage }) {
   return (
     <div
       className="
   gridArea
   CameraContainer"
     >
-      <div className="CameraText">CAMERA 1 RECORDING...</div>
+      <div className="CameraText">{cameraMessage.message}...</div>
     </div>
   );
 }

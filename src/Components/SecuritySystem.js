@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SecuritySystem.css";
 import AccessLevelContainer from "../Components/AccessLevelContainer";
 import CameraContainer from "../Components/CameraContainer";
@@ -13,7 +13,9 @@ export default function SecuritySystem({
   setData,
   passcodeMessage,
   setPasscodeMessage,
+  cameraMessage,
 }) {
+  const [seconds, setSeconds] = useState(15);
   return (
     <div>
       <div className="wrapper">
@@ -22,8 +24,10 @@ export default function SecuritySystem({
           data={data}
           passcodeMessage={passcodeMessage}
           setPasscodeMessage={setPasscodeMessage}
+          seconds={seconds}
+          setSeconds={setSeconds}
         ></AccessLevelContainer>
-        <CameraContainer></CameraContainer>
+        <CameraContainer cameraMessage={cameraMessage}></CameraContainer>
         <KeypadContainer
           data={data}
           setData={setData}
@@ -33,6 +37,8 @@ export default function SecuritySystem({
           data={data}
           setData={setData}
           setPasscodeMessage={setPasscodeMessage}
+          seconds={seconds}
+          setSeconds={setSeconds}
         ></MapContainer>
         <LogContainer activityLog={activityLog}></LogContainer>
       </div>

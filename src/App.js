@@ -4,6 +4,7 @@ import SecuritySystem from "./Components/SecuritySystem";
 
 export default function App() {
   const [data, setData] = useState();
+  const [cameraMessage, setCameraMessage] = useState("Ready");
   const [activityLog, setActivityLog] = useState([]);
   const [passcodeMessage, setPasscodeMessage] = useState("");
   const fetchData = (endPoint, callback) => {
@@ -25,6 +26,10 @@ export default function App() {
     fetchData("5000/log", setActivityLog);
   }, [data]);
 
+  useEffect(() => {
+    fetchData("5000/cameraMessage", setCameraMessage);
+  }, [data]);
+
   return (
     <div className="App">
       <SecuritySystem
@@ -33,6 +38,7 @@ export default function App() {
         setData={setData}
         passcodeMessage={passcodeMessage}
         setPasscodeMessage={setPasscodeMessage}
+        cameraMessage={cameraMessage}
       ></SecuritySystem>
     </div>
   );

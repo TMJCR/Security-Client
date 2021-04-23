@@ -5,6 +5,8 @@ export default function PasscodeMessage({
   data,
   passcodeMessage,
   setPasscodeMessage,
+  seconds,
+  setSeconds,
 }) {
   useEffect(() => {
     setPasscodeMessage(data && data.testingMode.message);
@@ -19,7 +21,11 @@ export default function PasscodeMessage({
           </div>
           <div className="PasscodeMessagePasscode">{passcodeMessage}</div>
 
-          <Timer setPasscodeMessage={setPasscodeMessage}></Timer>
+          <Timer
+            seconds={seconds}
+            setSeconds={setSeconds}
+            setPasscodeMessage={setPasscodeMessage}
+          ></Timer>
         </div>
       )}
     </div>

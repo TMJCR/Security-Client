@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export default function Timer({ setPasscodeMessage }) {
-  const [seconds, setSeconds] = useState(15);
+export default function Timer({ setPasscodeMessage, seconds, setSeconds }) {
   const [resetClock, setResetClock] = useState(false);
   const fetchData = () => {
     fetch(`http://localhost:5000/`, {
@@ -11,6 +10,7 @@ export default function Timer({ setPasscodeMessage }) {
       .then((response) => response.json())
       .then((JSONresponse) => {
         setPasscodeMessage(JSONresponse.testingMode.message);
+        setSeconds(JSONresponse.testingMode.timeElapsed);
       });
   };
   useEffect(() => {
@@ -20,7 +20,6 @@ export default function Timer({ setPasscodeMessage }) {
         if (newSeconds < 1) {
           fetchData();
           window.clearInterval(this);
-          setSeconds(15);
           setResetClock(!resetClock);
           return;
         }

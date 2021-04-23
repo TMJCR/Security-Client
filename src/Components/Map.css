@@ -493,3 +493,10 @@
 .cls-118 {
   letter-spacing: 0.05em;
 }
+.cls-22,
+.cls-64,
+.cls-97,
+.cls-98,
+.cls-99 {
+  user-select: none;
+}
