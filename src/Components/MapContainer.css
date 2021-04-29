@@ -38,6 +38,22 @@
   stroke-width: 12px;
 }
 
+.Unrestricted {
+  fill: var(--security-green);
+  opacity: 0.1;
+}
+
+.UnrestrictedNumber {
+  fill: var(--security-green);
+  font-size: 34px;
+}
+.UnrestrictedZone {
+  fill: var(--security-dark-grey);
+  stroke: var(--security-green);
+  stroke-width: 15px;
+  stroke-opacity: 0.5;
+}
+
 .alarmAlert {
   animation: alarmAlerter 0.5s ease-in-out infinite;
 }

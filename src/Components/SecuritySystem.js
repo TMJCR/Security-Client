@@ -22,6 +22,7 @@ export default function SecuritySystem({
         <ModuleStatusContainer data={data}></ModuleStatusContainer>
         <AccessLevelContainer
           data={data}
+          setData={setData}
           passcodeMessage={passcodeMessage}
           setPasscodeMessage={setPasscodeMessage}
           seconds={seconds}

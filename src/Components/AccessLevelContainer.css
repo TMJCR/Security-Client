@@ -29,6 +29,7 @@
 .AccessButtonText {
   padding: 2px;
   margin: 0;
+  pointer-events: none;
 }
 
 .AccessButtonSubText {
@@ -37,6 +38,7 @@
   font-size: 0.6em;
   color: #eee;
   letter-spacing: 2px;
+  pointer-events: none;
 }
 
 .FullAccessButton div {

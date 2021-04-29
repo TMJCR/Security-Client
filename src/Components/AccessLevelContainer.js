@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AccessLevelContainer.css";
 import PasscodeMessage from "./PasscodeMessage";
 export default function AccessLevelContainer({
   data,
+  setData,
   passcodeMessage,
   setPasscodeMessage,
   seconds,
   setSeconds,
 }) {
+  const handleAccessLevel = (e) => {
+    fetch("http://localhost:5000/accessLevel", {
+      method: "PUT",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ accessLevel: e.target.dataset.accessLevel }),
+    })
+      .then((response) => response.json())
+      .then((JSONresponse) => {
+        console.log(data);
+        setData(JSONresponse);
+      });
+    console.log(e.target.dataset.accessLevel);
+  };
+
   return (
     <div
       className="
@@ -22,15 +40,27 @@ export default function AccessLevelContainer({
       </div>
       <div className="AccessLevelButtonContainer">
         <div className="AccessLevelButtons">
-          <button className="AccessButton FullAccessButton">
+          <button
+            onClick={(e) => handleAccessLevel(e)}
+            data-access-level="FullAccess"
+            className="AccessButton FullAccessButton"
+          >
             <div className="AccessButtonSubText">Access Level</div>
             <div className="AccessButtonText">Full Access</div>
           </button>
-          <button className="AccessButton RestrictedAccessButton">
+          <button
+            onClick={(e) => handleAccessLevel(e)}
+            data-access-level="Restricted"
+            className="AccessButton RestrictedAccessButton"
+          >
             <div className="AccessButtonSubText">Access Level</div>
             <div className="AccessButtonText">Restricted</div>
           </button>
-          <button className="AccessButton NoAccessButton">
+          <button
+            onClick={(e) => handleAccessLevel(e)}
+            className="AccessButton NoAccessButton"
+            data-access-level="NoAccess"
+          >
             <div className="AccessButtonSubText">Access Level</div>
             <div className="AccessButtonText">No Access</div>
           </button>

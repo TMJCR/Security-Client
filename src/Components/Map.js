@@ -27,21 +27,6 @@ export default function Map({
     door7: "",
   });
 
-  const [zone1Status, setzone1Status] = useState("");
-  const [alarm1Status, setalarm1Status] = useState("");
-  const [camera1Status, setaCamera1Status] = useState("");
-
-  const camera2Status = "Off";
-  const camera3Status = "Off";
-  const camera4Status = "Off";
-
-  const zone2Status = "";
-  const zone3Status = "";
-  const zone4Status = "";
-  const alarm2Status = "";
-  const alarm3Status = "";
-  const alarm4Status = "";
-
   const request = (url, body) => {
     fetch(url, {
       method: "PUT",
@@ -53,12 +38,14 @@ export default function Map({
     })
       .then((response) => response.json())
       .then((JSONresponse) => {
+        console.log(data);
         setData(JSONresponse);
         setPasscodeMessage(JSONresponse.testingMode.message);
         setSeconds(JSONresponse.testingMode.timeElapsed);
       });
   };
   const triggerSensor = async (e, state = "Alert") => {
+    console.log(e.currentTarget.id);
     const url = "http://localhost:5000/triggerSensor";
     const body = JSON.stringify({
       name: e.currentTarget.id,
@@ -80,11 +67,38 @@ export default function Map({
     request(url, body);
   };
 
+  const tryToOpenDoor = (e) => {
+    const doorNumber = e.target.id.slice(-1);
+    const doorLabel = `doorLabel${doorNumber}`;
+    const doorColorLabel = `door${doorNumber}`;
+    const door = findDoor(e);
+    const restricted = checkRestriction(door, data.restrictedZones);
+    const zone = `zones[zone${door.status.zone}].status`;
+
+    if (restricted) {
+      setDoorMessage({
+        ...doorMessage,
+        [doorLabel]: !doorMessage[doorLabel],
+      });
+      setDoorColors({
+        ...doorColors,
+        [doorColorLabel]: "red",
+      });
+    } else {
+      const newDoorColor = doorColors.door1 === "green" ? "" : "green";
+      setDoorColors({
+        ...doorColors,
+        [doorColorLabel]: newDoorColor,
+      });
+      openDoor(e.target.id, e.currentTarget.dataset.type, restricted);
+    }
+  };
+
   const openDoor = async (name, type, restricted) => {
     const doorNumber = name.slice(-1);
-    if (data.zones[`zone${doorNumber}`].status === "Alert") {
-      return;
-    }
+    // if (data.zones[`zone${doorNumber}`].status === "Alert") {
+    //   return;
+    // }
     fetch("http://localhost:5000/openDoor", {
       method: "PUT",
       mode: "cors",
@@ -116,36 +130,8 @@ export default function Map({
     return restricted;
   };
 
-  const tryToOpenDoor = (e) => {
-    const doorNumber = e.target.id.slice(-1);
-    const doorLabel = `doorLabel${doorNumber}`;
-    const doorColorLabel = `door${doorNumber}`;
-    const door = findDoor(e);
-    const restricted = checkRestriction(door, data.restrictedZones);
-    const zone = `zones[zone${door.status.zone}].status`;
-
-    if (restricted) {
-      setDoorMessage({
-        ...doorMessage,
-        [doorLabel]: !doorMessage[doorLabel],
-      });
-      setDoorColors({
-        ...doorColors,
-        [doorColorLabel]: "red",
-      });
-    } else {
-      const newDoorColor = doorColors.door1 === "green" ? "" : "green";
-      setDoorColors({
-        ...doorColors,
-        [doorColorLabel]: newDoorColor,
-      });
-      openDoor(e.target.id, e.currentTarget.dataset.type, restricted);
-    }
-  };
-
   const forceOpenDoor = (e) => {
     const door = findDoor(e);
-    console.log(e.target);
     const restricted = checkRestriction(door, data.restrictedZones);
     if (restricted) {
       openDoor(e.target.id, e.currentTarget.dataset.type, restricted);
@@ -4413,7 +4399,13 @@ export default function Map({
                 }}
                 id="triggerEXTZoneSensor1"
                 data-name="triggerEXTZoneSensor1"
-                className="cls-20"
+                className={
+                  data && data.zones.zone1.status === "Alert"
+                    ? "cls-20"
+                    : data && data.zones.zone1.status === "Unrestricted"
+                    ? "Unrestricted"
+                    : "cls-20"
+                }
                 cx="114.49"
                 cy="261.47"
                 r="86.3"
@@ -4423,14 +4415,22 @@ export default function Map({
               id="Sensor1"
               className={
                 data && data.zones.zone1.status === "Alert"
-                  ? "triggerZoneCenterActivated"
-                  : "triggerZoneCenter"
+                  ? "cls-21"
+                  : data && data.zones.zone1.status === "Unrestricted"
+                  ? "Unrestricted"
+                  : "cls-21"
               }
               data-type="Sensor"
               onMouseOver={(e) => triggerSensor(e, "Alert")}
             >
               <rect
-                className="cls-21"
+                className={
+                  data && data.zones.zone1.status === "Alert"
+                    ? "zoneAlert"
+                    : data && data.zones.zone1.status === "Unrestricted"
+                    ? "Unrestricted"
+                    : "cls-21"
+                }
                 x="54"
                 y="200.75"
                 width="121"
@@ -4696,7 +4696,16 @@ export default function Map({
               </text>
             </g>
             <g id="_1" data-name=" 1" className="cls-22">
-              <text className="cls-54" transform="translate(235.89 180.1)">
+              <text
+                className={
+                  data && data.zones.zone1.status === "Alert"
+                    ? "cls-54"
+                    : data && data.zones.zone1.status === "Unrestricted"
+                    ? "UnrestrictedNumber"
+                    : "cls-54"
+                }
+                transform="translate(235.89 180.1)"
+              >
                 1
               </text>
             </g>
@@ -4742,26 +4751,60 @@ export default function Map({
                 r="5.08"
               />
             </g>
-            <g id="triggerEXTZoneSensor3" className="triggerEXTZoneSensor">
+            <g className="triggerEXTZoneSensor">
               <circle
-                id="triggerEXTZoneSensor3-2"
+                onMouseOver={(e) => {
+                  proximityWarning(e);
+                }}
+                id="triggerEXTZoneSensor3"
                 data-name="triggerEXTZoneSensor3"
-                className="cls-20"
+                className={
+                  data && data.zones.zone3.status === "Alert"
+                    ? "cls-20"
+                    : data && data.zones.zone3.status === "Unrestricted"
+                    ? "Unrestricted"
+                    : "cls-20"
+                }
                 cx="658.49"
                 cy="430.47"
                 r="86.3"
               />
             </g>
-            <g id="triggerZone3" className="triggerZoneCenter">
+
+            <g
+              id="Sensor3"
+              className={
+                data && data.zones.zone3.status === "Alert"
+                  ? "cls-21"
+                  : data && data.zones.zone3.status === "Unrestricted"
+                  ? "Unrestricted"
+                  : "cls-21"
+              }
+              data-type="Sensor"
+              onMouseOver={(e) => triggerSensor(e, "Alert")}
+            >
               <rect
-                className="cls-21"
+                className={
+                  data && data.zones.zone3.status === "Alert"
+                    ? "zoneAlert"
+                    : data && data.zones.zone3.status === "Unrestricted"
+                    ? "Unrestricted"
+                    : "cls-21"
+                }
                 x="598"
                 y="369.75"
                 width="121"
                 height="121"
                 rx="60.5"
               />
-              <g id="alertSensor3" className="alertSensor">
+              <g
+                id="alertSensor3"
+                className={
+                  data && data.zones.zone3.status === "Alert"
+                    ? ""
+                    : "alertSensorOff"
+                }
+              >
                 <g id="Symbol-2" data-name="Symbol">
                   <g
                     id="SYSTEMS_STATE-2"
@@ -5017,7 +5060,16 @@ export default function Map({
               </text>
             </g>
             <g id="_1-2" data-name=" 1" className="cls-22">
-              <text className="cls-54" transform="translate(779.89 349.1)">
+              <text
+                className={
+                  data && data.zones.zone3.status === "Alert"
+                    ? "cls-54"
+                    : data && data.zones.zone3.status === "Unrestricted"
+                    ? "UnrestrictedNumber"
+                    : "cls-54"
+                }
+                transform="translate(779.89 349.1)"
+              >
                 3
               </text>
             </g>
@@ -5063,19 +5115,47 @@ export default function Map({
                 r="5.08"
               />
             </g>
-            <g id="triggerEXTZoneSensor4" className="triggerEXTZoneSensor">
+
+            <g className="triggerEXTZoneSensor">
               <circle
-                id="triggerEXTZoneSensor4-2"
+                onMouseOver={(e) => {
+                  proximityWarning(e);
+                }}
+                id="triggerEXTZoneSensor4"
                 data-name="triggerEXTZoneSensor4"
-                className="cls-20"
+                className={
+                  data && data.zones.zone4.status === "Alert"
+                    ? "cls-20"
+                    : data && data.zones.zone4.status === "Unrestricted"
+                    ? "Unrestricted"
+                    : "cls-20"
+                }
                 cx="931.49"
                 cy="250.47"
                 r="86.3"
               />
             </g>
-            <g id="triggerZone4" className="triggerZoneCenter">
+
+            <g
+              id="Sensor4"
+              className={
+                data && data.zones.zone4.status === "Alert"
+                  ? "cls-21"
+                  : data && data.zones.zone4.status === "Unrestricted"
+                  ? "Unrestricted"
+                  : "cls-21"
+              }
+              data-type="Sensor"
+              onMouseOver={(e) => triggerSensor(e, "Alert")}
+            >
               <rect
-                className="cls-21"
+                className={
+                  data && data.zones.zone4.status === "Alert"
+                    ? "zoneAlert"
+                    : data && data.zones.zone4.status === "Unrestricted"
+                    ? "Unrestricted"
+                    : "cls-21"
+                }
                 x="871"
                 y="189.75"
                 width="121"
@@ -5085,7 +5165,11 @@ export default function Map({
 
               <g
                 id="alertSensor4"
-                className="alertSensor"
+                className={
+                  data && data.zones.zone4.status === "Alert"
+                    ? ""
+                    : "alertSensorOff"
+                }
                 transform="translate(10 40)"
               >
                 <g id="Symbol-3-3" data-name="Symbol">
@@ -5343,7 +5427,16 @@ export default function Map({
               </text>
             </g>
             <g id="_1-3" data-name=" 1" className="cls-22">
-              <text className="cls-57" transform="translate(1004.89 169.1)">
+              <text
+                className={
+                  data && data.zones.zone4.status === "Alert"
+                    ? "cls-57"
+                    : data && data.zones.zone4.status === "Unrestricted"
+                    ? "UnrestrictedNumber"
+                    : "cls-57"
+                }
+                transform="translate(1004.89 169.1)"
+              >
                 4
               </text>
             </g>
@@ -5389,26 +5482,61 @@ export default function Map({
                 r="5.08"
               />
             </g>
-            <g id="triggerEXTZoneSensor2" className="triggerEXTZoneSensor">
+
+            <g className="triggerEXTZoneSensor">
               <circle
-                id="triggerEXTZoneSensor2-2"
+                onMouseOver={(e) => {
+                  proximityWarning(e);
+                }}
+                id="triggerEXTZoneSensor2"
                 data-name="triggerEXTZoneSensor2"
-                className="cls-20"
+                className={
+                  data && data.zones.zone2.status === "Alert"
+                    ? "cls-20"
+                    : data && data.zones.zone2.status === "Unrestricted"
+                    ? "Unrestricted"
+                    : "cls-20"
+                }
                 cx="656.49"
                 cy="144.47"
                 r="86.3"
               />
             </g>
-            <g id="triggerZone2" className="triggerZoneCenter">
+
+            <g
+              id="Sensor2"
+              className={
+                data && data.zones.zone2.status === "Alert"
+                  ? "cls-21"
+                  : data && data.zones.zone2.status === "Unrestricted"
+                  ? "Unrestricted"
+                  : "cls-21"
+              }
+              data-type="Sensor"
+              onMouseOver={(e) => triggerSensor(e, "Alert")}
+            >
               <rect
-                className="cls-21"
+                className={
+                  data && data.zones.zone2.status === "Alert"
+                    ? "zoneAlert"
+                    : data && data.zones.zone2.status === "Unrestricted"
+                    ? "Unrestricted"
+                    : "cls-21"
+                }
                 x="596"
                 y="83.75"
                 width="121"
                 height="121"
                 rx="60.5"
               />
-              <g id="alertSensor2" className="alertSensor">
+              <g
+                id="alertSensor2"
+                className={
+                  data && data.zones.zone2.status === "Alert"
+                    ? ""
+                    : "alertSensorOff"
+                }
+              >
                 <g id="Symbol-4" data-name="Symbol">
                   <g
                     id="SYSTEMS_STATE-4"
@@ -5664,7 +5792,16 @@ export default function Map({
               </text>
             </g>
             <g id="_1-4" data-name=" 1" className="cls-22">
-              <text className="cls-57" transform="translate(548.89 163.1)">
+              <text
+                className={
+                  data && data.zones.zone2.status === "Alert"
+                    ? "cls-57"
+                    : data && data.zones.zone2.status === "Unrestricted"
+                    ? "UnrestrictedNumber"
+                    : "cls-57"
+                }
+                transform="translate(548.89 163.1)"
+              >
                 2
               </text>
             </g>
@@ -12029,7 +12166,9 @@ export default function Map({
             id="AlarmAlert2"
             data-name="Rectangle 537"
             className={
-              alarm2Status === "Alert" ? "cls-64 alarmAlert" : "cls-64"
+              data && data.alarms[1].status.currentStatus === "Alert"
+                ? "cls-64 alarmAlert"
+                : "cls-64"
             }
             x="396"
             y="189.02"
@@ -12801,7 +12940,9 @@ export default function Map({
             id="AlarmAlert4"
             data-name="Rectangle 537"
             className={
-              alarm4Status === "Alert" ? "cls-64 alarmAlert" : "cls-64"
+              data && data.alarms[3].status.currentStatus === "Alert"
+                ? "cls-64 alarmAlert"
+                : "cls-64"
             }
             x="866"
             y="474.02"
@@ -13583,7 +13724,9 @@ export default function Map({
             id="AlarmAlert3"
             data-name="Rectangle 537"
             className={
-              alarm3Status === "Alert" ? "cls-64 alarmAlert" : "cls-64"
+              data && data.alarms[2].status.currentStatus === "Alert"
+                ? "cls-64 alarmAlert"
+                : "cls-64"
             }
             x="388"
             y="469.02"
@@ -14365,7 +14508,11 @@ export default function Map({
         <g id="Cameras">
           <g
             id="Camera4"
-            className={camera4Status === "Recording" ? "" : "CameraSVGOff"}
+            className={
+              data && data.cameras[3].status.currentStatus === "Recording"
+                ? ""
+                : "CameraSVGOff"
+            }
           >
             <g id="HTML_JUMBLE_2-2" data-name="HTML JUMBLE 2-2">
               <circle
@@ -14401,7 +14548,11 @@ export default function Map({
           </g>
           <g
             id="Camera3"
-            className={camera3Status === "Recording" ? "" : "CameraSVGOff"}
+            className={
+              data && data.cameras[2].status.currentStatus === "Recording"
+                ? ""
+                : "CameraSVGOff"
+            }
           >
             <g id="HTML_JUMBLE_2-2-2" data-name="HTML JUMBLE 2-2">
               <circle
@@ -14437,7 +14588,11 @@ export default function Map({
           </g>
           <g
             id="Camera2"
-            className={camera2Status === "Recording" ? "" : "CameraSVGOff"}
+            className={
+              data && data.cameras[1].status.currentStatus === "Recording"
+                ? ""
+                : "CameraSVGOff"
+            }
           >
             <g id="HTML_JUMBLE_2-2-4" data-name="HTML JUMBLE 2-2">
               <circle
@@ -14518,23 +14673,43 @@ export default function Map({
             className={
               data && data.zones.zone1.status === "Alert"
                 ? "zoneAlert"
+                : data && data.zones.zone1.status === "Unrestricted"
+                ? "UnrestrictedZone"
                 : "cls-11"
             }
             points="379.4 20.35 379.32 160.55 368.2 169.15 368.2 199.72 379.32 205.71 378.92 233.99 373.29 238.79 372.55 272.52 368.2 275.13 368.2 325.15 378.01 330.16 378.41 360.52 370.93 366.36 370.93 399.15 373.8 400.84 373.29 449 367.4 452.35 367.4 481.85 372.82 487.57 373 521.95 367.55 521.95 341 461.15 340.2 460.35 339.4 460.35 156.81 460.35 68.2 382.75 4.2 382.75 3.4 382.75 3.4 379.55 4.2 157.15 6.6 157.15 69 157.15 162.6 77.95 162.6 77.95 162.6 77.15 163.4 20.35 379.4 20.35"
           />
           <polygon
             id="zone2"
-            className={zone2Status === "Alert" ? "zoneAlert" : "cls-11"}
+            className={
+              data && data.zones.zone2.status === "Alert"
+                ? "zoneAlert"
+                : data && data.zones.zone2.status === "Unrestricted"
+                ? "UnrestrictedZone"
+                : "cls-11"
+            }
             points="379.94 20.35 849.8 20.35 849.8 231.55 849.8 231.55 849.8 231.93 849.8 260.31 837 269.95 782.87 269.95 779.4 265.15 729 265.15 613.58 265.6 591.25 246.56 469.21 245.24 455.89 259.73 373.29 259.76 373.8 239.55 380.2 233.95 380.2 205.15 369 198.75 369 197.68 369 169.22 380.18 160.55 379.94 20.35"
           />
           <polygon
             id="zone3"
-            className={zone3Status === "Alert" ? "zoneAlert" : "cls-11"}
+            className={
+              data && data.zones.zone3.status === "Alert"
+                ? "zoneAlert"
+                : data && data.zones.zone3.status === "Unrestricted"
+                ? "UnrestrictedZone"
+                : "cls-11"
+            }
             points="373 260.35 456.2 260.35 469.8 245.95 580.59 247.04 591.25 247.43 613.4 266.43 778.6 265.95 779.4 265.95 782.6 270.75 837.14 270.75 850.6 260.73 860.75 275.13 861 522.75 861 523.55 373.45 521.95 373.8 489.95 373.8 487.55 373.8 487.55 373.8 486.75 368.2 481.15 368.2 452.35 373.8 449.15 374.6 400.35 371.4 398.75 371.4 366.75 379.4 360.35 379.4 348.35 378.6 329.15 369 324.35 369 275.41 373.29 272.52 373 260.35"
           />
           <polygon
             id="zone4"
-            className={zone4Status === "Alert" ? "zoneAlert" : "cls-11"}
+            className={
+              data && data.zones.zone4.status === "Alert"
+                ? "zoneAlert"
+                : data && data.zones.zone4.status === "Unrestricted"
+                ? "UnrestrictedZone"
+                : "cls-11"
+            }
             points="861.8 523.55 1040.2 523.55 1040.2 452.35 1040.2 429.95 1040.2 20.35 1037.66 20.35 850.6 20.35 850.6 260.34 857 269.15 861 274.75 861 275.55 861.8 523.55"
           />
         </g>
