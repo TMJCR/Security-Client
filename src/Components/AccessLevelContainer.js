@@ -20,10 +20,8 @@ export default function AccessLevelContainer({
     })
       .then((response) => response.json())
       .then((JSONresponse) => {
-        console.log(data);
         setData(JSONresponse);
       });
-    console.log(e.target.dataset.accessLevel);
   };
 
   return (

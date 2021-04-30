@@ -16,7 +16,7 @@ export default function KeypadContainer({ activityLog }) {
               .slice(0)
               .reverse()
               .map((log, idx) => (
-                <li className="Log" key={log._id}>
+                <li className={`Log Log${log.type}`} key={log._id}>
                   <div>{log.date.slice(0, 10)}</div>
                   <div>{log.date.slice(11, -5)}:GMT</div>
                   <div>{log.log}</div>

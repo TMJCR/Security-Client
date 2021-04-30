@@ -70,3 +70,9 @@
 .OK {
   color: var(--security-green);
 }
+button:disabled {
+  color: var(--security-light-grey);
+}
+.Changed {
+  opacity: 1;
+}

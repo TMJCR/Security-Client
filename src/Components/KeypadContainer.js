@@ -7,6 +7,12 @@ export default function KeypadContainer({ data, setData, setPasscodeMessage }) {
   });
   const [activeDigit, setActiveDigit] = useState(null);
   const submitPasscode = async () => {
+    const submittedPasscode = passcode;
+    setPasscode({
+      increment: 0,
+      currentPasscode: ["X", "X", "X", "X"],
+    });
+    setActiveDigit(null);
     fetch("http://localhost:5000/keypad", {
       method: "PUT",
       mode: "cors",
@@ -14,7 +20,7 @@ export default function KeypadContainer({ data, setData, setPasscodeMessage }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        passcode,
+        passcode: submittedPasscode,
       }),
     })
       .then((response) => response.json())
@@ -52,22 +58,46 @@ export default function KeypadContainer({ data, setData, setPasscodeMessage }) {
         </div>
         <div className="KeypadInputs">
           <div
-            className={activeDigit === 0 ? "Active KeypadInput" : "KeypadInput"}
+            className={
+              activeDigit === 0
+                ? "Active Changed KeypadInput"
+                : passcode.currentPasscode[0] !== "X"
+                ? "Changed KeypadInput"
+                : "KeypadInput"
+            }
           >
             {passcode.currentPasscode[0]}
           </div>
           <div
-            className={activeDigit === 1 ? "Active KeypadInput" : "KeypadInput"}
+            className={
+              activeDigit === 1
+                ? "Active Changed KeypadInput"
+                : passcode.currentPasscode[1] !== "X"
+                ? "Changed KeypadInput"
+                : "KeypadInput"
+            }
           >
             {passcode.currentPasscode[1]}
           </div>
           <div
-            className={activeDigit === 2 ? "Active KeypadInput" : "KeypadInput"}
+            className={
+              activeDigit === 2
+                ? "Active Changed KeypadInput"
+                : passcode.currentPasscode[2] !== "X"
+                ? "Changed KeypadInput"
+                : "KeypadInput"
+            }
           >
             {passcode.currentPasscode[2]}
           </div>
           <div
-            className={activeDigit === 3 ? "Active KeypadInput" : "KeypadInput"}
+            className={
+              activeDigit === 3
+                ? "Active Changed KeypadInput"
+                : passcode.currentPasscode[3] !== "X"
+                ? "Changed KeypadInput"
+                : "KeypadInput"
+            }
           >
             {passcode.currentPasscode[3]}
           </div>
@@ -145,7 +175,11 @@ export default function KeypadContainer({ data, setData, setPasscodeMessage }) {
           >
             8
           </button>{" "}
-          <button onClick={(e) => submitPasscode()} className="KeypadNumber OK">
+          <button
+            disabled={!(activeDigit === 0 || activeDigit === 3)}
+            onClick={(e) => submitPasscode()}
+            className="KeypadNumber OK"
+          >
             OK
           </button>
         </div>

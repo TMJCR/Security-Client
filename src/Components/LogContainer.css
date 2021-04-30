@@ -20,3 +20,18 @@
   grid-template-columns: 1fr 1fr 6fr;
   color: var(--security-light-grey);
 }
+
+.LogSuccess {
+  color: var(--security-green);
+}
+.LogAlert {
+  color: var(--security-red);
+}
+
+.LogWarning {
+  color: var(--security-amber);
+}
+
+.LogInformational {
+  color: var(--security-);
+}

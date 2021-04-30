@@ -45,7 +45,6 @@ export default function Map({
       });
   };
   const triggerSensor = async (e, state = "Alert") => {
-    console.log(e.currentTarget.id);
     const url = "http://localhost:5000/triggerSensor";
     const body = JSON.stringify({
       name: e.currentTarget.id,
