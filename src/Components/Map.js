@@ -17,16 +17,6 @@ export default function Map({
     doorLabel7: false,
   });
 
-  const [doorColors, setDoorColors] = useState({
-    door1: "",
-    door2: "",
-    door3: "",
-    door4: "",
-    door5: "",
-    door6: "",
-    door7: "",
-  });
-
   const request = (url, body) => {
     fetch(url, {
       method: "PUT",
@@ -79,16 +69,7 @@ export default function Map({
         ...doorMessage,
         [doorLabel]: !doorMessage[doorLabel],
       });
-      setDoorColors({
-        ...doorColors,
-        [doorColorLabel]: "red",
-      });
     } else {
-      const newDoorColor = doorColors.door1 === "green" ? "" : "green";
-      setDoorColors({
-        ...doorColors,
-        [doorColorLabel]: newDoorColor,
-      });
       openDoor(e.target.id, e.currentTarget.dataset.type, restricted);
     }
   };
@@ -5823,7 +5804,9 @@ export default function Map({
             }}
             id="DoorSensor2"
             data-type="DoorSensor"
-            className="doorSensorSVG"
+            className={`${
+              data && data.doorSensors[1].status.color
+            } doorSensorSVG`}
           >
             <g className="cls-59">
               <g id="LINE_TEXTURE" data-name="LINE TEXTURE" className="cls-60">
@@ -6615,7 +6598,7 @@ export default function Map({
             }}
             id="DoorSensor5"
             data-type="DoorSensor"
-            className="doorSensorSVG"
+            className={`doorSensorSVG `}
           >
             <g className="cls-71">
               <g
@@ -7411,7 +7394,7 @@ export default function Map({
             }}
             id="DoorSensor7"
             data-type="DoorSensor"
-            className="doorSensorSVG"
+            className={`doorSensorSVG `}
           >
             <g className="cls-76">
               <g
@@ -8200,7 +8183,7 @@ export default function Map({
             }}
             id="DoorSensor1"
             data-type="DoorSensor"
-            className={`doorSensorSVG ${doorColors.door1}`}
+            className={`doorSensorSVG `}
           >
             <g className="cls-78">
               <g
@@ -9003,7 +8986,7 @@ export default function Map({
             }}
             id="DoorSensor3"
             data-type="DoorSensor"
-            className="doorSensorSVG"
+            className={`doorSensorSVG `}
           >
             <g className="cls-80">
               <g
@@ -9799,7 +9782,7 @@ export default function Map({
             }}
             id="DoorSensor6"
             data-type="DoorSensor"
-            className="doorSensorSVG"
+            className={`doorSensorSVG `}
           >
             <g className="cls-82">
               <g
@@ -10595,7 +10578,7 @@ export default function Map({
             }}
             id="DoorSensor4"
             data-type="DoorSensor"
-            className="doorSensorSVG"
+            className={`doorSensorSVG `}
           >
             <g className="cls-91">
               <g

@@ -41,6 +41,7 @@
 .Unrestricted {
   fill: var(--security-green);
   opacity: 0.1;
+  pointer-events: none;
 }
 
 .UnrestrictedNumber {
@@ -52,6 +53,7 @@
   stroke: var(--security-green);
   stroke-width: 15px;
   stroke-opacity: 0.5;
+  pointer-events: stroke;
 }
 
 .alarmAlert {
