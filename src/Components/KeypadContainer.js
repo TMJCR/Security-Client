@@ -41,6 +41,17 @@ export default function KeypadContainer({ data, setData, setPasscodeMessage }) {
       currentPasscode: newPasscode,
     });
   };
+
+  const handleAnswerChange = (e) => {
+    const validkeys = ["1", "2", "3", "4", "5", "6", "7", "8"];
+    if (validkeys.indexOf(e.key) >= 0) {
+      const keypadEntryProxy = { target: { dataset: { number: e.key } } };
+      handlePasscodeInput(keypadEntryProxy);
+    } else if (!passcode.currentPasscode.includes("X") && e.key === "Enter") {
+      submitPasscode();
+    }
+  };
+
   return (
     <div
       className="
@@ -182,6 +193,13 @@ export default function KeypadContainer({ data, setData, setPasscodeMessage }) {
           >
             OK
           </button>
+          <input
+            autoFocus={true}
+            type="text"
+            onBlur={({ target }) => target.focus()}
+            onKeyPress={handleAnswerChange}
+            maxLength="4"
+          />
         </div>
       </div>
     </div>
