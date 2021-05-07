@@ -6,6 +6,8 @@ export default function Map({
   setPasscodeMessage,
   seconds,
   setSeconds,
+  reboot,
+  setReboot,
 }) {
   const [doorMessage, setDoorMessage] = useState({
     doorLabel1: false,
@@ -32,6 +34,7 @@ export default function Map({
         setData(JSONresponse);
         setPasscodeMessage(JSONresponse.testingMode.message);
         setSeconds(JSONresponse.testingMode.timeElapsed);
+        setReboot(false);
       });
   };
   const triggerSensor = async (e, state = "Alert") => {
@@ -373,7 +376,8 @@ export default function Map({
             transform="translate(0 16.75)"
           />
         </g>
-        <g id="OuterWalls" className="cls-4">
+        <g id="OuterWalls" className={reboot ? "rebootOuter cls-4 " : "cls-4"}>
+          {" "}
           <line
             className="cls-5"
             x1="1040.6"
@@ -470,7 +474,6 @@ export default function Map({
             className="cls-5"
             points="1040.6 470.88 912.05 470.88 912.05 521.15"
           />
-
           <polyline
             className="cls-5"
             points="159.98 364.47 71.57 364.47 71.57 384.69"
@@ -544,7 +547,10 @@ export default function Map({
             points="913 153.15 923.23 153.15 923.23 205.92 939.4 205.92 939.4 214.07"
           />
         </g>
-        <g id="ThickInnerWalls" className="cls-7">
+        <g
+          id="ThickInnerWalls"
+          className={reboot ? "cls-7 rebootOuter" : "cls-7"}
+        >
           <polyline
             className="cls-8"
             points="484.2 160.35 484.2 221.7 631.83 221.7 631.83 147.39 498.64 146.61"
@@ -846,7 +852,7 @@ export default function Map({
             points="913 141.15 923.23 141.15 923.23 130.36 979.27 130.36 979.27 121.67"
           />
         </g>
-        <g id="Surface">
+        <g id="Surface" className={reboot ? "rebootInner" : ""}>
           <g id="Group_868" data-name="Group 868" className="cls-10">
             <ellipse
               id="Ellipse_73"
@@ -6598,7 +6604,9 @@ export default function Map({
             }}
             id="DoorSensor5"
             data-type="DoorSensor"
-            className={`doorSensorSVG `}
+            className={`${
+              data && data.doorSensors[4].status.color
+            } doorSensorSVG`}
           >
             <g className="cls-71">
               <g
@@ -7394,7 +7402,9 @@ export default function Map({
             }}
             id="DoorSensor7"
             data-type="DoorSensor"
-            className={`doorSensorSVG `}
+            className={`${
+              data && data.doorSensors[6].status.color
+            } doorSensorSVG`}
           >
             <g className="cls-76">
               <g
@@ -8183,7 +8193,9 @@ export default function Map({
             }}
             id="DoorSensor1"
             data-type="DoorSensor"
-            className={`doorSensorSVG `}
+            className={`${
+              data && data.doorSensors[0].status.color
+            } doorSensorSVG`}
           >
             <g className="cls-78">
               <g
@@ -8986,7 +8998,9 @@ export default function Map({
             }}
             id="DoorSensor3"
             data-type="DoorSensor"
-            className={`doorSensorSVG `}
+            className={`${
+              data && data.doorSensors[2].status.color
+            } doorSensorSVG`}
           >
             <g className="cls-80">
               <g
@@ -9782,7 +9796,9 @@ export default function Map({
             }}
             id="DoorSensor6"
             data-type="DoorSensor"
-            className={`doorSensorSVG `}
+            className={`${
+              data && data.doorSensors[5].status.color
+            } doorSensorSVG`}
           >
             <g className="cls-82">
               <g
@@ -10578,7 +10594,9 @@ export default function Map({
             }}
             id="DoorSensor4"
             data-type="DoorSensor"
-            className={`doorSensorSVG `}
+            className={`${
+              data && data.doorSensors[3].status.color
+            } doorSensorSVG`}
           >
             <g className="cls-91">
               <g

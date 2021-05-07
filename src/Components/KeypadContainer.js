@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import "./KeypadContainer.css";
-export default function KeypadContainer({ data, setData, setPasscodeMessage }) {
+export default function KeypadContainer({
+  data,
+  setData,
+  setPasscodeMessage,
+  setReboot,
+}) {
   const [passcode, setPasscode] = useState({
     increment: 0,
     currentPasscode: ["X", "X", "X", "X"],
@@ -27,6 +32,7 @@ export default function KeypadContainer({ data, setData, setPasscodeMessage }) {
       .then((JSONresponse) => {
         setData(JSONresponse);
         setPasscodeMessage("");
+        setReboot(true);
       });
   };
 
@@ -194,6 +200,7 @@ export default function KeypadContainer({ data, setData, setPasscodeMessage }) {
             OK
           </button>
           <input
+            className="KeypadTextInput"
             autoFocus={true}
             type="text"
             onBlur={({ target }) => target.focus()}

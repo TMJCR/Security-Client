@@ -114,3 +114,31 @@ line {
   stroke-width: 2px;
   stroke: #fff;
 }
+
+.rebootInner {
+  animation: rebootAnimationInner 3s linear;
+}
+.rebootOuter {
+  animation: rebootAnimationOuter 3s linear;
+}
+@keyframes rebootAnimationOuter {
+  0% {
+    stroke-dasharray: 150;
+  }
+
+  100% {
+    stroke-dashoffset: 800;
+    stroke-dasharray: 100;
+  }
+}
+
+@keyframes rebootAnimationInner {
+  0% {
+    stroke-dasharray: 150;
+  }
+
+  100% {
+    stroke-dashoffset: 200;
+    stroke-dasharray: 100;
+  }
+}

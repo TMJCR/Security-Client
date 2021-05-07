@@ -16,6 +16,7 @@ export default function SecuritySystem({
   cameraMessage,
 }) {
   const [seconds, setSeconds] = useState(15);
+  const [reboot, setReboot] = useState(false);
   return (
     <div>
       <div className="wrapper">
@@ -33,6 +34,7 @@ export default function SecuritySystem({
           data={data}
           setData={setData}
           setPasscodeMessage={setPasscodeMessage}
+          setReboot={setReboot}
         ></KeypadContainer>
         <MapContainer
           data={data}
@@ -40,6 +42,8 @@ export default function SecuritySystem({
           setPasscodeMessage={setPasscodeMessage}
           seconds={seconds}
           setSeconds={setSeconds}
+          reboot={reboot}
+          setReboot={setReboot}
         ></MapContainer>
         <LogContainer activityLog={activityLog}></LogContainer>
       </div>

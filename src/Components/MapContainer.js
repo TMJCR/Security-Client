@@ -8,6 +8,8 @@ export default function MapContainer({
   setPasscodeMessage,
   seconds,
   setSeconds,
+  reboot,
+  setReboot,
 }) {
   return (
     <div
@@ -21,6 +23,8 @@ export default function MapContainer({
         setPasscodeMessage={setPasscodeMessage}
         seconds={seconds}
         setSeconds={setSeconds}
+        reboot={reboot}
+        setReboot={setReboot}
       ></Map>
     </div>
   );
