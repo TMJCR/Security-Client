@@ -30,9 +30,14 @@ export default function KeypadContainer({
     })
       .then((response) => response.json())
       .then((JSONresponse) => {
-        setData(JSONresponse);
-        setPasscodeMessage("");
-        setReboot(true);
+        if (JSONresponse.error) {
+          setPasscodeMessage(data && data.testingMode.message);
+          console.log(`JSONresponse.error`, JSONresponse.error, data);
+        } else {
+          setData(JSONresponse);
+          setPasscodeMessage("");
+          setReboot(true);
+        }
       });
   };
 
@@ -49,6 +54,18 @@ export default function KeypadContainer({
   };
 
   const handleAnswerChange = (e) => {
+    const unfilledPasscode = (value) => value === "X";
+    if (
+      !passcode.currentPasscode.every(unfilledPasscode) &&
+      e.key === "Backspace" &&
+      activeDigit > 0
+    ) {
+      setActiveDigit(activeDigit - 1);
+      setPasscode({
+        increment: passcode.increment - 1,
+        currentPasscode: passcode.currentPasscode,
+      });
+    }
     const validkeys = ["1", "2", "3", "4", "5", "6", "7", "8"];
     if (validkeys.indexOf(e.key) >= 0) {
       const keypadEntryProxy = { target: { dataset: { number: e.key } } };
@@ -204,7 +221,7 @@ export default function KeypadContainer({
             autoFocus={true}
             type="text"
             onBlur={({ target }) => target.focus()}
-            onKeyPress={handleAnswerChange}
+            onKeyDown={handleAnswerChange}
             maxLength="4"
           />
         </div>

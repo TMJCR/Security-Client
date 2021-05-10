@@ -1,13 +1,13 @@
+.Floorplan {
+  padding: 1em;
+}
+
 .doorSensorSVG {
   pointer-events: bounding-box;
 }
 .triggerZone .triggerEXTZoneSensor {
   opacity: 1;
 }
-
-/* .triggerEXTZoneSensor circle {
-  pointer-events: none;
-} */
 
 .alertSensorOff {
   display: none;

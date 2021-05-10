@@ -6,8 +6,9 @@
 }
 
 .AccessLevelButtonContainer {
-  display: flex;
-  justify-content: space-evenly;
+  min-height: 120px;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
   align-items: center;
   margin: 1em;
 }

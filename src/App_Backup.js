@@ -169,7 +169,7 @@ export default function App() {
             ))}
         </ul>
       )}
-      <img alt="Clock" src={require("../src/SecurityFloorPlan.svg")} />
+      <img alt="FloorPlan" src={require("../src/SecurityFloorPlan.svg")} />
     </div>
   );
 }
