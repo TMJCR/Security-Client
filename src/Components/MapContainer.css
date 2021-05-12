@@ -142,3 +142,9 @@ line {
     stroke-dasharray: 100;
   }
 }
+
+@media (max-width: 800px) {
+  .Floorplan {
+    padding: 0;
+  }
+}

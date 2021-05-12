@@ -11,3 +11,14 @@
   text-align: end;
   opacity: 0.5;
 }
+
+@media (max-width: 800px) {
+  .ModuleStatusLoader {
+    text-align: right;
+    font-size: 0.8em;
+  }
+  .ModuleStatusTitle {
+    font-size: 1.2em;
+    text-align: center;
+  }
+}

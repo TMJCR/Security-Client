@@ -34,3 +34,25 @@
 .ModuleStatusList .grey {
   background-color: var(--security-grey);
 }
+
+@media (max-width: 800px) {
+  .ModuleStatusList {
+    margin: 5px;
+    font-size: 1.2em;
+    letter-spacing: 0.12em;
+    justify-content: space-between;
+  }
+
+  .ModuleStatusStatus {
+    margin-left: 1em;
+    display: inline-block;
+    width: 1.3em;
+    padding: 3px;
+    border-radius: 100%;
+  }
+
+  .ModuleStatusText {
+    font-size: 0.6em;
+    margin-right: 1em;
+  }
+}

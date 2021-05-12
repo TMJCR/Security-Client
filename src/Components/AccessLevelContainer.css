@@ -5,7 +5,12 @@
   color: var(--security-green);
 }
 
+.ConsoleType {
+  font-size: 0.95em;
+}
+
 .AccessLevelButtonContainer {
+  cursor: pointer;
   min-height: 120px;
   display: grid;
   grid-template-columns: 4fr 1fr;
@@ -14,6 +19,7 @@
 }
 
 .AccessButton {
+  cursor: pointer;
   margin: 1em;
   height: 100%;
   min-width: 180px;
@@ -71,7 +77,7 @@
     width: 0;
   }
   to {
-    width: 80%;
+    width: 90%;
   }
 }
 
@@ -83,5 +89,30 @@
   }
   50% {
     border-color: var(--security-green);
+  }
+}
+
+@media (max-width: 800px) {
+  .AccessLevelButtonContainer {
+    cursor: pointer;
+    min-height: auto;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    align-items: center;
+    margin: 1em;
+  }
+
+  .AccessButton {
+    font-size: 10px;
+    cursor: pointer;
+    margin: 1em;
+    min-width: auto;
+    padding: 0;
+  }
+
+  .ConsoleType {
+    font-size: 10px;
+    overflow: scroll;
+    max-width: 90%;
   }
 }

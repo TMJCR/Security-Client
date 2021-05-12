@@ -187,7 +187,7 @@
 .cls-73,
 .cls-84,
 .cls-93 {
-  font-family: Industry-Light, Industry;
+  font-family: Industry-Light, Industry, monospace;
   font-weight: 300;
 }
 .cls-23,
@@ -215,7 +215,7 @@
 .cls-43,
 .cls-44,
 .cls-48 {
-  font-family: Industry-Medium, Industry;
+  font-family: Industry-Medium, Industry, monospace;
   font-weight: 500;
 }
 .cls-29 {
@@ -288,7 +288,7 @@
 .cls-54,
 .cls-57 {
   font-size: 33.82px;
-  font-family: Industry-Bold, Industry;
+  font-family: Industry-Bold, Industry, monospace;
   font-weight: 700;
 }
 .cls-54 {
@@ -413,7 +413,7 @@
 }
 .cls-96 {
   font-size: 20.7px;
-  font-family: Industry-Book, Industry;
+  font-family: Industry-Book, Industry, monospace;
   letter-spacing: -0.01em;
 }
 .cls-97 {

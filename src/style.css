@@ -1,10 +1,12 @@
 body {
   padding: 50px;
-  font: 18px "Industry", Helvetica, Arial, sans-serif;
+  font: 18px "Industry", monospace, Helvetica, Arial, sans-serif;
 }
+
 .App {
   /* display: flex;
   flex-wrap: wrap; */
+  max-width: 1500px;
 }
 
 a {

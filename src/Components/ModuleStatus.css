@@ -17,3 +17,25 @@
   font-size: 0.4em;
   color: var(--security-red);
 }
+
+@media (max-width: 800px) {
+  .ModuleContainer {
+    text-align: left;
+  }
+  .ModuleTypeLowerText {
+    font-size: 0.8em;
+
+    letter-spacing: 3px;
+    text-align: center;
+  }
+  .ModuleTypeUpperText {
+    font-size: 0.6em;
+    margin: 0 0.5em;
+    letter-spacing: 3px;
+    text-align: center;
+  }
+  .ModuleType {
+    font-size: 1.3em;
+    text-align: center;
+  }
+}

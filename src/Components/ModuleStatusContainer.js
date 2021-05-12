@@ -11,15 +11,32 @@ export default function KeypadContainer({ data }) {
       </div>
       {data && (
         <div>
-          <ModuleStatus data={data.cameras} type="Cameras"></ModuleStatus>
-          <ModuleStatus data={data.sensors} type="Sensors"></ModuleStatus>
+          <ModuleStatus
+            data={data.cameras}
+            type="Cameras"
+            lastSync={data.lastSync}
+          ></ModuleStatus>
+          <ModuleStatus
+            data={data.sensors}
+            type="Sensors"
+            lastSync={data.lastSync}
+          ></ModuleStatus>
           <ModuleStatus
             data={data.doorSensors}
             type="DoorSensors"
+            lastSync={data.lastSync}
           ></ModuleStatus>
 
-          <ModuleStatus data={data.alarms} type="Alarms"></ModuleStatus>
-          <ModuleStatus data={data.keypads} type="Keypads"></ModuleStatus>
+          <ModuleStatus
+            data={data.alarms}
+            type="Alarms"
+            lastSync={data.lastSync}
+          ></ModuleStatus>
+          <ModuleStatus
+            data={data.keypads}
+            type="Keypads"
+            lastSync={data.lastSync}
+          ></ModuleStatus>
         </div>
       )}
     </div>
