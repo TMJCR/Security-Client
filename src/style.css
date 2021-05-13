@@ -6,7 +6,9 @@ body {
 .App {
   /* display: flex;
   flex-wrap: wrap; */
-  max-width: 1500px;
+  /* max-width: 1500px;
+  margin: 0 auto;
+  padding: 20px; */
 }
 
 a {
@@ -58,7 +60,7 @@ button {
   text-decoration: none;
   background: #0069ed;
   color: #ffffff;
-  font-family: "Industry";
+  font-family: "Industry", monospace;
   text-transform: uppercase;
   font-size: 1em;
   cursor: pointer;

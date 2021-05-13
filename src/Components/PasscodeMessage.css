@@ -26,3 +26,20 @@
   font-size: 1.4em;
   letter-spacing: 5px;
 }
+
+@media (max-width: 1024px) {
+  .PasscodeMessagePasscode {
+    font-size: 1em;
+  }
+  .PasscodeMessageTitle {
+    font-size: 0.7em;
+  }
+  .PasscodeMessageText {
+    font-size: 0.4em;
+  }
+
+  .PasscodeMessageSubText {
+    font-size: 0.6em;
+    letter-spacing: 1px;
+  }
+}

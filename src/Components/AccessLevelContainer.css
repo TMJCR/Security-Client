@@ -92,27 +92,45 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1024px) {
   .AccessLevelButtonContainer {
-    cursor: pointer;
     min-height: auto;
     display: grid;
-    grid-template-columns: 4fr 1fr;
-    align-items: center;
-    margin: 1em;
+    grid-template-columns: 3fr 1fr;
   }
 
   .AccessButton {
-    font-size: 10px;
-    cursor: pointer;
+    font-size: 0.8em;
     margin: 1em;
     min-width: auto;
     padding: 0;
   }
 
   .ConsoleType {
-    font-size: 10px;
+    font-size: 0.6em;
     overflow: scroll;
     max-width: 90%;
+  }
+
+  .AccessButtonText {
+    font-size: 0.9em;
+    padding: 2px;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  .AccessButtonSubText {
+    letter-spacing: 1px;
+    padding: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .AccessButton {
+    font-size: 0.7em;
+  }
+
+  .ConsoleType {
+    font-size: 0.45em;
   }
 }

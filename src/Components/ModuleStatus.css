@@ -1,7 +1,7 @@
 .ModuleContainer {
   text-transform: uppercase;
   text-align: center;
-  margin-top: 1.5em;
+  margin: 1.5em 0.5em 0 0.5em;
 }
 
 .ModuleTypeUpperText {
@@ -18,14 +18,13 @@
   color: var(--security-red);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1024px) {
   .ModuleContainer {
     text-align: left;
   }
   .ModuleTypeLowerText {
-    font-size: 0.8em;
-
-    letter-spacing: 3px;
+    font-size: 0.6em;
+    letter-spacing: 2px;
     text-align: center;
   }
   .ModuleTypeUpperText {
@@ -35,7 +34,7 @@
     text-align: center;
   }
   .ModuleType {
-    font-size: 1.3em;
+    font-size: 1.2em;
     text-align: center;
   }
 }

@@ -43,3 +43,21 @@
   text-align: center;
   font-size: 1.5em;
 }
+
+@media (max-width: 1024px) {
+  .ActivityLog {
+    font-size: 0.7em;
+  }
+}
+
+@media (max-width: 768px) {
+  .ActivityLog {
+    font-size: 0.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .ActivityLog {
+    font-size: 0.6em;
+  }
+}
