@@ -42,7 +42,6 @@ export default function KeypadContainer({
   };
 
   const handlePasscodeInput = (e) => {
-    e.preventDefault();
     const newPasscode = passcode.currentPasscode.map((num, idx) => {
       return idx === passcode.increment ? e.target.dataset.number : num;
     });
