@@ -144,8 +144,9 @@
 
 @media (max-width: 480px) {
   .AccessButton {
-    font-size: 0.6em;
+    font-size: 0.7em;
     min-width: auto;
+    max-width: 40px;
   }
 
   .ConsoleType {
