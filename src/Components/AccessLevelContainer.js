@@ -42,7 +42,7 @@ export default function AccessLevelContainer({
         <div className="AccessLevelButtons">
           <button
             onClick={(e) => handleAccessLevel(e)}
-            onfocus="blur()"
+            readonly="readonly"
             data-access-level="FullAccess"
             className="AccessButton FullAccessButton"
           >
