@@ -11,7 +11,7 @@ export default function AccessLevelContainer({
 }) {
   const handleAccessLevel = (e) => {
     console.log(e);
-    window.scrollTo(0, 0);
+    e.preventDefault();
     fetch(`${process.env.REACT_APP_SERVER}/accessLevel`, {
       method: "PUT",
       mode: "cors",
@@ -42,7 +42,6 @@ export default function AccessLevelContainer({
         <div className="AccessLevelButtons">
           <button
             onClick={(e) => handleAccessLevel(e)}
-            readonly="readonly"
             data-access-level="FullAccess"
             className="AccessButton FullAccessButton"
           >
