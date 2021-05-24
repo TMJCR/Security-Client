@@ -10,6 +10,7 @@ export default function AccessLevelContainer({
   setSeconds,
 }) {
   const handleAccessLevel = (e) => {
+    e.preventDefault();
     fetch(`${process.env.REACT_APP_SERVER}/accessLevel`, {
       method: "PUT",
       mode: "cors",
