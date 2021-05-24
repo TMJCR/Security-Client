@@ -18,7 +18,7 @@ export default function KeypadContainer({
       currentPasscode: ["X", "X", "X", "X"],
     });
     setActiveDigit(null);
-    fetch("http://localhost:5000/keypad", {
+    fetch(`${process.env.REACT_APP_SERVER}/keypad`, {
       method: "PUT",
       mode: "cors",
       headers: {

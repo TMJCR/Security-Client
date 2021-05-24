@@ -8,7 +8,7 @@ export default function App() {
   const [activityLog, setActivityLog] = useState([]);
   const [passcodeMessage, setPasscodeMessage] = useState("");
   const fetchData = (endPoint, callback) => {
-    fetch(`http://localhost:${endPoint}`, {
+    fetch(`${process.env.REACT_APP_SERVER}${endPoint}`, {
       method: "GET",
       mode: "cors",
     })
@@ -19,15 +19,15 @@ export default function App() {
   };
 
   useEffect(() => {
-    fetchData("5000/", setData);
+    fetchData("/", setData);
   }, []);
 
   useEffect(() => {
-    fetchData("5000/log", setActivityLog);
+    fetchData("/log", setActivityLog);
   }, [data]);
 
   useEffect(() => {
-    fetchData("5000/cameraMessage", setCameraMessage);
+    fetchData("/cameraMessage", setCameraMessage);
   }, [data]);
 
   return (

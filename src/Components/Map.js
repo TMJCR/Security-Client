@@ -37,7 +37,7 @@ export default function Map({
       });
   };
   const triggerSensor = async (e, state = "Alert") => {
-    const url = "http://localhost:5000/triggerSensor";
+    const url = `${process.env.REACT_APP_SERVER}/triggerSensor`;
     const body = JSON.stringify({
       name: e.currentTarget.id,
       type: e.currentTarget.dataset.type,
@@ -51,7 +51,7 @@ export default function Map({
     // if (data.zones[`zone${zoneNumber}`].status === "Alert") {
     //   return;
     // }
-    const url = "http://localhost:5000/proximityWarning";
+    const url = `${process.env.REACT_APP_SERVER}/proximityWarning`;
     const body = JSON.stringify({
       name: e.currentTarget.id,
     });
@@ -81,7 +81,7 @@ export default function Map({
     // if (data.zones[`zone${doorNumber}`].status === "Alert") {
     //   return;
     // }
-    fetch("http://localhost:5000/openDoor", {
+    fetch(`${process.env.REACT_APP_SERVER}/openDoor`, {
       method: "PUT",
       mode: "cors",
       headers: {

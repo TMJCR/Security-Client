@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 export default function Timer({ setPasscodeMessage, seconds, setSeconds }) {
   const fetchData = () => {
-    fetch(`http://localhost:5000/`, {
+    fetch(`${process.env.REACT_APP_SERVER}/`, {
       method: "GET",
       mode: "cors",
     })
