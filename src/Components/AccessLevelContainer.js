@@ -9,6 +9,9 @@ export default function AccessLevelContainer({
   seconds,
   setSeconds,
 }) {
+  const handleDateChangeRaw = (e) => {
+    e.preventDefault();
+  };
   const handleAccessLevel = (e) => {
     console.log(e);
     window.scrollTo(0, 0);
@@ -42,6 +45,7 @@ export default function AccessLevelContainer({
         <div className="AccessLevelButtons">
           <button
             onClick={(e) => handleAccessLevel(e)}
+            onChangeRaw={this.handleDateChangeRaw}
             data-access-level="FullAccess"
             className="AccessButton FullAccessButton"
           >
