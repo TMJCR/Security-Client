@@ -30,7 +30,6 @@ export default function Map({
     })
       .then((response) => response.json())
       .then((JSONresponse) => {
-        console.log(data);
         setData(JSONresponse);
         setPasscodeMessage(JSONresponse.testingMode.message);
         setSeconds(JSONresponse.testingMode.timeElapsed);

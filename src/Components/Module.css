@@ -3,7 +3,7 @@
   text-transform: uppercase;
   display: flex;
   justify-content: space-between;
-  margin: 1em;
+  margin: 1em 0.3em;
   letter-spacing: 0.03em;
 }
 
@@ -35,11 +35,22 @@
   background-color: var(--security-grey);
 }
 
+@media (max-width: 1400px) {
+  .ModuleStatusList {
+    margin: 1em 0.1em;
+    font-size: 1em;
+    justify-content: space-between;
+  }
+  .ModuleStatusName {
+    font-size: 0.6em;
+  }
+}
+
 @media (max-width: 1024px) {
   .ModuleStatusList {
     margin: 3px;
     font-size: 1.2em;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.13em;
     justify-content: space-between;
   }
 

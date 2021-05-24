@@ -11,6 +11,11 @@
   text-align: end;
   opacity: 0.5;
 }
+@media (max-width: 1400px) {
+  .ModuleStatusTitle {
+    font-size: 0.8em;
+  }
+}
 
 @media (max-width: 1024px) {
   .ModuleStatusLoader {

@@ -16,12 +16,14 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 10px;
+  max-width: 2400px;
+  margin: 0 auto;
+  padding: 20px;
 }
 .gridArea {
   background-color: var(background-color);
   color: #fff;
   border: 2px solid black;
-  min-width: fit-content;
 }
 .ModuleStatusContainer {
   grid-column: 1/3;
@@ -49,7 +51,40 @@
   grid-row: 11/ 13;
 }
 
+@media (min-width: 1600px) {
+  body {
+    font-size: 22px;
+    padding: 0;
+  }
+}
+
+@media (min-width: 2000px) {
+  body {
+    font-size: 24px;
+    padding: 0;
+  }
+  .MapContainer {
+    padding: 1em;
+  }
+}
+@media (min-width: 2600px) {
+  body {
+    font-size: 24px;
+    padding: 0;
+  }
+  .MapContainer {
+    padding: 3em;
+  }
+}
 /* MEDIA QUERIES FOR TABLET SCREEN */
+@media (max-width: 1400px) {
+  body {
+    font-size: 17px;
+    padding: 0;
+  }
+}
+
+/* MEDIA QUERIES FOR LAptop SCREEN */
 @media (max-width: 1024px) {
   body {
     font-size: 18px;

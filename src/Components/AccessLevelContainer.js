@@ -32,7 +32,7 @@ export default function AccessLevelContainer({
     >
       <div className="Console">
         <div className="ConsoleType">
-          {">"} SELECT A LEVEL OF ACCESS AND INTERACT WITH MAP TO TEST SECURITY
+          {">"} SELECT LEVEL OF ACCESS AND INTERACT WITH MAP TO TEST SECURITY
           SYSTEM...
         </div>
       </div>
