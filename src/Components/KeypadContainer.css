@@ -41,7 +41,7 @@
   align-items: center;
   font-size: 1.6em;
   color: var(--security-red);
-  opacity: 50%;
+  opacity: 5%;
 }
 
 .KeypadNumbers {
