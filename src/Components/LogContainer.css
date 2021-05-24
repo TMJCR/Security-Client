@@ -22,7 +22,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 6fr;
   color: var(--security-light-grey);
-  opacity: 0.75;
+  opacity: 0.62;
 }
 
 .LogSuccess {
@@ -58,6 +58,6 @@
 
 @media (max-width: 480px) {
   .ActivityLog {
-    font-size: 0.6em;
+    font-size: 0.5em;
   }
 }
