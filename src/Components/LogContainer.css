@@ -22,7 +22,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 6fr;
   color: var(--security-light-grey);
-  opacity: 7;
+  opacity: 75;
 }
 
 .LogSuccess {
