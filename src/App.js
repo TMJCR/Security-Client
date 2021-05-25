@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import SecuritySystem from "./Components/SecuritySystem";
+import ScrollToTop from "./Components/ScrollToTop";
 
 export default function App() {
   const [data, setData] = useState();
@@ -31,15 +32,17 @@ export default function App() {
   }, [data]);
 
   return (
-    <div className="App">
-      <SecuritySystem
-        activityLog={activityLog}
-        data={data}
-        setData={setData}
-        passcodeMessage={passcodeMessage}
-        setPasscodeMessage={setPasscodeMessage}
-        cameraMessage={cameraMessage}
-      ></SecuritySystem>
-    </div>
+    <ScrollToTop>
+      <div className="App">
+        <SecuritySystem
+          activityLog={activityLog}
+          data={data}
+          setData={setData}
+          passcodeMessage={passcodeMessage}
+          setPasscodeMessage={setPasscodeMessage}
+          cameraMessage={cameraMessage}
+        ></SecuritySystem>
+      </div>
+    </ScrollToTop>
   );
 }
