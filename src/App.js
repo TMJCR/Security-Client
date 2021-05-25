@@ -31,11 +31,12 @@ export default function App() {
   }, [data]);
 
   return (
-    <div className="App">
-      onClick=
-      {() => {
+    <div
+      className="App"
+      onClick={() => {
         window.scrollTo(0, 0);
       }}
+    >
       <SecuritySystem
         activityLog={activityLog}
         data={data}

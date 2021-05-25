@@ -90,8 +90,8 @@
     font-size: 18px;
     padding: 0;
   }
-}
-/* .wrapper {
+
+  .wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2px;
@@ -138,11 +138,9 @@
   }
 }
 
-
-
 @media (max-width: 480px) {
   body {
     font-size: 12px;
     padding: 0;
   }
-} */
+}
