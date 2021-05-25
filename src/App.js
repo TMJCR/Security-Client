@@ -33,9 +33,9 @@ export default function App() {
   return (
     <div
       className="App"
-      onClick={() => {
-        window.scrollTo(0, 0);
-      }}
+      // onClick={() => {
+      //   window.scrollTo(0, 0);
+      // }}
     >
       <SecuritySystem
         activityLog={activityLog}
