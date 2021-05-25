@@ -91,7 +91,7 @@
     padding: 0;
   }
 
-  .wrapper {
+  /* .wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2px;
@@ -99,7 +99,7 @@
   .gridArea {
     background-color: var(background-color);
     color: #fff;
-    /* border: 2px solid black; */
+
     min-width: auto;
   }
   .AccessLevelContainer {
@@ -137,10 +137,12 @@
     padding: 0;
   }
 }
-/* MEDIA QUERIES FOR PHONE SCREEN */
+
+
+
 @media (max-width: 480px) {
   body {
     font-size: 12px;
     padding: 0;
   }
-}
+} */
