@@ -7394,7 +7394,7 @@ export default function Map({
             className="DoorLabelText"
             transform="translate(929 100)"
           >
-            ssss 74
+            DOOR 74
           </text>
           <g
             onClick={(e) => {
