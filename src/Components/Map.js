@@ -7386,6 +7386,10 @@ export default function Map({
             </g>
           </g>
           <text
+            onClick={(e) => {
+              console.log(e);
+              tryToOpenDoor(e);
+            }}
             id="Door7"
             className="DoorLabelText"
             transform="translate(929 100)"
