@@ -59,6 +59,8 @@ export default function Map({
   };
 
   const tryToOpenDoor = (e) => {
+    console.log(e);
+
     const doorNumber = e.target.id.slice(-1);
     const doorLabel = `doorLabel${doorNumber}`;
     const doorColorLabel = `door${doorNumber}`;
@@ -100,6 +102,8 @@ export default function Map({
   };
 
   const findDoor = (e) => {
+    console.log(e);
+    console.log("e", equipment);
     const equipment = e.target.id;
     const door = data.doorSensors
       .filter((door) => door.status.name === equipment)
@@ -7386,19 +7390,14 @@ export default function Map({
             </g>
           </g>
           <text
-            onClick={(e) => {
-              console.log(e);
-              tryToOpenDoor(e);
-            }}
             id="Door7"
             className="DoorLabelText"
             transform="translate(929 100)"
           >
-            DOOR 74
+            DOOR 7
           </text>
           <g
             onClick={(e) => {
-              console.log(e);
               tryToOpenDoor(e);
             }}
             onDoubleClick={(e) => {
