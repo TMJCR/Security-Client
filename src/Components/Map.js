@@ -7394,6 +7394,7 @@ export default function Map({
           </text>
           <g
             onClick={(e) => {
+              console.log(e);
               tryToOpenDoor(e);
             }}
             onDoubleClick={(e) => {
