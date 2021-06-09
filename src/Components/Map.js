@@ -59,8 +59,7 @@ export default function Map({
   };
 
   const tryToOpenDoor = (e) => {
-    console.log(e);
-
+    e.stopPropagation();
     const doorNumber = e.target.id.slice(-1);
     const doorLabel = `doorLabel${doorNumber}`;
     const doorColorLabel = `door${doorNumber}`;
@@ -102,8 +101,6 @@ export default function Map({
   };
 
   const findDoor = (e) => {
-    console.log(e);
-    console.log("e", equipment);
     const equipment = e.target.id;
     const door = data.doorSensors
       .filter((door) => door.status.name === equipment)
