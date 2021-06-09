@@ -500,3 +500,8 @@
 .cls-99 {
   user-select: none;
 }
+
+.doorSensorClick {
+  cursor: pointer;
+  opacity: 0;
+}
