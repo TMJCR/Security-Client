@@ -8187,7 +8187,12 @@ export default function Map({
               </text>
             </g>
           </g>
-          <g
+          <rect
+            class="cls-69"
+            x="269.55"
+            y="362.35"
+            width="54.83"
+            height="10.08"
             onClick={(e) => {
               tryToOpenDoor(e);
             }}
@@ -8196,743 +8201,746 @@ export default function Map({
             }}
             id="DoorSensor1"
             data-type="DoorSensor"
-            className={`${
-              data && data.doorSensors[0].status.color
-            } doorSensorSVG`}
           >
-            <g className="cls-78">
-              <g
-                id="LINE_TEXTURE-4"
-                data-name="LINE TEXTURE"
-                className="cls-60"
-              >
-                <g className="cls-79">
-                  <g id="LINE_REPEAT-4" data-name="LINE REPEAT">
-                    <line
-                      id="Line_15-4-4"
-                      data-name="Line 15"
-                      className="cls-62"
-                      x1="355.27"
-                      y1="379.48"
-                      x2="279.82"
-                      y2="341.8"
-                    />
-                    <line
-                      id="Line_15-2-5"
-                      data-name="Line 15-2"
-                      className="cls-62"
-                      x1="355.27"
-                      y1="382.9"
-                      x2="279.82"
-                      y2="345.23"
-                    />
-                    <line
-                      id="Line_15-3-5"
-                      data-name="Line 15-3"
-                      className="cls-62"
-                      x1="355.27"
-                      y1="386.33"
-                      x2="279.82"
-                      y2="348.65"
-                    />
-                    <line
-                      id="Line_15-4-5"
-                      data-name="Line 15-4"
-                      className="cls-62"
-                      x1="355.27"
-                      y1="389.75"
-                      x2="279.82"
-                      y2="352.08"
-                    />
-                    <line
-                      id="Line_15-5-4"
-                      data-name="Line 15-5"
-                      className="cls-62"
-                      x1="355.27"
-                      y1="393.17"
-                      x2="279.82"
-                      y2="355.5"
-                    />
-                    <line
-                      id="Line_15-6-4"
-                      data-name="Line 15-6"
-                      className="cls-62"
-                      x1="351.84"
-                      y1="379.48"
-                      x2="276.39"
-                      y2="341.8"
-                    />
-                    <line
-                      id="Line_15-7-4"
-                      data-name="Line 15-7"
-                      className="cls-62"
-                      x1="351.84"
-                      y1="382.9"
-                      x2="276.39"
-                      y2="345.23"
-                    />
-                    <line
-                      id="Line_15-8-4"
-                      data-name="Line 15-8"
-                      className="cls-62"
-                      x1="351.84"
-                      y1="386.33"
-                      x2="276.39"
-                      y2="348.65"
-                    />
-                    <line
-                      id="Line_15-9-4"
-                      data-name="Line 15-9"
-                      className="cls-62"
-                      x1="351.84"
-                      y1="389.75"
-                      x2="276.39"
-                      y2="352.08"
-                    />
-                    <line
-                      id="Line_15-10-4"
-                      data-name="Line 15-10"
-                      className="cls-62"
-                      x1="351.84"
-                      y1="393.17"
-                      x2="276.39"
-                      y2="355.5"
-                    />
-                    <line
-                      id="Line_15-11-4"
-                      data-name="Line 15-11"
-                      className="cls-62"
-                      x1="348.41"
-                      y1="379.48"
-                      x2="272.96"
-                      y2="341.8"
-                    />
-                    <line
-                      id="Line_15-12-4"
-                      data-name="Line 15-12"
-                      className="cls-62"
-                      x1="348.41"
-                      y1="382.9"
-                      x2="272.96"
-                      y2="345.23"
-                    />
-                    <line
-                      id="Line_15-13-4"
-                      data-name="Line 15-13"
-                      className="cls-62"
-                      x1="348.41"
-                      y1="386.33"
-                      x2="272.96"
-                      y2="348.65"
-                    />
-                    <line
-                      id="Line_15-14-4"
-                      data-name="Line 15-14"
-                      className="cls-62"
-                      x1="348.41"
-                      y1="389.75"
-                      x2="272.96"
-                      y2="352.08"
-                    />
-                    <line
-                      id="Line_15-15-4"
-                      data-name="Line 15-15"
-                      className="cls-62"
-                      x1="348.41"
-                      y1="393.17"
-                      x2="272.96"
-                      y2="355.5"
-                    />
-                    <line
-                      id="Line_15-16-4"
-                      data-name="Line 15-16"
-                      className="cls-62"
-                      x1="344.98"
-                      y1="379.48"
-                      x2="269.53"
-                      y2="341.8"
-                    />
-                    <line
-                      id="Line_15-17-4"
-                      data-name="Line 15-17"
-                      className="cls-62"
-                      x1="344.98"
-                      y1="382.9"
-                      x2="269.53"
-                      y2="345.23"
-                    />
-                    <line
-                      id="Line_15-18-4"
-                      data-name="Line 15-18"
-                      className="cls-62"
-                      x1="344.98"
-                      y1="386.33"
-                      x2="269.53"
-                      y2="348.65"
-                    />
-                    <line
-                      id="Line_15-19-4"
-                      data-name="Line 15-19"
-                      className="cls-62"
-                      x1="344.98"
-                      y1="389.75"
-                      x2="269.53"
-                      y2="352.08"
-                    />
-                    <line
-                      id="Line_15-20-4"
-                      data-name="Line 15-20"
-                      className="cls-62"
-                      x1="344.98"
-                      y1="393.17"
-                      x2="269.53"
-                      y2="355.5"
-                    />
-                    <line
-                      id="Line_15-21-4"
-                      data-name="Line 15-21"
-                      className="cls-62"
-                      x1="341.55"
-                      y1="379.48"
-                      x2="266.1"
-                      y2="341.8"
-                    />
-                    <line
-                      id="Line_15-22-4"
-                      data-name="Line 15-22"
-                      className="cls-62"
-                      x1="341.55"
-                      y1="382.9"
-                      x2="266.1"
-                      y2="345.23"
-                    />
-                    <line
-                      id="Line_15-23-4"
-                      data-name="Line 15-23"
-                      className="cls-62"
-                      x1="341.55"
-                      y1="386.33"
-                      x2="266.1"
-                      y2="348.65"
-                    />
-                    <line
-                      id="Line_15-24-4"
-                      data-name="Line 15-24"
-                      className="cls-62"
-                      x1="341.55"
-                      y1="389.75"
-                      x2="266.1"
-                      y2="352.08"
-                    />
-                    <line
-                      id="Line_15-25-4"
-                      data-name="Line 15-25"
-                      className="cls-62"
-                      x1="341.55"
-                      y1="393.17"
-                      x2="266.1"
-                      y2="355.5"
-                    />
-                    <line
-                      id="Line_15-26-4"
-                      data-name="Line 15-26"
-                      className="cls-62"
-                      x1="338.12"
-                      y1="379.48"
-                      x2="262.67"
-                      y2="341.8"
-                    />
-                    <line
-                      id="Line_15-27-4"
-                      data-name="Line 15-27"
-                      className="cls-62"
-                      x1="338.12"
-                      y1="382.9"
-                      x2="262.67"
-                      y2="345.23"
-                    />
-                    <line
-                      id="Line_15-28-4"
-                      data-name="Line 15-28"
-                      className="cls-62"
-                      x1="338.12"
-                      y1="386.33"
-                      x2="262.67"
-                      y2="348.65"
-                    />
-                    <line
-                      id="Line_15-29-4"
-                      data-name="Line 15-29"
-                      className="cls-62"
-                      x1="338.12"
-                      y1="389.75"
-                      x2="262.67"
-                      y2="352.08"
-                    />
-                    <line
-                      id="Line_15-30-4"
-                      data-name="Line 15-30"
-                      className="cls-62"
-                      x1="338.12"
-                      y1="393.17"
-                      x2="262.67"
-                      y2="355.5"
-                    />
-                    <line
-                      id="Line_15-31-4"
-                      data-name="Line 15-31"
-                      className="cls-62"
-                      x1="334.69"
-                      y1="379.48"
-                      x2="259.24"
-                      y2="341.8"
-                    />
-                    <line
-                      id="Line_15-32-4"
-                      data-name="Line 15-32"
-                      className="cls-62"
-                      x1="334.69"
-                      y1="382.9"
-                      x2="259.24"
-                      y2="345.23"
-                    />
-                    <line
-                      id="Line_15-33-4"
-                      data-name="Line 15-33"
-                      className="cls-62"
-                      x1="334.69"
-                      y1="386.33"
-                      x2="259.24"
-                      y2="348.65"
-                    />
-                    <line
-                      id="Line_15-34-4"
-                      data-name="Line 15-34"
-                      className="cls-62"
-                      x1="334.69"
-                      y1="389.75"
-                      x2="259.24"
-                      y2="352.08"
-                    />
-                    <line
-                      id="Line_15-35-4"
-                      data-name="Line 15-35"
-                      className="cls-62"
-                      x1="334.69"
-                      y1="393.17"
-                      x2="259.24"
-                      y2="355.5"
-                    />
-                    <line
-                      id="Line_15-36-4"
-                      data-name="Line 15-36"
-                      className="cls-62"
-                      x1="331.26"
-                      y1="379.48"
-                      x2="255.81"
-                      y2="341.8"
-                    />
-                    <line
-                      id="Line_15-37-4"
-                      data-name="Line 15-37"
-                      className="cls-62"
-                      x1="331.26"
-                      y1="382.9"
-                      x2="255.81"
-                      y2="345.23"
-                    />
-                    <line
-                      id="Line_15-38-4"
-                      data-name="Line 15-38"
-                      className="cls-62"
-                      x1="331.26"
-                      y1="386.33"
-                      x2="255.81"
-                      y2="348.65"
-                    />
-                    <line
-                      id="Line_15-39-4"
-                      data-name="Line 15-39"
-                      className="cls-62"
-                      x1="331.26"
-                      y1="389.75"
-                      x2="255.81"
-                      y2="352.08"
-                    />
-                    <line
-                      id="Line_15-40-4"
-                      data-name="Line 15-40"
-                      className="cls-62"
-                      x1="331.26"
-                      y1="393.17"
-                      x2="255.81"
-                      y2="355.5"
-                    />
-                    <line
-                      id="Line_15-41-4"
-                      data-name="Line 15-41"
-                      className="cls-62"
-                      x1="327.83"
-                      y1="379.48"
-                      x2="252.38"
-                      y2="341.8"
-                    />
-                    <line
-                      id="Line_15-42-4"
-                      data-name="Line 15-42"
-                      className="cls-62"
-                      x1="327.83"
-                      y1="382.9"
-                      x2="252.38"
-                      y2="345.23"
-                    />
-                    <line
-                      id="Line_15-43-4"
-                      data-name="Line 15-43"
-                      className="cls-62"
-                      x1="327.83"
-                      y1="386.33"
-                      x2="252.38"
-                      y2="348.65"
-                    />
-                    <line
-                      id="Line_15-44-4"
-                      data-name="Line 15-44"
-                      className="cls-62"
-                      x1="327.83"
-                      y1="389.75"
-                      x2="252.38"
-                      y2="352.08"
-                    />
-                    <line
-                      id="Line_15-45-4"
-                      data-name="Line 15-45"
-                      className="cls-62"
-                      x1="327.83"
-                      y1="393.17"
-                      x2="252.38"
-                      y2="355.5"
-                    />
-                    <line
-                      id="Line_15-46-4"
-                      data-name="Line 15-46"
-                      className="cls-62"
-                      x1="324.4"
-                      y1="379.48"
-                      x2="248.95"
-                      y2="341.8"
-                    />
-                    <line
-                      id="Line_15-47-4"
-                      data-name="Line 15-47"
-                      className="cls-62"
-                      x1="324.4"
-                      y1="382.9"
-                      x2="248.95"
-                      y2="345.23"
-                    />
-                    <line
-                      id="Line_15-48-4"
-                      data-name="Line 15-48"
-                      className="cls-62"
-                      x1="324.4"
-                      y1="386.33"
-                      x2="248.95"
-                      y2="348.65"
-                    />
-                    <line
-                      id="Line_15-49-4"
-                      data-name="Line 15-49"
-                      className="cls-62"
-                      x1="324.4"
-                      y1="389.75"
-                      x2="248.95"
-                      y2="352.08"
-                    />
-                    <line
-                      id="Line_15-50-4"
-                      data-name="Line 15-50"
-                      className="cls-62"
-                      x1="324.4"
-                      y1="393.17"
-                      x2="248.95"
-                      y2="355.5"
-                    />
-                    <line
-                      id="Line_15-51-4"
-                      data-name="Line 15-51"
-                      className="cls-62"
-                      x1="320.97"
-                      y1="379.48"
-                      x2="245.52"
-                      y2="341.8"
-                    />
-                    <line
-                      id="Line_15-52-4"
-                      data-name="Line 15-52"
-                      className="cls-62"
-                      x1="320.97"
-                      y1="382.9"
-                      x2="245.52"
-                      y2="345.23"
-                    />
-                    <line
-                      id="Line_15-53-4"
-                      data-name="Line 15-53"
-                      className="cls-62"
-                      x1="320.97"
-                      y1="386.33"
-                      x2="245.52"
-                      y2="348.65"
-                    />
-                    <line
-                      id="Line_15-54-4"
-                      data-name="Line 15-54"
-                      className="cls-62"
-                      x1="320.97"
-                      y1="389.75"
-                      x2="245.52"
-                      y2="352.08"
-                    />
-                    <line
-                      id="Line_15-55-4"
-                      data-name="Line 15-55"
-                      className="cls-62"
-                      x1="320.97"
-                      y1="393.17"
-                      x2="245.52"
-                      y2="355.5"
-                    />
-                    <line
-                      id="Line_15-56-4"
-                      data-name="Line 15-56"
-                      className="cls-62"
-                      x1="317.54"
-                      y1="379.48"
-                      x2="242.09"
-                      y2="341.8"
-                    />
-                    <line
-                      id="Line_15-57-4"
-                      data-name="Line 15-57"
-                      className="cls-62"
-                      x1="317.54"
-                      y1="382.9"
-                      x2="242.09"
-                      y2="345.23"
-                    />
-                    <line
-                      id="Line_15-58-4"
-                      data-name="Line 15-58"
-                      className="cls-62"
-                      x1="317.54"
-                      y1="386.33"
-                      x2="242.09"
-                      y2="348.65"
-                    />
-                    <line
-                      id="Line_15-59-4"
-                      data-name="Line 15-59"
-                      className="cls-62"
-                      x1="317.54"
-                      y1="389.75"
-                      x2="242.09"
-                      y2="352.08"
-                    />
-                    <line
-                      id="Line_15-60-4"
-                      data-name="Line 15-60"
-                      className="cls-62"
-                      x1="317.54"
-                      y1="393.17"
-                      x2="242.09"
-                      y2="355.5"
-                    />
-                    <line
-                      id="Line_15-61-4"
-                      data-name="Line 15-61"
-                      className="cls-62"
-                      x1="314.11"
-                      y1="379.48"
-                      x2="238.66"
-                      y2="341.8"
-                    />
-                    <line
-                      id="Line_15-62-4"
-                      data-name="Line 15-62"
-                      className="cls-62"
-                      x1="314.11"
-                      y1="382.9"
-                      x2="238.66"
-                      y2="345.23"
-                    />
-                    <line
-                      id="Line_15-63-4"
-                      data-name="Line 15-63"
-                      className="cls-62"
-                      x1="314.11"
-                      y1="386.33"
-                      x2="238.66"
-                      y2="348.65"
-                    />
-                    <line
-                      id="Line_15-64-4"
-                      data-name="Line 15-64"
-                      className="cls-62"
-                      x1="314.11"
-                      y1="389.75"
-                      x2="238.66"
-                      y2="352.08"
-                    />
-                    <line
-                      id="Line_15-65-4"
-                      data-name="Line 15-65"
-                      className="cls-62"
-                      x1="314.11"
-                      y1="393.17"
-                      x2="238.66"
-                      y2="355.5"
-                    />
-                    <line
-                      id="Line_15-66-4"
-                      data-name="Line 15-66"
-                      className="cls-62"
-                      x1="310.68"
-                      y1="379.48"
-                      x2="235.23"
-                      y2="341.8"
-                    />
-                    <line
-                      id="Line_15-67-4"
-                      data-name="Line 15-67"
-                      className="cls-62"
-                      x1="310.68"
-                      y1="382.9"
-                      x2="235.23"
-                      y2="345.23"
-                    />
-                    <line
-                      id="Line_15-68-4"
-                      data-name="Line 15-68"
-                      className="cls-62"
-                      x1="310.68"
-                      y1="386.33"
-                      x2="235.23"
-                      y2="348.65"
-                    />
-                    <line
-                      id="Line_15-69-4"
-                      data-name="Line 15-69"
-                      className="cls-62"
-                      x1="310.68"
-                      y1="389.75"
-                      x2="235.23"
-                      y2="352.08"
-                    />
-                    <line
-                      id="Line_15-70-4"
-                      data-name="Line 15-70"
-                      className="cls-62"
-                      x1="310.68"
-                      y1="393.17"
-                      x2="235.23"
-                      y2="355.5"
-                    />
-                    <line
-                      id="Line_15-71-4"
-                      data-name="Line 15-71"
-                      className="cls-62"
-                      x1="307.25"
-                      y1="379.48"
-                      x2="231.8"
-                      y2="341.8"
-                    />
-                    <line
-                      id="Line_15-72-4"
-                      data-name="Line 15-72"
-                      className="cls-62"
-                      x1="307.25"
-                      y1="382.9"
-                      x2="231.8"
-                      y2="345.23"
-                    />
-                    <line
-                      id="Line_15-73-4"
-                      data-name="Line 15-73"
-                      className="cls-62"
-                      x1="307.25"
-                      y1="386.33"
-                      x2="231.8"
-                      y2="348.65"
-                    />
-                    <line
-                      id="Line_15-74-4"
-                      data-name="Line 15-74"
-                      className="cls-62"
-                      x1="307.25"
-                      y1="389.75"
-                      x2="231.8"
-                      y2="352.08"
-                    />
-                    <line
-                      id="Line_15-75-4"
-                      data-name="Line 15-75"
-                      className="cls-62"
-                      x1="307.25"
-                      y1="393.17"
-                      x2="231.8"
-                      y2="355.5"
-                    />
-                    <line
-                      id="Line_15-76-4"
-                      data-name="Line 15-76"
-                      className="cls-62"
-                      x1="303.82"
-                      y1="379.48"
-                      x2="228.38"
-                      y2="341.8"
-                    />
-                    <line
-                      id="Line_15-77-4"
-                      data-name="Line 15-77"
-                      className="cls-62"
-                      x1="303.82"
-                      y1="382.9"
-                      x2="228.38"
-                      y2="345.23"
-                    />
-                    <line
-                      id="Line_15-78-4"
-                      data-name="Line 15-78"
-                      className="cls-62"
-                      x1="303.82"
-                      y1="386.33"
-                      x2="228.38"
-                      y2="348.65"
-                    />
-                    <line
-                      id="Line_15-79-4"
-                      data-name="Line 15-79"
-                      className="cls-62"
-                      x1="303.82"
-                      y1="389.75"
-                      x2="228.38"
-                      y2="352.08"
-                    />
-                    <line
-                      id="Line_15-80-4"
-                      data-name="Line 15-80"
-                      className="cls-62"
-                      x1="303.82"
-                      y1="393.17"
-                      x2="228.38"
-                      y2="355.5"
-                    />
+            <g
+              className={`${
+                data && data.doorSensors[0].status.color
+              } doorSensorSVG`}
+            >
+              <g className="cls-78">
+                <g
+                  id="LINE_TEXTURE-4"
+                  data-name="LINE TEXTURE"
+                  className="cls-60"
+                >
+                  <g className="cls-79">
+                    <g id="LINE_REPEAT-4" data-name="LINE REPEAT">
+                      <line
+                        id="Line_15-4-4"
+                        data-name="Line 15"
+                        className="cls-62"
+                        x1="355.27"
+                        y1="379.48"
+                        x2="279.82"
+                        y2="341.8"
+                      />
+                      <line
+                        id="Line_15-2-5"
+                        data-name="Line 15-2"
+                        className="cls-62"
+                        x1="355.27"
+                        y1="382.9"
+                        x2="279.82"
+                        y2="345.23"
+                      />
+                      <line
+                        id="Line_15-3-5"
+                        data-name="Line 15-3"
+                        className="cls-62"
+                        x1="355.27"
+                        y1="386.33"
+                        x2="279.82"
+                        y2="348.65"
+                      />
+                      <line
+                        id="Line_15-4-5"
+                        data-name="Line 15-4"
+                        className="cls-62"
+                        x1="355.27"
+                        y1="389.75"
+                        x2="279.82"
+                        y2="352.08"
+                      />
+                      <line
+                        id="Line_15-5-4"
+                        data-name="Line 15-5"
+                        className="cls-62"
+                        x1="355.27"
+                        y1="393.17"
+                        x2="279.82"
+                        y2="355.5"
+                      />
+                      <line
+                        id="Line_15-6-4"
+                        data-name="Line 15-6"
+                        className="cls-62"
+                        x1="351.84"
+                        y1="379.48"
+                        x2="276.39"
+                        y2="341.8"
+                      />
+                      <line
+                        id="Line_15-7-4"
+                        data-name="Line 15-7"
+                        className="cls-62"
+                        x1="351.84"
+                        y1="382.9"
+                        x2="276.39"
+                        y2="345.23"
+                      />
+                      <line
+                        id="Line_15-8-4"
+                        data-name="Line 15-8"
+                        className="cls-62"
+                        x1="351.84"
+                        y1="386.33"
+                        x2="276.39"
+                        y2="348.65"
+                      />
+                      <line
+                        id="Line_15-9-4"
+                        data-name="Line 15-9"
+                        className="cls-62"
+                        x1="351.84"
+                        y1="389.75"
+                        x2="276.39"
+                        y2="352.08"
+                      />
+                      <line
+                        id="Line_15-10-4"
+                        data-name="Line 15-10"
+                        className="cls-62"
+                        x1="351.84"
+                        y1="393.17"
+                        x2="276.39"
+                        y2="355.5"
+                      />
+                      <line
+                        id="Line_15-11-4"
+                        data-name="Line 15-11"
+                        className="cls-62"
+                        x1="348.41"
+                        y1="379.48"
+                        x2="272.96"
+                        y2="341.8"
+                      />
+                      <line
+                        id="Line_15-12-4"
+                        data-name="Line 15-12"
+                        className="cls-62"
+                        x1="348.41"
+                        y1="382.9"
+                        x2="272.96"
+                        y2="345.23"
+                      />
+                      <line
+                        id="Line_15-13-4"
+                        data-name="Line 15-13"
+                        className="cls-62"
+                        x1="348.41"
+                        y1="386.33"
+                        x2="272.96"
+                        y2="348.65"
+                      />
+                      <line
+                        id="Line_15-14-4"
+                        data-name="Line 15-14"
+                        className="cls-62"
+                        x1="348.41"
+                        y1="389.75"
+                        x2="272.96"
+                        y2="352.08"
+                      />
+                      <line
+                        id="Line_15-15-4"
+                        data-name="Line 15-15"
+                        className="cls-62"
+                        x1="348.41"
+                        y1="393.17"
+                        x2="272.96"
+                        y2="355.5"
+                      />
+                      <line
+                        id="Line_15-16-4"
+                        data-name="Line 15-16"
+                        className="cls-62"
+                        x1="344.98"
+                        y1="379.48"
+                        x2="269.53"
+                        y2="341.8"
+                      />
+                      <line
+                        id="Line_15-17-4"
+                        data-name="Line 15-17"
+                        className="cls-62"
+                        x1="344.98"
+                        y1="382.9"
+                        x2="269.53"
+                        y2="345.23"
+                      />
+                      <line
+                        id="Line_15-18-4"
+                        data-name="Line 15-18"
+                        className="cls-62"
+                        x1="344.98"
+                        y1="386.33"
+                        x2="269.53"
+                        y2="348.65"
+                      />
+                      <line
+                        id="Line_15-19-4"
+                        data-name="Line 15-19"
+                        className="cls-62"
+                        x1="344.98"
+                        y1="389.75"
+                        x2="269.53"
+                        y2="352.08"
+                      />
+                      <line
+                        id="Line_15-20-4"
+                        data-name="Line 15-20"
+                        className="cls-62"
+                        x1="344.98"
+                        y1="393.17"
+                        x2="269.53"
+                        y2="355.5"
+                      />
+                      <line
+                        id="Line_15-21-4"
+                        data-name="Line 15-21"
+                        className="cls-62"
+                        x1="341.55"
+                        y1="379.48"
+                        x2="266.1"
+                        y2="341.8"
+                      />
+                      <line
+                        id="Line_15-22-4"
+                        data-name="Line 15-22"
+                        className="cls-62"
+                        x1="341.55"
+                        y1="382.9"
+                        x2="266.1"
+                        y2="345.23"
+                      />
+                      <line
+                        id="Line_15-23-4"
+                        data-name="Line 15-23"
+                        className="cls-62"
+                        x1="341.55"
+                        y1="386.33"
+                        x2="266.1"
+                        y2="348.65"
+                      />
+                      <line
+                        id="Line_15-24-4"
+                        data-name="Line 15-24"
+                        className="cls-62"
+                        x1="341.55"
+                        y1="389.75"
+                        x2="266.1"
+                        y2="352.08"
+                      />
+                      <line
+                        id="Line_15-25-4"
+                        data-name="Line 15-25"
+                        className="cls-62"
+                        x1="341.55"
+                        y1="393.17"
+                        x2="266.1"
+                        y2="355.5"
+                      />
+                      <line
+                        id="Line_15-26-4"
+                        data-name="Line 15-26"
+                        className="cls-62"
+                        x1="338.12"
+                        y1="379.48"
+                        x2="262.67"
+                        y2="341.8"
+                      />
+                      <line
+                        id="Line_15-27-4"
+                        data-name="Line 15-27"
+                        className="cls-62"
+                        x1="338.12"
+                        y1="382.9"
+                        x2="262.67"
+                        y2="345.23"
+                      />
+                      <line
+                        id="Line_15-28-4"
+                        data-name="Line 15-28"
+                        className="cls-62"
+                        x1="338.12"
+                        y1="386.33"
+                        x2="262.67"
+                        y2="348.65"
+                      />
+                      <line
+                        id="Line_15-29-4"
+                        data-name="Line 15-29"
+                        className="cls-62"
+                        x1="338.12"
+                        y1="389.75"
+                        x2="262.67"
+                        y2="352.08"
+                      />
+                      <line
+                        id="Line_15-30-4"
+                        data-name="Line 15-30"
+                        className="cls-62"
+                        x1="338.12"
+                        y1="393.17"
+                        x2="262.67"
+                        y2="355.5"
+                      />
+                      <line
+                        id="Line_15-31-4"
+                        data-name="Line 15-31"
+                        className="cls-62"
+                        x1="334.69"
+                        y1="379.48"
+                        x2="259.24"
+                        y2="341.8"
+                      />
+                      <line
+                        id="Line_15-32-4"
+                        data-name="Line 15-32"
+                        className="cls-62"
+                        x1="334.69"
+                        y1="382.9"
+                        x2="259.24"
+                        y2="345.23"
+                      />
+                      <line
+                        id="Line_15-33-4"
+                        data-name="Line 15-33"
+                        className="cls-62"
+                        x1="334.69"
+                        y1="386.33"
+                        x2="259.24"
+                        y2="348.65"
+                      />
+                      <line
+                        id="Line_15-34-4"
+                        data-name="Line 15-34"
+                        className="cls-62"
+                        x1="334.69"
+                        y1="389.75"
+                        x2="259.24"
+                        y2="352.08"
+                      />
+                      <line
+                        id="Line_15-35-4"
+                        data-name="Line 15-35"
+                        className="cls-62"
+                        x1="334.69"
+                        y1="393.17"
+                        x2="259.24"
+                        y2="355.5"
+                      />
+                      <line
+                        id="Line_15-36-4"
+                        data-name="Line 15-36"
+                        className="cls-62"
+                        x1="331.26"
+                        y1="379.48"
+                        x2="255.81"
+                        y2="341.8"
+                      />
+                      <line
+                        id="Line_15-37-4"
+                        data-name="Line 15-37"
+                        className="cls-62"
+                        x1="331.26"
+                        y1="382.9"
+                        x2="255.81"
+                        y2="345.23"
+                      />
+                      <line
+                        id="Line_15-38-4"
+                        data-name="Line 15-38"
+                        className="cls-62"
+                        x1="331.26"
+                        y1="386.33"
+                        x2="255.81"
+                        y2="348.65"
+                      />
+                      <line
+                        id="Line_15-39-4"
+                        data-name="Line 15-39"
+                        className="cls-62"
+                        x1="331.26"
+                        y1="389.75"
+                        x2="255.81"
+                        y2="352.08"
+                      />
+                      <line
+                        id="Line_15-40-4"
+                        data-name="Line 15-40"
+                        className="cls-62"
+                        x1="331.26"
+                        y1="393.17"
+                        x2="255.81"
+                        y2="355.5"
+                      />
+                      <line
+                        id="Line_15-41-4"
+                        data-name="Line 15-41"
+                        className="cls-62"
+                        x1="327.83"
+                        y1="379.48"
+                        x2="252.38"
+                        y2="341.8"
+                      />
+                      <line
+                        id="Line_15-42-4"
+                        data-name="Line 15-42"
+                        className="cls-62"
+                        x1="327.83"
+                        y1="382.9"
+                        x2="252.38"
+                        y2="345.23"
+                      />
+                      <line
+                        id="Line_15-43-4"
+                        data-name="Line 15-43"
+                        className="cls-62"
+                        x1="327.83"
+                        y1="386.33"
+                        x2="252.38"
+                        y2="348.65"
+                      />
+                      <line
+                        id="Line_15-44-4"
+                        data-name="Line 15-44"
+                        className="cls-62"
+                        x1="327.83"
+                        y1="389.75"
+                        x2="252.38"
+                        y2="352.08"
+                      />
+                      <line
+                        id="Line_15-45-4"
+                        data-name="Line 15-45"
+                        className="cls-62"
+                        x1="327.83"
+                        y1="393.17"
+                        x2="252.38"
+                        y2="355.5"
+                      />
+                      <line
+                        id="Line_15-46-4"
+                        data-name="Line 15-46"
+                        className="cls-62"
+                        x1="324.4"
+                        y1="379.48"
+                        x2="248.95"
+                        y2="341.8"
+                      />
+                      <line
+                        id="Line_15-47-4"
+                        data-name="Line 15-47"
+                        className="cls-62"
+                        x1="324.4"
+                        y1="382.9"
+                        x2="248.95"
+                        y2="345.23"
+                      />
+                      <line
+                        id="Line_15-48-4"
+                        data-name="Line 15-48"
+                        className="cls-62"
+                        x1="324.4"
+                        y1="386.33"
+                        x2="248.95"
+                        y2="348.65"
+                      />
+                      <line
+                        id="Line_15-49-4"
+                        data-name="Line 15-49"
+                        className="cls-62"
+                        x1="324.4"
+                        y1="389.75"
+                        x2="248.95"
+                        y2="352.08"
+                      />
+                      <line
+                        id="Line_15-50-4"
+                        data-name="Line 15-50"
+                        className="cls-62"
+                        x1="324.4"
+                        y1="393.17"
+                        x2="248.95"
+                        y2="355.5"
+                      />
+                      <line
+                        id="Line_15-51-4"
+                        data-name="Line 15-51"
+                        className="cls-62"
+                        x1="320.97"
+                        y1="379.48"
+                        x2="245.52"
+                        y2="341.8"
+                      />
+                      <line
+                        id="Line_15-52-4"
+                        data-name="Line 15-52"
+                        className="cls-62"
+                        x1="320.97"
+                        y1="382.9"
+                        x2="245.52"
+                        y2="345.23"
+                      />
+                      <line
+                        id="Line_15-53-4"
+                        data-name="Line 15-53"
+                        className="cls-62"
+                        x1="320.97"
+                        y1="386.33"
+                        x2="245.52"
+                        y2="348.65"
+                      />
+                      <line
+                        id="Line_15-54-4"
+                        data-name="Line 15-54"
+                        className="cls-62"
+                        x1="320.97"
+                        y1="389.75"
+                        x2="245.52"
+                        y2="352.08"
+                      />
+                      <line
+                        id="Line_15-55-4"
+                        data-name="Line 15-55"
+                        className="cls-62"
+                        x1="320.97"
+                        y1="393.17"
+                        x2="245.52"
+                        y2="355.5"
+                      />
+                      <line
+                        id="Line_15-56-4"
+                        data-name="Line 15-56"
+                        className="cls-62"
+                        x1="317.54"
+                        y1="379.48"
+                        x2="242.09"
+                        y2="341.8"
+                      />
+                      <line
+                        id="Line_15-57-4"
+                        data-name="Line 15-57"
+                        className="cls-62"
+                        x1="317.54"
+                        y1="382.9"
+                        x2="242.09"
+                        y2="345.23"
+                      />
+                      <line
+                        id="Line_15-58-4"
+                        data-name="Line 15-58"
+                        className="cls-62"
+                        x1="317.54"
+                        y1="386.33"
+                        x2="242.09"
+                        y2="348.65"
+                      />
+                      <line
+                        id="Line_15-59-4"
+                        data-name="Line 15-59"
+                        className="cls-62"
+                        x1="317.54"
+                        y1="389.75"
+                        x2="242.09"
+                        y2="352.08"
+                      />
+                      <line
+                        id="Line_15-60-4"
+                        data-name="Line 15-60"
+                        className="cls-62"
+                        x1="317.54"
+                        y1="393.17"
+                        x2="242.09"
+                        y2="355.5"
+                      />
+                      <line
+                        id="Line_15-61-4"
+                        data-name="Line 15-61"
+                        className="cls-62"
+                        x1="314.11"
+                        y1="379.48"
+                        x2="238.66"
+                        y2="341.8"
+                      />
+                      <line
+                        id="Line_15-62-4"
+                        data-name="Line 15-62"
+                        className="cls-62"
+                        x1="314.11"
+                        y1="382.9"
+                        x2="238.66"
+                        y2="345.23"
+                      />
+                      <line
+                        id="Line_15-63-4"
+                        data-name="Line 15-63"
+                        className="cls-62"
+                        x1="314.11"
+                        y1="386.33"
+                        x2="238.66"
+                        y2="348.65"
+                      />
+                      <line
+                        id="Line_15-64-4"
+                        data-name="Line 15-64"
+                        className="cls-62"
+                        x1="314.11"
+                        y1="389.75"
+                        x2="238.66"
+                        y2="352.08"
+                      />
+                      <line
+                        id="Line_15-65-4"
+                        data-name="Line 15-65"
+                        className="cls-62"
+                        x1="314.11"
+                        y1="393.17"
+                        x2="238.66"
+                        y2="355.5"
+                      />
+                      <line
+                        id="Line_15-66-4"
+                        data-name="Line 15-66"
+                        className="cls-62"
+                        x1="310.68"
+                        y1="379.48"
+                        x2="235.23"
+                        y2="341.8"
+                      />
+                      <line
+                        id="Line_15-67-4"
+                        data-name="Line 15-67"
+                        className="cls-62"
+                        x1="310.68"
+                        y1="382.9"
+                        x2="235.23"
+                        y2="345.23"
+                      />
+                      <line
+                        id="Line_15-68-4"
+                        data-name="Line 15-68"
+                        className="cls-62"
+                        x1="310.68"
+                        y1="386.33"
+                        x2="235.23"
+                        y2="348.65"
+                      />
+                      <line
+                        id="Line_15-69-4"
+                        data-name="Line 15-69"
+                        className="cls-62"
+                        x1="310.68"
+                        y1="389.75"
+                        x2="235.23"
+                        y2="352.08"
+                      />
+                      <line
+                        id="Line_15-70-4"
+                        data-name="Line 15-70"
+                        className="cls-62"
+                        x1="310.68"
+                        y1="393.17"
+                        x2="235.23"
+                        y2="355.5"
+                      />
+                      <line
+                        id="Line_15-71-4"
+                        data-name="Line 15-71"
+                        className="cls-62"
+                        x1="307.25"
+                        y1="379.48"
+                        x2="231.8"
+                        y2="341.8"
+                      />
+                      <line
+                        id="Line_15-72-4"
+                        data-name="Line 15-72"
+                        className="cls-62"
+                        x1="307.25"
+                        y1="382.9"
+                        x2="231.8"
+                        y2="345.23"
+                      />
+                      <line
+                        id="Line_15-73-4"
+                        data-name="Line 15-73"
+                        className="cls-62"
+                        x1="307.25"
+                        y1="386.33"
+                        x2="231.8"
+                        y2="348.65"
+                      />
+                      <line
+                        id="Line_15-74-4"
+                        data-name="Line 15-74"
+                        className="cls-62"
+                        x1="307.25"
+                        y1="389.75"
+                        x2="231.8"
+                        y2="352.08"
+                      />
+                      <line
+                        id="Line_15-75-4"
+                        data-name="Line 15-75"
+                        className="cls-62"
+                        x1="307.25"
+                        y1="393.17"
+                        x2="231.8"
+                        y2="355.5"
+                      />
+                      <line
+                        id="Line_15-76-4"
+                        data-name="Line 15-76"
+                        className="cls-62"
+                        x1="303.82"
+                        y1="379.48"
+                        x2="228.38"
+                        y2="341.8"
+                      />
+                      <line
+                        id="Line_15-77-4"
+                        data-name="Line 15-77"
+                        className="cls-62"
+                        x1="303.82"
+                        y1="382.9"
+                        x2="228.38"
+                        y2="345.23"
+                      />
+                      <line
+                        id="Line_15-78-4"
+                        data-name="Line 15-78"
+                        className="cls-62"
+                        x1="303.82"
+                        y1="386.33"
+                        x2="228.38"
+                        y2="348.65"
+                      />
+                      <line
+                        id="Line_15-79-4"
+                        data-name="Line 15-79"
+                        className="cls-62"
+                        x1="303.82"
+                        y1="389.75"
+                        x2="228.38"
+                        y2="352.08"
+                      />
+                      <line
+                        id="Line_15-80-4"
+                        data-name="Line 15-80"
+                        className="cls-62"
+                        x1="303.82"
+                        y1="393.17"
+                        x2="228.38"
+                        y2="355.5"
+                      />
+                    </g>
                   </g>
                 </g>
               </g>
             </g>
-          </g>
+          </rect>
           <text
             id="Door1"
             className="DoorLabelText"
