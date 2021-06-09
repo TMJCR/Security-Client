@@ -6606,14 +6606,6 @@ export default function Map({
             DOOR 5
           </text>
           <g
-            onClick={(e) => {
-              tryToOpenDoor(e);
-            }}
-            onDoubleClick={(e) => {
-              forceOpenDoor(e);
-            }}
-            id="DoorSensor5"
-            data-type="DoorSensor"
             className={`${
               data && data.doorSensors[4].status.color
             } doorSensorSVG`}
@@ -7351,6 +7343,21 @@ export default function Map({
               </g>
             </g>
           </g>
+          <rect
+            class="doorSensorClick"
+            x="757.55"
+            y="221"
+            width="54.83"
+            height="37.08"
+            onClick={(e) => {
+              tryToOpenDoor(e);
+            }}
+            onDoubleClick={(e) => {
+              forceOpenDoor(e);
+            }}
+            id="DoorSensor5"
+            data-type="DoorSensor"
+          ></rect>
           <g
             id="doorLabel5"
             className={doorMessage.doorLabel5 ? "doorLabelSvg" : "cls-63"}
@@ -7404,14 +7411,6 @@ export default function Map({
             DOOR 7
           </text>
           <g
-            onClick={(e) => {
-              tryToOpenDoor(e);
-            }}
-            onDoubleClick={(e) => {
-              forceOpenDoor(e);
-            }}
-            id="DoorSensor7"
-            data-type="DoorSensor"
             className={`${
               data && data.doorSensors[6].status.color
             } doorSensorSVG`}
@@ -8149,6 +8148,21 @@ export default function Map({
               </g>
             </g>
           </g>
+          <rect
+            class="doorSensorClick"
+            x="929.55"
+            y="73.35"
+            width="54.83"
+            height="37.08"
+            onClick={(e) => {
+              tryToOpenDoor(e);
+            }}
+            onDoubleClick={(e) => {
+              forceOpenDoor(e);
+            }}
+            id="DoorSensor7"
+            data-type="DoorSensor"
+          ></rect>
           <g
             id="doorLabel7"
             className={doorMessage.doorLabel7 ? "doorLabelSvg" : "cls-63"}
@@ -9008,14 +9022,6 @@ export default function Map({
             DOOR 3
           </text>
           <g
-            onClick={(e) => {
-              tryToOpenDoor(e);
-            }}
-            onDoubleClick={(e) => {
-              forceOpenDoor(e);
-            }}
-            id="DoorSensor3"
-            data-type="DoorSensor"
             className={`${
               data && data.doorSensors[2].status.color
             } doorSensorSVG`}
@@ -9753,6 +9759,21 @@ export default function Map({
               </g>
             </g>
           </g>
+          <rect
+            class="doorSensorClick"
+            x="455.55"
+            y="315.35"
+            width="35.83"
+            height="60.08"
+            onClick={(e) => {
+              tryToOpenDoor(e);
+            }}
+            onDoubleClick={(e) => {
+              forceOpenDoor(e);
+            }}
+            id="DoorSensor3"
+            data-type="DoorSensor"
+          ></rect>
           <g
             id="doorLabel3"
             className={doorMessage.doorLabel3 ? "doorLabelSvg" : "cls-63"}
@@ -9806,14 +9827,6 @@ export default function Map({
             DOOR 6
           </text>
           <g
-            onClick={(e) => {
-              tryToOpenDoor(e);
-            }}
-            onDoubleClick={(e) => {
-              forceOpenDoor(e);
-            }}
-            id="DoorSensor6"
-            data-type="DoorSensor"
             className={`${
               data && data.doorSensors[5].status.color
             } doorSensorSVG`}
@@ -10551,6 +10564,21 @@ export default function Map({
               </g>
             </g>
           </g>
+          <rect
+            class="doorSensorClick"
+            x="885.55"
+            y="360.35"
+            width="35.83"
+            height="60.08"
+            onClick={(e) => {
+              tryToOpenDoor(e);
+            }}
+            onDoubleClick={(e) => {
+              forceOpenDoor(e);
+            }}
+            id="DoorSensor6"
+            data-type="DoorSensor"
+          ></rect>
           <g
             id="doorLabel6"
             className={doorMessage.doorLabel6 ? "doorLabelSvg" : "cls-63"}
@@ -10604,14 +10632,6 @@ export default function Map({
             DOOR 4
           </text>
           <g
-            onClick={(e) => {
-              tryToOpenDoor(e);
-            }}
-            onDoubleClick={(e) => {
-              forceOpenDoor(e);
-            }}
-            id="DoorSensor4"
-            data-type="DoorSensor"
             className={`${
               data && data.doorSensors[3].status.color
             } doorSensorSVG`}
@@ -11349,6 +11369,21 @@ export default function Map({
               </g>
             </g>
           </g>
+          <rect
+            class="doorSensorClick"
+            x="530.55"
+            y="77.35"
+            width="54.83"
+            height="37.08"
+            onClick={(e) => {
+              tryToOpenDoor(e);
+            }}
+            onDoubleClick={(e) => {
+              forceOpenDoor(e);
+            }}
+            id="DoorSensor4"
+            data-type="DoorSensor"
+          ></rect>
           <g
             id="doorLabel4"
             className={doorMessage.doorLabel4 ? "doorLabelSvg" : "cls-63"}
