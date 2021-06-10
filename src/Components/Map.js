@@ -60,7 +60,9 @@ export default function Map({
 
   const tryToOpenDoor = (e) => {
     console.log(e.nativeEvent);
-    e.stopPropagation();
+    e.nativeEvent.cancelBubble = true;
+    e.nativeEvent.defaultPrevented = true;
+    alert("HERE");
     const doorNumber = e.target.id.slice(-1);
     const doorLabel = `doorLabel${doorNumber}`;
     const doorColorLabel = `door${doorNumber}`;
