@@ -220,7 +220,7 @@ export default function KeypadContainer({
             className="KeypadTextInput"
             autoFocus={true}
             type="text"
-             onBlur={({ target }) => target.focus()}
+            onBlur={({ target }) => target.focus()}
             onKeyDown={handleAnswerChange}
             maxLength="4"
           />
@@ -229,5 +229,3 @@ export default function KeypadContainer({
     </div>
   );
 }
-
-git add . && git commit -m "Test" && git push && npm run deploy && git status
