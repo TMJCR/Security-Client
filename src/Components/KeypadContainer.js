@@ -220,7 +220,7 @@ export default function KeypadContainer({
             className="KeypadTextInput"
             autoFocus={true}
             type="text"
-            onBlur={({ target }) => target.focus()}
+            // onBlur={({ target }) => target.focus()}
             onKeyDown={handleAnswerChange}
             maxLength="4"
           />
