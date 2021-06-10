@@ -30,12 +30,12 @@ export default function SecuritySystem({
           setSeconds={setSeconds}
         ></AccessLevelContainer>
         <CameraContainer cameraMessage={cameraMessage}></CameraContainer>
-        {/* <KeypadContainer
+        <KeypadContainer
           data={data}
           setData={setData}
           setPasscodeMessage={setPasscodeMessage}
           setReboot={setReboot}
-        ></KeypadContainer> */}
+        ></KeypadContainer>
         <MapContainer
           data={data}
           setData={setData}
