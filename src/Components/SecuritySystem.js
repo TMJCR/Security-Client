@@ -20,7 +20,7 @@ export default function SecuritySystem({
   return (
     <div>
       <div className="wrapper">
-        <ModuleStatusContainer data={data}></ModuleStatusContainer>
+        {/* <ModuleStatusContainer data={data}></ModuleStatusContainer> */}
         <AccessLevelContainer
           data={data}
           setData={setData}
