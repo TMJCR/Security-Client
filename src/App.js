@@ -14,6 +14,7 @@ export default function App() {
     })
       .then((response) => response.json())
       .then((JSONresponse) => {
+        console.log(JSONresponse);
         callback(JSONresponse);
       });
   };
@@ -31,12 +32,7 @@ export default function App() {
   }, [data]);
 
   return (
-    <div
-      className="App"
-      // onClick={() => {
-      //   window.scrollTo(0, 0);
-      // }}
-    >
+    <div className="App">
       <SecuritySystem
         activityLog={activityLog}
         data={data}
