@@ -10,8 +10,9 @@ export default function ModuleStatus({ data, type, lastSync }) {
         {type === "DoorSensors" ? "Doors" : type}
       </div>
       <div className="ModuleTypeLowerText">LAST SYNCED: {lastSync}</div>
-
+      {console.log(data)}
       {data.map((item) => {
+        console.log(data);
         return (
           <Module
             key={item.status.name}
