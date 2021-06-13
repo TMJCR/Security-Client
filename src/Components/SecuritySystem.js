@@ -36,7 +36,7 @@ export default function SecuritySystem({
           setPasscodeMessage={setPasscodeMessage}
           setReboot={setReboot}
         ></KeypadContainer>
-        <MapContainer
+        {/* <MapContainer
           data={data}
           setData={setData}
           setPasscodeMessage={setPasscodeMessage}
@@ -44,7 +44,7 @@ export default function SecuritySystem({
           setSeconds={setSeconds}
           reboot={reboot}
           setReboot={setReboot}
-        ></MapContainer>
+        ></MapContainer> */}
         <LogContainer activityLog={activityLog}></LogContainer>
       </div>
     </div>
