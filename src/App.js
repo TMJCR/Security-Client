@@ -21,6 +21,7 @@ export default function App() {
 
   useEffect(() => {
     fetchData("/", setData);
+    console.log(data);
   }, []);
 
   useEffect(() => {
