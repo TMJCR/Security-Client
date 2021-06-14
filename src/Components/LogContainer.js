@@ -17,8 +17,11 @@ export default function KeypadContainer({ activityLog }) {
             .map((log, idx) => (
               <li className={`Log Log${log.type}`} key={log._id}>
                 <div>{log.date.slice(0, 10)}</div>
-                <div>{log.date.slice(11, -5)}:GMT</div>
-                <div>{log.date}</div>
+                <div>
+                  {new Date(log.date).toLocaleString().slice(12)}
+                  :GMT
+                </div>
+                <div>{log.log}</div>
               </li>
             ))}
         </ul>
