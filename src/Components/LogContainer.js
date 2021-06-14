@@ -18,7 +18,9 @@ export default function KeypadContainer({ activityLog }) {
               <li className={`Log Log${log.type}`} key={log._id}>
                 <div>{log.date.slice(0, 10)}</div>
                 <div>
-                  {new Date(log.date).toLocaleString().slice(12)}
+                  {new Date(log.date)
+                    .toLocaleString("en-GB", { timeZone: "Europe/London" })
+                    .slice(12)}
                   :GMT
                 </div>
                 <div>{log.log}</div>
