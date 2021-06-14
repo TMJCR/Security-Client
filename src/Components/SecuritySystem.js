@@ -17,9 +17,7 @@ export default function SecuritySystem({
 }) {
   const [seconds, setSeconds] = useState(15);
   const [reboot, setReboot] = useState(false);
-  {
-    console.log(data);
-  }
+
   return (
     <div>
       <div className="wrapper">

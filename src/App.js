@@ -14,14 +14,12 @@ export default function App() {
     })
       .then((response) => response.json())
       .then((JSONresponse) => {
-        console.log(JSONresponse);
         callback(JSONresponse);
       });
   };
 
   useEffect(() => {
     fetchData("/", setData);
-    console.log(data);
   }, []);
 
   useEffect(() => {

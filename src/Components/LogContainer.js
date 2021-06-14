@@ -11,6 +11,7 @@ export default function KeypadContainer({ activityLog }) {
           <div className="LogTitleActivity">ACTIVITY</div>
         </div>
         <ul className="ActivityLogList">
+          {console.log(log.date)}
           {activityLog
             .slice(0)
             .reverse()
